@@ -1,0 +1,145 @@
+:root {
+    --primary: #003366;
+    --secondary: #1F4C79
+}
+
+*,
+html,
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 0;
+    width: max-content;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited {
+    color: inherit;
+}
+
+/* utils */
+.container {
+    max-width: 1250px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* buttons */
+.button {
+    padding: 10px 20px;
+    border: none;
+    background: transparent;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+    display: block;
+    font-size: 18px;
+}
+
+.button:hover {
+    transform: scale(1.02);
+}
+
+.button.button-primary {
+    background: var(--primary);
+    color: #fff;
+}
+
+.button.button-primary:hover {
+    background: var(--secondary);
+}
+
+/* navbar */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    background-color: #fff;
+}
+
+.navbar {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.navbar__links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.navbar__links .navbar__link {
+    font-size: 18px;
+    color: var(--primary);
+    position: relative;
+}
+
+.navbar__links .navbar__link::before {
+    content: "";
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary);
+    transition: all .2s ease-in-out;
+}
+
+.navbar__links .navbar__link:hover::before {
+    width: 100%;
+}
+
+/* header */
+.header {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: url(/assets/images/header.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.header__text {
+    position: relative;
+    z-index: 10;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.header__text h1 {
+    font-size: 70px;
+}
+
+.header__text h2 {
+    font-size: 30px;
+    margin-top: 10px;
+}
