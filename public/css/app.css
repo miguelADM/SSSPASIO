@@ -8,8 +8,9 @@
     --regular: 400;
     --bold: 700;
     --black: 900;
-    /* border radius */
+    /* border */
     --radius: 2px;
+    --border: 1px solid #00336683;
 }
 
 *,
@@ -47,6 +48,32 @@ a:visited {
     max-width: 1250px;
     width: 100%;
     margin: 0 auto;
+}
+
+.section {
+    padding: 80px 0;
+    font-size: 28px;
+    margin-bottom: 50px;
+}
+
+.section__title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: var(--bold);
+    color: var(--primary);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+}
+
+.section__title span {
+    width: 20%;
+    height: 5px;
+    background-color: var(--secondary);
+    border-radius: var(--radius);
 }
 
 /* buttons */
@@ -183,32 +210,6 @@ nav {
 }
 
 /* Services section */
-.section {
-    padding: 80px 0;
-    font-size: 28px;
-}
-
-.section__title {
-    text-align: center;
-    margin-bottom: 40px;
-    font-weight: var(--bold);
-    color: var(--primary);
-    text-align: center;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-    gap: 20px;
-}
-
-.section__title span {
-    width: 20%;
-    height: 5px;
-    background-color: var(--secondary);
-    border-radius: var(--radius);
-}
-
-
 .services__container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -222,7 +223,7 @@ nav {
     gap: 10px;
     background: #00336608;
     border-radius: var(--radius);
-    border: 1px solid #00336683;
+    border: var(--border);
 }
 
 .service__card h5 {
@@ -238,4 +239,66 @@ nav {
 .service__card img {
     width: 60px;
     aspect-ratio: 1/1;
+}
+
+/* benefits */
+.benefits {
+    height: fit-content;
+    background: url(/assets/images/hombrefit.jpg) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 30px 0;
+    background-origin: initial;
+    position: relative;
+}
+
+/* .benefits::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+} */
+
+.benefits__container {
+    display: flex;
+    justify-content: end;
+    height: max-content;
+}
+
+.benefits__container article {
+    width: 50%;
+    padding: 20px 30px;
+    border-radius: var(--radius);
+    z-index: 10;
+}
+
+.benefits__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.benefit__card {
+    background: var(--primary);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    gap: 10px;
+    border-radius: var(--radius);
+}
+
+.benefit__card img {
+    width: 50px;
+    aspect-ratio: 1/1;
+}
+
+.benefit__card p {
+    font-size: 20px;
+    text-align: center;
 }

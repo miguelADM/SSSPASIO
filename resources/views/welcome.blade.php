@@ -3,4 +3,5 @@
   <x-navbar />
   <x-home.header />
   <x-home.services />
+  <x-home.benefits />
 </x-layout>
