@@ -1,7 +1,6 @@
 <x-layout>
-  {{-- <x-slot:title>
-    Custom Title
-  </x-slot> --}}
+  {{-- Todo: Agregar slot para darle titulo a la pagina --}}
   <x-navbar />
   <x-home.header />
+  <x-home.services />
 </x-layout>
