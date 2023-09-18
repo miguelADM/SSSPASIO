@@ -1,0 +1,37 @@
+[
+    {
+        "description": "Programas personalizados adaptados a tus objetivos de salud.",
+        "image": "personalizacion",
+        "title": "Personalización"
+    },
+    {
+        "description": "Tu rutina en cualquier momento y lugar.",
+        "image": "accesibilidad",
+        "title": "Accesibilidad"
+    },
+    {
+        "description": "Buscando tu mejor versión acompañada de nuestros colaboradores.",
+        "image": "atencion",
+        "title": "Atención"
+    },
+    {
+        "description": "Seguimientos mensuales y constantes basado en tus objetivos a alcanzar.",
+        "image": "rutinasd",
+        "title": "Rutinas Dinámicas"
+    },
+    {
+        "description": "Test que nos permitan valorar tu salud actual.",
+        "image": "valoracionf",
+        "title": "Valoración Física"
+    },
+    {
+        "description": "Complementario para mejorar tu condición optimizando tus objetivos.",
+        "image": "orinetacionn",
+        "title": "Orientación nutricional"
+    },
+    {
+        "description": "Grupos de WhatsApp y Telegram, en donde podrás compartir experiencia con otros usuarios.",
+        "image": "nosapoyamos",
+        "title": "Nos apoyamos todos"
+    }
+]
