@@ -4,4 +4,5 @@
   <x-home.header />
   <x-home.services />
   <x-home.benefits />
+  <x-home.plans />
 </x-layout>

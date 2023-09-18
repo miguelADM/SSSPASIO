@@ -127,6 +127,7 @@ nav {
     width: 100%;
     z-index: 99;
     background-color: #fff;
+    border-bottom: var(--border);
 }
 
 .navbar {
@@ -252,17 +253,6 @@ nav {
     position: relative;
 }
 
-/* .benefits::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 0;
-} */
-
 .benefits__container {
     display: flex;
     justify-content: end;
@@ -301,4 +291,44 @@ nav {
 .benefit__card p {
     font-size: 20px;
     text-align: center;
+}
+
+/* plans */
+.plans__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+}
+
+.plan__card {
+    border: 5px solid #cccccc;
+    border-radius: var(--radius);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    transition: all .2s ease-in-out;
+}
+
+.plan__card:hover {
+    border: 5px solid var(--secondary);
+}
+
+.plan__card:hover img {
+    filter: grayscale(0);
+}
+
+.plan__card h5 {
+    font-size: 30px;
+    font-weight: var(--black);
+    color: var(--primary);
+}
+
+.plan__card img {
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+    filter: grayscale(100%) brightness(110%);
+    transition: all .2s ease-in-out;
 }
