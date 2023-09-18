@@ -1,9 +1,8 @@
-<html>
+<html lang="es">
 
 <head>
   <meta name="viewport" content="width=divice-width, initial-scale=1.0" />
   <meta name="author" content="Miguel_Ambrosi" />
-  <meta name="descrition" content="Pagina resposiva" />
   <title>{{ $title ?? 'Spasssio' }}</title>
   {{-- font --}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
