@@ -1,0 +1,18 @@
+[
+    {
+        "description": "Efectivo, breve, fácil y accesible.",
+        "image": "efectivo"
+    },
+    {
+        "description": "Adaptabilidad física y estilo de vida de los usuarios.",
+        "image": "usuario"
+    },
+    {
+        "description": "Rutinas elaboradas por expertos.",
+        "image": "expertos"
+    },
+    {
+        "description": "Disponibilidad a cualquier hora en la comodidad de tu hogar.",
+        "image": "hogar"
+    }
+]
