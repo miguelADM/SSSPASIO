@@ -1,10 +1,8 @@
 <section class="services section">
   <div class="container">
-    <div class="section__title">
-      <span></span>
-      <h2>Servicios</h2>
-      <span></span>
-    </div>
+    <x-utils.section-title>
+      Servicios
+    </x-utils.section-title>
     <article class="services__container">
       @foreach ($servicesData as $service)
         <div class="service__card">
