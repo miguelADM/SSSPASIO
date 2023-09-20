@@ -1,5 +1,5 @@
 @php
-  $links = [['href' => '/', 'text' => 'Inicio'], ['href' => '/servicios', 'text' => 'Servicios'], ['href' => '/testimonios', 'text' => 'Testimonios'], ['href' => '/paquetes', 'text' => 'Paquetes'], ['href' => '/beneficios', 'text' => 'Beneficios'], ['href' => '/nosotros', 'text' => 'Nosotros']];
+  $links = [['href' => '/', 'text' => 'Inicio'], ['href' => '/servicios', 'text' => 'Servicios'], ['href' => '/testimonios', 'text' => 'Testimonios'], ['href' => '/planes', 'text' => 'Planes'], ['href' => '/beneficios', 'text' => 'Beneficios'], ['href' => '/nosotros', 'text' => 'Nosotros']];
 @endphp
 <nav>
   <div class="container">
@@ -10,9 +10,7 @@
       <ul class="navbar__links">
         @foreach ($links as $link)
           <li>
-            <a
-              href="{{ $link['href'] }}" class="navbar__link"
-            >
+            <a href="{{ $link['href'] }}" class="navbar__link">
               {{ $link['text'] }}
             </a>
           </li>
