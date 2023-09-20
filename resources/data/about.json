@@ -1,0 +1,17 @@
+[
+    {
+        "description": "Brindar a nuestros clientes un sistema de entrenamiento físico único y personal conforme a sus intereses y posibilidades, ofreciendo herramientas que les permitan reforzar dicha experiencia y lograr así una adecuada calidad de vida.",
+        "image": "fit1",
+        "title": "Misión"
+    },
+    {
+        "description": "Consolidarnos como la mejor opción en programas personales de acondicionamiento físico para todas las personas que buscan mejorar su calidad de vida a través del ejercicio.",
+        "image": "fit2",
+        "title": "Visión"
+    },
+    {
+        "description": "Desarrollamos programas y realizamos investigación de campo con la intención de ofrecerte las propuestas idóneas de acondicionamiento físico para ti.",
+        "image": "fit3",
+        "title": "Nosotros"
+    }
+]
