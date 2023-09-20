@@ -5,4 +5,5 @@
   <x-home.services />
   <x-home.benefits />
   <x-home.plans />
+  <x-home.about />
 </x-layout>
