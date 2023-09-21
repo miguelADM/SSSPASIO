@@ -130,6 +130,7 @@ nav {
     z-index: 99;
     background-color: #fff;
     border-bottom: var(--border);
+    transition: var(--transition);
 }
 
 .navbar {
@@ -175,7 +176,6 @@ nav {
     align-items: center;
     background: url(/assets/images/header.jpg) no-repeat center center;
     background-size: cover;
-    background-attachment: fixed;
 }
 
 .header::after {
@@ -411,4 +411,17 @@ nav {
 .about__content:hover::after {
     width: 100%;
     background: #003366d5;
+}
+
+.footer {
+    background-color: var(--primary);
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+}
+
+.footer__content {
+    display: flex;
+    justify-content: center;
+    color: #fff;
 }
