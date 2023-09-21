@@ -15,7 +15,7 @@
             </a>
           </li>
         @endforeach
-        <li><a href="#" class="button button-primary">Iniciar Sesión</a></li>
+        <li><a href="/login" class="button button-primary">Iniciar Sesión</a></li>
       </ul>
     </div>
   </div>
