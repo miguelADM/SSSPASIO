@@ -1,9 +1,10 @@
-<x-layout>
+<x-layouts.layout>
   {{-- Todo: Agregar slot para darle titulo a la pagina --}}
-  <x-navbar />
+  <x-ui.navbar />
   <x-home.header />
   <x-home.services />
   <x-home.benefits />
   <x-home.plans />
   <x-home.about />
-</x-layout>
+  <x-ui.footer />
+</x-layouts.layout>
