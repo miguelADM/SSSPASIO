@@ -6,6 +6,13 @@ use Illuminate\View\Component;
 
 class Navbar extends Component
 {
+    public $links = [
+        ['href' => '/', 'text' => 'Inicio'],
+        ['href' => '/#services', 'text' => 'Servicios'],
+        ['href' => '/#benefits', 'text' => 'Beneficios'],
+        ['href' => '/#plans', 'text' => 'Planes'],
+        ['href' => '/#about', 'text' => 'Nosotros']
+    ];
     /**
      * Create a new component instance.
      *
@@ -23,6 +30,8 @@ class Navbar extends Component
      */
     public function render()
     {
-        return view('components.ui.navbar');
+        $navLinks = $this->links;
+
+        return view('components.ui.navbar', compact('navLinks'));
     }
 }
