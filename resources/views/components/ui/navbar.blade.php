@@ -1,6 +1,3 @@
-@php
-  $links = [['href' => '/', 'text' => 'Inicio'], ['href' => '/servicios', 'text' => 'Servicios'], ['href' => '/testimonios', 'text' => 'Testimonios'], ['href' => '/planes', 'text' => 'Planes'], ['href' => '/beneficios', 'text' => 'Beneficios'], ['href' => '/nosotros', 'text' => 'Nosotros']];
-@endphp
 <nav>
   <div class="container">
     <div class="navbar">
@@ -8,15 +5,20 @@
         <h2>SPASSSIO</h2>
       </a>
       <ul class="navbar__links">
-        @foreach ($links as $link)
+        @foreach ($navLinks as $link)
           <li>
             <a href="{{ $link['href'] }}" class="navbar__link">
               {{ $link['text'] }}
             </a>
           </li>
         @endforeach
-        <li><a href="/login" class="button button-primary">Iniciar Sesión</a></li>
+        <li>
+          <a href="/login" class="button button-primary">Iniciar Sesión</a>
+        </li>
       </ul>
+      <button class="navbar__menu-btn">
+        <img src="{{ asset('assets/icons/menu.svg') }}" alt="icono de menu">
+      </button>
     </div>
   </div>
 </nav>
