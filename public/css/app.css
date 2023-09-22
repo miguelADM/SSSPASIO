@@ -455,7 +455,23 @@ nav {
     padding: 40px 60px;
     margin-left: 6px;
     border: var(--border);
+    position: relative;
 }
+
+.login__return {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    border: var(--border);
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* .login__return img {
+    width: 24px;
+} */
 
 .login__container .login__logo {
     width: 180px;

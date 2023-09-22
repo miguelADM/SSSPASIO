@@ -1,6 +1,9 @@
 <x-layouts.layout>
   <main class="login">
     <section class="login__container">
+      <a href="/" class="login__return">
+        <img src="/assets/icons/left.svg" alt="regresar al inicio">
+      </a>
       <img src="/assets/images/logo.png" alt="Logo SPASSSIO" class="login__logo">
       <h2>Bienvenido de nuevo!</h2>
       <p>Ingrese sus credenciales para iniciar sesión</p>
