@@ -435,18 +435,6 @@ nav {
     align-items: center;
 }
 
-/* .login::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 0;
-}
- */
-
 .login__container {
     background: #fff;
     width: 35%;
@@ -467,11 +455,14 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: var(--secondary);
+    transition: var(--transition);
 }
 
-/* .login__return img {
-    width: 24px;
-} */
+.login__return:hover {
+    transform: scale(1.05);
+    background: var(--secondary);
+}
 
 .login__container .login__logo {
     width: 180px;
@@ -518,7 +509,7 @@ nav {
 .form__input .input {
     padding: 0 0 8px 0;
     border: none;
-    border-bottom: 3px solid #cccccc;
+    border-bottom: 2px solid #cccccc;
     border-radius: var(--radius);
     outline: none;
     font-weight: var(--bold);
@@ -555,4 +546,32 @@ nav {
     justify-content: space-between;
     align-items: center;
     margin-top: 40px;
+}
+
+/* social networks  */
+.social__networks {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+}
+
+.social__network {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 72px;
+    height: 36px;
+    background: #fff;
+    padding: 7px;
+    transform: translateX(-36px);
+    transition: var(--transition);
+    border-radius: var(--radius);
+}
+
+.social__network:hover {
+    transform: translateX(-22px);
 }
