@@ -1,7 +1,4 @@
-@php
-  $plans = [['planName' => 'Plan Basico', 'image' => 'basico'], ['planName' => 'Plan Premium', 'image' => 'premium'], ['planName' => 'Plan Empresarial', 'image' => 'empresarial']];
-@endphp
-<section class="plans section">
+<section class="plans section" id="plans">
   <div class="container">
     <x-utils.section-title>
       Nuestros Planes

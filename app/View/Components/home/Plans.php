@@ -6,6 +6,11 @@ use Illuminate\View\Component;
 
 class Plans extends Component
 {
+    public $plans = [
+        ['planName' => 'Plan Basico', 'image' => 'basico'],
+        ['planName' => 'Plan Premium', 'image' => 'premium'],
+        ['planName' => 'Plan Empresarial', 'image' => 'empresarial']
+    ];
     /**
      * Create a new component instance.
      *
@@ -23,6 +28,7 @@ class Plans extends Component
      */
     public function render()
     {
-        return view('components.home.plans');
+        $plans = $this->plans;
+        return view('components.home.plans', compact('plans'));
     }
 }
