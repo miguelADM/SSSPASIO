@@ -552,11 +552,11 @@ nav {
 
 .login__container {
     background: #fff;
-    width: 35%;
+    width: 95vw;
     height: 98vh;
     border-radius: var(--radius);
-    padding: 40px 60px;
-    margin-left: 6px;
+    padding: 25px;
+    margin: 0 auto;
     border: var(--border);
     position: relative;
 }
@@ -586,7 +586,7 @@ nav {
 }
 
 .login__container h2 {
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
     margin: 0 auto;
     color: var(--primary);
@@ -639,9 +639,25 @@ nav {
     border: none;
     outline: none;
     font-weight: var(--bold);
-    font-size: 20px;
+    font-size: 18px;
     flex: 1;
     transition: var(--transition);
+}
+
+@media screen and (min-width: 768px) {
+    .login__container {
+        width: 35%;
+        padding: 40px 60px;
+        margin-left: 6px;
+    }
+
+    .login__container h2 {
+        font-size: 30px;
+    }
+
+    .form__input .input input {
+        font-size: 20px;
+    }
 }
 
 .form__input .input input::placeholder {
@@ -658,7 +674,7 @@ nav {
 
 .form__button {
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
     margin-top: 40px;
 }

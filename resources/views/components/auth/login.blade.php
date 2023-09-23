@@ -25,7 +25,6 @@
           </div>
         </div>
         <div class="form__button">
-          <a href="#">¿Olvido su contraseña?</a>
           <button type="submit" class="button button-primary">Iniciar Sesión</button>
         </div>
       </form>
