@@ -642,13 +642,29 @@ nav {
     font-size: 18px;
     flex: 1;
     transition: var(--transition);
+    width: max-content;
 }
 
 @media screen and (min-width: 768px) {
     .login__container {
+        width: 50%;
+        padding: 20px 30px;
+        margin-left: 6px;
+    }
+
+    .login__container h2 {
+        font-size: 25px;
+    }
+
+    .form__input .input input {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .login__container {
         width: 35%;
         padding: 40px 60px;
-        margin-left: 6px;
     }
 
     .login__container h2 {
