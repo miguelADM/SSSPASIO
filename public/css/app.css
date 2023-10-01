@@ -688,6 +688,12 @@ nav {
     color: var(--secondary);
 }
 
+#showPassword {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 .form__error {
     color: #d62121;
     text-align: left;

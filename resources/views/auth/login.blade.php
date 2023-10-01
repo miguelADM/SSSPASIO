@@ -28,8 +28,12 @@
               <label for="email">Contraseña</label>
               <div class="input">
                 <img src="/assets/icons/lock.svg" alt="icono de candado">
-                <input type="password" name="password" value="{{ old('password') }}"
+                <input type="password" name="password" id="password" value="{{ old('password') }}"
                   placeholder="Ingrese su contraseña" />
+                <button id="showPassword" type="button">
+                  <img src="/assets/icons/eye.svg" alt="icono de candado">
+                  <img src="/assets/icons/eye2.svg" alt="icono de candado">
+                </button>
               </div>
             </div>
             @error('password')
@@ -44,3 +48,4 @@
     </section>
   </main>
 </x-layouts.layout>
+<script src="{{ asset('js/auth/Login.js') }}"></script>
