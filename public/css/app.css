@@ -688,6 +688,15 @@ nav {
     color: var(--secondary);
 }
 
+.form__error {
+    color: #d62121;
+    text-align: left;
+    font-size: 14px;
+    font-weight: var(--bold);
+    display: inline-block;
+    margin-top: 10px;
+}
+
 .form__button {
     display: flex;
     justify-content: end;

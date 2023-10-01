@@ -142,8 +142,11 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'email' => [
+            'required' => 'El correo electrónico es obligatorio.',
+        ],
+        'password' => [
+            'required' => 'La contraseña es obligatoria.',
         ],
     ],
 
