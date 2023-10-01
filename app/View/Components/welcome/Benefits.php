@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\home;
+namespace App\View\Components\welcome;
 
 use Illuminate\View\Component;
 
@@ -38,6 +38,6 @@ class Benefits extends Component
     {
         $benefitsData = $this->getJSONData();
 
-        return view('components.home.benefits', compact('benefitsData'));
+        return view('components.welcome.benefits', compact('benefitsData'));
     }
 }

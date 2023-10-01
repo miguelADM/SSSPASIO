@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\home;
+namespace App\View\Components\welcome;
 
 use Illuminate\View\Component;
 
@@ -29,6 +29,6 @@ class Plans extends Component
     public function render()
     {
         $plans = $this->plans;
-        return view('components.home.plans', compact('plans'));
+        return view('components.welcome.plans', compact('plans'));
     }
 }

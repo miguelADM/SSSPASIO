@@ -1,6 +1,6 @@
 <?php
 
-namespace App\View\Components\home;
+namespace App\View\Components\welcome;
 
 use Illuminate\View\Component;
 
@@ -24,7 +24,6 @@ class SocialNetworks extends Component
         //
     }
 
-
     /**
      * Get the view / contents that represent the component.
      *
@@ -34,6 +33,6 @@ class SocialNetworks extends Component
     {
         $socialNetworks = $this->networks;
 
-        return view('components.home.social-networks', compact('socialNetworks'));
+        return view('components.welcome.social-networks', compact('socialNetworks'));
     }
 }

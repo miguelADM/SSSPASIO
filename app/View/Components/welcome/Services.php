@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\home;
+namespace App\View\Components\welcome;
 
 use Illuminate\View\Component;
 
-class About extends Component
+class Services extends Component
 {
     /**
      * Create a new component instance.
@@ -15,17 +15,18 @@ class About extends Component
     {
         //
     }
-    public function getJSONData()
+
+    public function getJSONServicesData()
     {
-        $ruta = resource_path('data') . "/about.json";
+        $ruta = resource_path('data') . "/services.json";
 
         if (!file_exists($ruta)) {
             return 'no existe el archivo';
         }
 
-        $aboutData = json_decode(file_get_contents($ruta), true);
+        $servicesData = json_decode(file_get_contents($ruta), true);
 
-        return $aboutData;
+        return $servicesData;
     }
 
     /**
@@ -35,7 +36,9 @@ class About extends Component
      */
     public function render()
     {
-        $aboutData = $this->getJSONData();
-        return view('components.home.about', compact('aboutData'));
+        $servicesData = $this->getJSONServicesData();
+
+        return view('components.welcome.services', compact('servicesData'));
+        /* return view('components.home.services'); */
     }
 }
