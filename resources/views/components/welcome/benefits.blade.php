@@ -8,7 +8,8 @@
         <div class="benefits__content">
           @foreach ($benefitsData as $benefit)
             <div class="benefit__card">
-              <img src="{{ '/assets/images/' . $benefit['image'] . '.svg' }}" alt={{ $benefit['image'] }}>
+              <img src="{{ asset('/assets/images/' . $benefit['image'] . '.svg') }}" alt={{ $benefit['image'] }}
+                loading="lazy">
               <p>{{ $benefit['description'] }}</p>
             </div>
           @endforeach

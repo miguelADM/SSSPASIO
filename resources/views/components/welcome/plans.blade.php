@@ -7,7 +7,7 @@
       @foreach ($plans as $plan)
         <div class="plan__card">
           <h5>{{ $plan['planName'] }}</h5>
-          <img src={{ '/assets/images/' . $plan['image'] . '.png' }} alt="{{ $plan['planName'] }}">
+          <img src={{ asset('/assets/images/' . $plan['image'] . '.png') }} alt="{{ $plan['planName'] }}" loading="lazy">
           <a href="#" class="button button-primary">Lo quiero!</a>
         </div>
       @endforeach

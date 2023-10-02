@@ -6,7 +6,7 @@
     <article class="about__container">
       @foreach ($aboutData as $aboutItem)
         <div class="about__content"
-          style="background-image: url({{ '/assets/images/' . $aboutItem['image'] . '.jpg' }});">
+          style="background-image: url({{ asset('/assets/images/' . $aboutItem['image'] . '.jpg') }});">
           <p class="about__title">{{ $aboutItem['title'] }}</p>
           <div class="about__description">
             <h5>{{ $aboutItem['title'] }}</h5>
