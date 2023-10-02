@@ -2,12 +2,12 @@
   <div class="form__input">
     <label for="email">Contraseña</label>
     <div class="input">
-      <img src="/assets/icons/lock.svg" alt="icono de candado">
+      <img src="{{ asset('assets/icons/lock.svg') }}" alt="icono de candado" loading="lazy">
       <input type="password" name="password" id="password" value="{{ old('password') }}"
         placeholder="Ingrese su contraseña" />
       <button id="showPassword" type="button">
-        <img src="/assets/icons/eye.svg" alt="icono de ojo abierto">
-        <img src="/assets/icons/eye2.svg" alt="icono de ojo cerrado">
+        <img src="{{ asset('assets/icons/eye.svg') }}" alt="icono de ojo abierto" loading="lazy">
+        <img src="{{ asset('assets/icons/eye2.svg') }}" alt="icono de ojo cerrado" loading="lazy">
       </button>
     </div>
   </div>
