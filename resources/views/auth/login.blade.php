@@ -15,5 +15,5 @@
       </form>
     </section>
   </main>
+  <script src="{{ asset('js/auth/Login.js') }}"></script>
 </x-layouts.layout>
-<script src="{{ asset('js/auth/Login.js') }}"></script>
