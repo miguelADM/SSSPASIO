@@ -5,7 +5,7 @@
   <meta name="author" content="Spasssio" />
   <meta name="description"
     content="En Spasssio desarrollamos programas y realizamos investigación de campo con la intención de ofrecerte las propuestas idóneas de acondicionamiento físico para ti." />
-  <title>{{ $title ?? 'Spasssio' }}</title>
+  <title>{{ $title ?? 'Spasssio | Administrador' }}</title>
   {{-- font --}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,11 +15,16 @@
   <link rel="icon" type="shortcut icon" href="{{ asset('assets/icons/favicon.ico') }}">
   <link rel="stylesheet" href="{{ asset('css/normalize.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/welcome/welcome.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/admin/admin.css') }}" />
 </head>
 
 <body>
-  {{ $slot }}
+  <x-admin.navbar.navbar />
+  <x-admin.sidebar.sidebar />
+  <main class="main">
+    {{ $slot }}
+  </main>
+  <script src="{{ asset('js/admin/AdminLayout.js') }}"></script>
 </body>
 
 </html>
