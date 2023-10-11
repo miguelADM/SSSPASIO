@@ -24,7 +24,6 @@
   <main class="main">
     {{ $slot }}
   </main>
-  <script src="{{ asset('js/admin/AdminLayout.js') }}"></script>
 </body>
 
 </html>
