@@ -33,38 +33,13 @@ body {
         font-size: 22px;
         font-weight: var(--bold);
     }
-
-    & .navbar__user {
-        display: flex;
-        align-items: center;
-        background: none;
-        border: none;
-        gap: 6px;
-        cursor: pointer;
-        transition: var(--transition);
-
-        & .navbar__user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            background: var(--secondary);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        & .navbar__user-name {
-            font-size: 16px;
-            font-weight: var(--bold);
-        }
-    }
 }
 
 .navbar__logo {
     display: flex;
     align-items: center;
     gap: 6px;
+    width: fit-content;
 
     & h1 {
         font-size: 20px;
@@ -77,42 +52,34 @@ body {
     }
 }
 
-.navbar__links {
-    display: flex;
-    align-items: center;
-    gap: 15px;
+.navbar__user {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  gap: 6px;
+  cursor: pointer;
+  transition: var(--transition);
 
-    & a {
-        padding: 8px;
-        border-radius: 15px;
-        display: flex;
-        align-items: center;
-        background: #f0f0f0;
-        transition: var(--transition);
-        position: relative;
+  &:hover {
+      transform: scale(1.05);
+  }
 
-        & img {
-            opacity: .7;
-        }
+  & .navbar__user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--secondary);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
 
-        & span {
-            width: max-content;
-            font-size: 14px;
-            transition: var(--transition);
-            position: absolute;
-            bottom: -15;
-            white-space: nowrap;
-            transform: translateX(-50%);
-            left: 0;
-            opacity: 0;
-        }
-    }
-
-    & a:hover {
-        & span {
-            opacity: 1;
-        }
-    }
+  & .navbar__user-name {
+      font-size: 16px;
+      font-weight: var(--bold);
+  }
 }
 
 .sidebar {
@@ -144,18 +111,6 @@ body {
     flex-direction: column;
     gap: 10px;
     position: relative;
-
-    /* & div {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-
-    & li a:hover {
-        color: var(--primary);
-        border-color: var(--primary);
-        background: var(--bgPrimary);
-    } */
 }
 
 .sidebar__list-item {
