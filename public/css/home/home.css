@@ -1,20 +1,19 @@
 :root {
     /* colors */
-    --primary: #52459f;
-    --secondary: #84e9f5;
-    --text: #797c83;
-    --bgPrimary: #53459f0d;
+    --primary: #003366;
+    --secondary: #ffd700;
+    --third: #1f4c79;
     /* border */
-    --border: 1px solid #53459f30;
-    /* padding */
-    --paddingX: 20px:
+    --radius: 2px;
+    --border: 1px solid #00336683;
+    /* color whit transparence */
+    --secondary-transparent: #ffa60081;
 }
 
 body {
     height: 100vh;
     display: grid;
-    grid:
-        "nav nav" 70px "sidebar main" 1fr / max-content 1fr;
+    grid: "nav nav" 70px "sidebar main" 1fr / max-content 1fr;
 }
 
 .nav {
@@ -28,6 +27,8 @@ body {
     height: 100%;
     align-items: center;
     padding: 0 15px;
+    background: var(--primary);
+    color: #fff;
 
     /* @media screen and (min-width: 768px) {
         padding: 0 35px;
@@ -59,6 +60,8 @@ body {
     & img {
         width: 35px !important;
         display: block;
+        background: #fff;
+        border-radius: 50%;
     }
 
     @media screen and (min-width: 768px) {
@@ -96,10 +99,15 @@ body {
     & .navbar__user-name {
         font-size: 14px;
         font-weight: var(--bold);
+        color: #fff;
 
         @media screen and (min-width: 768px) {
             font-size: 16px;
         }
+    }
+
+    & img {
+        filter: invert(1);
     }
 }
 
@@ -115,6 +123,10 @@ body {
     outline: none;
     border: none;
     cursor: pointer;
+
+    & img {
+        filter: invert(1);
+    }
 }
 
 .sidebar__logo {
@@ -140,6 +152,7 @@ body {
     flex-direction: column;
     gap: 10px;
     position: relative;
+    justify-content: space-between;
 }
 
 .sidebar__list-item {
@@ -199,63 +212,107 @@ body {
 .main {
     grid-area: main;
     padding: 15px;
+    background: #f5f5f5;
 
     @media screen and (min-width: 768px) {
         padding: 20px 35px;
     }
 }
 
-.admin__options {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+.home__title {
+    font-size: 40px;
+    font-weight: var(--bold);
+
+    & span {
+        color: var(--third);
+        font-weight: var(--black);
+    }
 }
 
-.admin__option {
+.home__options-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.home__options-container-secondary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.home__option {
     background: var(--primary);
-    color: #fff;
-    padding: 15px;
-    border-radius: var(--radius);
-    cursor: pointer;
-    transition: var(--transition);
-    border-right: 30px solid transparent;
-    height: 130px;
-    padding: 30px 25px;
     position: relative;
+    border: var(--border);
+    display: block;
+    padding: 25px;
+    height: 100%;
+    border-radius: var(--radius);
     overflow: hidden;
     transition: var(--transition);
-    outline: none;
 
-    & .admin__option-text {
-        & h4 {
-            font-size: 24px;
-        }
-
-        & span {
-            font-size: 32px;
-            margin-top: 10px;
-            display: block;
-            font-weight: var(--black);
-        }
+    & .home__option-content {
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
     }
 
     & img {
-        width: 80px;
-        filter: invert(1);
         position: absolute;
-        bottom: 0;
-        right: 10px;
-        opacity: 0.3;
+        width: auto;
+        height: 150px;
+        right: -20px;
+        top: 0;
         transition: var(--transition);
+        opacity: 0.7;
+        z-index: 1;
     }
 }
 
-.admin__option:hover {
-    transform: scale(1.03);
-    transform-origin: center center;
+.home__option:hover {
+    & img {
+        transform: scale(1.1);
+        opacity: 1;
+    }
 }
 
+.home__option-text {
+    z-index: 10;
+    & h5 {
+        font-size: 32px;
+        font-weight: var(--black);
+    }
 
-.admin__option:hover img {
-    transform: scale(1.2);
+    & p {
+        font-size: 18px;
+        margin-top: 12px;
+    }
+}
+
+.home__option-buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+    gap: 20px;
+
+    & a {
+        padding: 13px 25px;
+        font-size: 18px;
+        background: var(--secondary);
+        border-radius: var(--radius);
+        color: #000;
+        font-weight: var(--bold);
+        transition: var(--transition);
+        border: 2px solid transparent;
+
+        &:hover {
+            transform: scale(1.05);
+            backface-visibility: hidden;
+        }
+    }
 }

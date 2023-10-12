@@ -15,3 +15,14 @@ function getAdminLinks()
 
     return $ADMIN_LINKS;
 }
+
+function getUserLinks()
+{
+    $USER_LINKS = [
+        ['text' => 'Inicio', 'href' => 'home', 'icon' => 'home', 'color' => '#90EE90'],
+        ['text' => 'Mi progreso', 'href' => 'my-progress', 'icon' => 'chart', 'color' => '#B0E0E6'],
+        ['text' => 'Top Ganadores', 'href' => 'top-winners', 'icon' => 'crown', 'color' => '#FF69B4'],
+    ];
+
+    return $USER_LINKS;
+}
