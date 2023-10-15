@@ -38,7 +38,7 @@
     </article>
     <article class="home__options-container-secondary">
 
-      <div class="home__option">
+      <div class="home__option home__option-secondary">
         <div class="home__option-content">
           <div class="home__option-text">
             <h5>Recomendacion Nutricional</h5>
@@ -51,27 +51,27 @@
         <img src="{{ asset('assets/images/home/recomnedacion.png') }}" alt="Cardio">
       </div>
 
-      <div class="home__option">
+      <div class="home__option home__option-secondary">
         <div class="home__option-content">
           <div class="home__option-text">
             <h5>Cuestionario de salud</h5>
             <p>Tu salud nos importa, realiza este cuestionario para mejorar su experiencia.</p>
           </div>
           <div class="home__option-buttons">
-            <a href="#">Continuar 🖊️</a>
+            <a href="https://forms.gle/16Min5R8dxWdBc2r8">Continuar 🖊️</a>
           </div>
         </div>
         <img src="{{ asset('assets/images/home/cuestionario-salud.png') }}" alt="Cardio">
       </div>
 
-      <div class="home__option">
+      <div class="home__option home__option-secondary">
         <div class="home__option-content">
           <div class="home__option-text">
             <h5>Encuesta de satisfacción</h5>
             <p>Tu opinión es muy importante para nosotros.</p>
           </div>
           <div class="home__option-buttons">
-            <a href="#">Continuar 📝</a>
+            <a href="https://forms.gle/di9VmRu2zKZvCuUNA">Continuar 📝</a>
           </div>
         </div>
         <img src="{{ asset('assets/images/home/encuesta.png') }}" alt="Cardio">

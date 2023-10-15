@@ -17,10 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
+Route::get('/admin', function () {
+    return view('admin/admin');
+})->name('admin')->middleware('auth', 'emailCheck:admin@example.com');
+
 Route::get('/home', function () {
     return view('home/home');
 })->name('home')->middleware('auth');
 
-Route::get('/admin', function () {
-    return view('admin/admin');
-})->name('admin')->middleware('auth', 'emailCheck:admin@example.com');
