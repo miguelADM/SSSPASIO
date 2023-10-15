@@ -15,8 +15,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('/login', function () {
-    return view('components.auth.login');
-});
+Route::get('/admin', function () {
+    return view('admin/admin');
+})->name('admin')->middleware('auth', 'emailCheck:admin@example.com');
+
+Route::get('/home', function () {
+    return view('home/home');
+})->name('home')->middleware('auth');
+

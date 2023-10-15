@@ -12,9 +12,11 @@
             </a>
           </li>
         @endforeach
-        <li>
-          <a href="/login" class="button button-primary">Iniciar Sesión</a>
-        </li>
+        @if (Route::has('login'))
+          <li>
+            <a href={{ route('login') }} class="button button-primary">Iniciar Sesión</a>
+          </li>
+        @endif
       </ul>
       <button class="navbar__menu-btn">
         <img src="{{ asset('assets/icons/menu.svg') }}" alt="icono de menu">

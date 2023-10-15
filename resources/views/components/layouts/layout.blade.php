@@ -2,7 +2,9 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Miguel_Ambrosi" />
+  <meta name="author" content="Spasssio" />
+  <meta name="description"
+    content="En Spasssio desarrollamos programas y realizamos investigación de campo con la intención de ofrecerte las propuestas idóneas de acondicionamiento físico para ti." />
   <title>{{ $title ?? 'Spasssio' }}</title>
   {{-- font --}}
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,9 +12,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&display=swap"
     rel="stylesheet">
   {{-- font --}}
-  <link rel="stylesheet" href="/assets/images/logo.png" />
+  <link rel="icon" type="shortcut icon" href="{{ asset('assets/icons/favicon.ico') }}">
   <link rel="stylesheet" href="{{ asset('css/normalize.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/welcome/welcome.css') }}" />
 </head>
 
 <body>
