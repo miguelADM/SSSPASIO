@@ -23,6 +23,6 @@ class EmailCheck
             return $next($request);
         }
 
-        return redirect('welcome');
+        return redirect('/');
     }
 }
