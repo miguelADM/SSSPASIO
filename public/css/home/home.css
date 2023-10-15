@@ -1,7 +1,7 @@
 :root {
     /* colors */
     --primary: #003366;
-    --secondary: #ffd700;
+    --secondary: #25aae1;
     --third: #1f4c79;
     /* border */
     --radius: 2px;
@@ -94,6 +94,8 @@ body {
         display: flex;
         justify-content: center;
         align-items: center;
+        font-weight: var(--black);
+        color: #fff;
     }
 
     & .navbar__user-name {
@@ -116,6 +118,23 @@ body {
     border-right: var(--border);
     padding: 20px 15px;
     transition: var(--transition);
+    position: absolute;
+    top: 69.2px;
+    display: none;
+    z-index: 999;
+    background: #fff;
+    height: 100vh;
+    display: none;
+
+    @media screen and (min-width: 768px) {
+        position: static;
+        display: block;
+        height: 100%;
+    }
+}
+
+.show-sidebar {
+    display: block;
 }
 
 .sidebar__toggle {
@@ -125,7 +144,11 @@ body {
     cursor: pointer;
 
     & img {
-        filter: invert(1);
+        filter: invert(1) grayscale(100%) brightness(110%);
+    }
+
+    @media screen and (min-width: 768px) {
+        display: none;
     }
 }
 
@@ -190,6 +213,7 @@ body {
         opacity: 0;
         transition: var(--transition);
         z-index: -1;
+        color: #fff;
     }
 }
 
@@ -220,8 +244,12 @@ body {
 }
 
 .home__title {
-    font-size: 40px;
+    font-size: 24px;
     font-weight: var(--bold);
+
+    @media screen and (min-width: 768px) {
+        font-size: 40px;
+    }
 
     & span {
         color: var(--third);
@@ -231,16 +259,25 @@ body {
 
 .home__options-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 15px;
     margin-top: 40px;
 }
 
 .home__options-container-secondary {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 15px;
     margin-top: 15px;
+
+    @media screen and (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media screen and (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .home__option {
@@ -304,15 +341,31 @@ body {
         padding: 13px 25px;
         font-size: 18px;
         background: var(--secondary);
-        border-radius: var(--radius);
-        color: #000;
+        color: #fff;
         font-weight: var(--bold);
         transition: var(--transition);
         border: 2px solid transparent;
+        border-radius: 10px;
 
         &:hover {
             transform: scale(1.05);
             backface-visibility: hidden;
+        }
+    }
+}
+
+.home__option-secondary {
+    & img {
+        height: 100px;
+    }
+
+    & .home__option-text {
+        & h5 {
+            font-size: 24px;
+        }
+
+        & p {
+            font-size: 16px;
         }
     }
 }
