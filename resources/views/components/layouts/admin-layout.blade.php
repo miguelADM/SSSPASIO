@@ -24,6 +24,7 @@
   <main class="main">
     {{ $slot }}
   </main>
+  <script src="{{ asset('js/components/admin/app.js') }}" type="module"></script>
 </body>
 
 </html>
