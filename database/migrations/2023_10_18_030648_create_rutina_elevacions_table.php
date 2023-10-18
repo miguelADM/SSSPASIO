@@ -18,7 +18,7 @@ class CreateRutinaElevacionsTable extends Migration
             $table->text('nombre');
             $table->text('descripcion')->nullable();
             $table->text('objetivo')->nullable();
-            $table->integer('tiempo');
+            $table->integer('tiempo'); // minutos
             $table->text('color');
             $table->timestamps();
         });

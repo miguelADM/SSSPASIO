@@ -19,6 +19,7 @@ class CreateRutinasTable extends Migration
             $table->text('descripcion')->nullable();
             $table->text('objetivo')->nullable();
             $table->text('imagen')->nullable();
+            $table->integer('duracion')->nullable(); // dias
             $table->timestamps();
         });
     }
