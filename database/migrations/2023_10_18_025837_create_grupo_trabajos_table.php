@@ -16,7 +16,7 @@ class CreateGrupoTrabajosTable extends Migration
         Schema::create('grupo_trabajos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->text('descripcion')->nullable();
+            $table->string('descripcion')->nullable();
             $table->timestamps();
         });
     }

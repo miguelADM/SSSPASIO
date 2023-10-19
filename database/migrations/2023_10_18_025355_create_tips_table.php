@@ -16,9 +16,9 @@ class CreateTipsTable extends Migration
         Schema::create('tips', function (Blueprint $table) {
             $table->id();
             $table->enum('tipo',['tips','enterate','motivate','algo mas','nutricion']);
-            $table->string('titulo',250);
-            $table->text('descripcion');
-            $table->string('imagen',250);
+            $table->string('titulo');
+            $table->string('descripcion');
+            $table->string('imagen');
             $table->timestamps();
         });
     }
