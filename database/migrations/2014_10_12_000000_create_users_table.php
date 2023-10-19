@@ -19,6 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('status')->default(0);
+            $table->string('sexo')->nullable();
+            $table->bigInteger('membresia_id')->unsigned()->nullable();
+            $table->foreign('membresia_id')->references('id')->on('membresias')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
