@@ -1,8 +1,8 @@
 <x-layouts.admin-layout>
-    <h1>Grupos de trabajo</h1>
+    <h1>Enfermedades</h1>
     <div class="button-container">
-        <button class="button button-primary" type="button" id="open-modal">Agregar grupo de trabajo <img
-                src="{{ asset('assets/icons/admin/add-group.svg') }}" alt=""></button>
+        <button class="button button-primary" type="button" id="open-modal">Agregar Enfermedad <img
+                src="{{ asset('assets/icons/admin/heart.svg') }}" alt=""></button>
     </div>
 
     <div class="modal__container">
@@ -13,18 +13,18 @@
 
             <section class="content">
                 <div class="form-container">
-                    <div class="title">Registrar grupo de trabajo</div>
+                    <div class="title">Registrar enfermedad/condicion</div>
                     <div class="content">
                         <form action="" class="formularioAdmin dos-col">
                             <div class="user-details">
                                 <div class="input-box">
                                     <span class="details">Nombre</span>
-                                    <input type="text" id="nombre" name="nombre"
-                                        placeholder="Nombre del grupo de trabajo">
+                                    <input type="text" required id="nombre" name="nombre"
+                                        placeholder="Nombre de la enfermedad o condición">
                                 </div>
                                 <div class="input-box">
                                     <span class="details">Estatus</span>
-                                    <select id="estatus" required name="estatus">
+                                    <select id="estatus" required name="estatus" placeholder="Estatus">
                                         <option disabled selected value>Seleccionar...</option>
                                         <option value="ACTIVO">Activo</option>
                                         <option value="DESACTIVADO">Inactivo</option>
@@ -34,12 +34,11 @@
                             <div class="input-box observaciones">
                                 <span class="details">Observaciones</span>
                                 <textarea id="" cols="50" rows="5" class="form-control" name="observaciones"
-                                    placeholder="Observaciones acerca del grupo de trabajo"></textarea>
+                                    placeholder="Observaciones acerca de la enfermedad/condición"></textarea>
                             </div>
                             <div class="btn-form-admin">
                                 <input type="submit" value="Registrar">
                             </div>
-                        </form>
                     </div>
                 </div>
             </section>

@@ -25,6 +25,8 @@
     {{ $slot }}
   </main>
   <script src="{{ asset('js/components/admin/app.js') }}" type="module"></script>
+  <script src="https://cdn.ckeditor.com/4.8.0/standard-all/ckeditor.js"></script>
+
 </body>
 
 </html>
