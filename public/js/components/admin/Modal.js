@@ -21,7 +21,7 @@ export function modal() {
     })
 
     const resetForm = () => {
-        const form = document.querySelector('.modal');
+        const form = document.querySelector('.formularioAdmin');
         form.reset();
     }
 
