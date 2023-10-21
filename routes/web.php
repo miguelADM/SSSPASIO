@@ -10,7 +10,7 @@ Route::get('/', function () {
     return view('admin/admin');
 })->middleware('auth', 'email.check:admin@example.com')->name('admin'); */
 
-Route::prefix('admin')->middleware('auth', 'email.check:admin@example.com')->group(function () {
+Route::prefix('admin')/* ->middleware('auth', 'email.check:admin@example.com') */->group(function () {
     Route::get('/', function () {
         return view('admin/admin');
     })->name('admin');
@@ -54,4 +54,4 @@ Route::prefix('admin')->middleware('auth', 'email.check:admin@example.com')->gro
 
 Route::get('/home', function () {
     return view('home/home');
-})->name('home')->middleware('auth');
+})->name('home')/* ->middleware('auth') */;

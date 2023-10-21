@@ -1,13 +1,17 @@
 export function table() {
-    const optionsButtons = document.querySelectorAll(".table__options");
+  const options_buttons = document.querySelectorAll(".table__options");
 
-    optionsButtons.forEach((button) => {
-        const options_menu = button.parentElement.querySelector(".table__options-menu");
+  options_buttons.forEach((button) => {
+    const options_menu = button.parentElement.querySelector(".table__options-menu");
 
-        button.addEventListener("click", () => {
-            options_menu.classList.toggle("show__options");
+    button.addEventListener("click", (e) => {
+      const previus_menu = document.querySelector(".show__options");
 
-        })
+      if (previus_menu) {
+        previus_menu.classList.remove("show__options");
+      }
 
+      options_menu.classList.toggle("show__options");
     })
+  })
 }
