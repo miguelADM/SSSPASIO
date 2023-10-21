@@ -130,7 +130,7 @@
     </div>
   </section>
   <div class="modal__container">
-    <form action="" class="modal">
+    <div class="modal">
       <button id="close-modal" type="button">
         <img src="{{ asset('assets/icons/admin/close-filled.svg') }}" alt="icono de cerrar" loading="lazy">
       </button>
@@ -258,6 +258,6 @@
         </div>
       </section>
 
-    </form>
-  </div>
+      </form>
+    </div>
 </x-layouts.admin-layout>
