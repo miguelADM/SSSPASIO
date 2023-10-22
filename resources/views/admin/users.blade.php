@@ -4,7 +4,7 @@
     <button class="button button-primary" type="button" id="open-modal">Agregar Usuario <img
         src="{{ asset('assets/icons/admin/add-group.svg') }}" alt=""></button>
   </div>
-  <section>
+  <section class="table">
     <div class="divTable">
       <div class="divTableBody">
         <div class="divTableHeading">
@@ -125,9 +125,18 @@
           </div>
         </div>
         {{-- row --}}
-
       </div>
     </div>
+    <article class="pagination">
+      <button id="prev" title="Anterior">
+        <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
+      </button>
+      <button class="active">1</button>
+      <button>2</button>
+      <button id="next" title="Siguiente">
+        <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
+      </button>
+    </article>
   </section>
   <div class="modal__container">
     <div class="modal">
