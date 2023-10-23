@@ -1,5 +1,5 @@
 @php
-  $userName = auth()->user()->name;
+  $userName = auth()->user()->name ?? 'Invitado';
   $userInitial = substr($userName, 0, 1);
 @endphp
 <nav class="nav">

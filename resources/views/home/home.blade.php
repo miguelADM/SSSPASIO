@@ -1,5 +1,5 @@
 @php
-  $userName = auth()->user()->name;
+  $userName = auth()->user()->name ?? 'Invitado';
 @endphp
 
 <x-layouts.user-layout>
