@@ -364,7 +364,7 @@ body {
         width: 89.5vw;
     }
 
-    @media screen and (min-width: 1024px) {
+    @media screen and (min-width: 1824px) {
         width: 91.3vw;
     }
 }

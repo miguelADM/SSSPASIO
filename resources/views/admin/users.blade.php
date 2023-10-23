@@ -1,8 +1,10 @@
 <x-layouts.admin-layout>
   <h1>Usuarios</h1>
   <div class="button-container">
-    <button class="button button-primary" type="button" id="open-modal">Agregar Usuario <img
-        src="{{ asset('assets/icons/admin/add-group.svg') }}" alt=""></button>
+    <button class="button button-primary" type="button" id="open-modal">
+      Agregar Usuario
+      <img src="{{ asset('assets/icons/admin/add-group.svg') }}" alt="">
+    </button>
   </div>
   <section class="table">
     <div class="divTable">
@@ -113,12 +115,12 @@
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
               <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
+                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar"
+                  loading="lazy">
               </button>
             </div>
           </div>
         </div>
-
 
         <div class="divTableRow">
           <div class="divTableCell">Spasssio0001</div>
@@ -133,19 +135,20 @@
           <div class="divTableCell">Sindrome metabólico</div>
           <div class="divTableCell relative">
             <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
+              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones"
+                loading="lazy">
             </button>
             <div class="table__options-menu">
               <button class="edit">
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
               <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
+                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar"
+                  loading="lazy">
               </button>
             </div>
           </div>
         </div>
-
 
         <div class="divTableRow">
           <div class="divTableCell">Spasssio0001</div>
@@ -160,7 +163,8 @@
           <div class="divTableCell">Sindrome metabólico</div>
           <div class="divTableCell relative">
             <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
+              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones"
+                loading="lazy">
             </button>
             <div class="table__options-menu">
               <button class="edit">
