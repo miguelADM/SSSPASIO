@@ -55,3 +55,11 @@ Route::prefix('admin')/* ->middleware('auth', 'email.check:admin@example.com') *
 Route::get('/home', function () {
     return view('home/home');
 })->name('home')/* ->middleware('auth') */;
+
+Route::get('/routines', function () {
+    return view('home/routines');
+})->name('routines');
+
+Route::get('/rt-cardio', function () {
+    return view('home/rt-cardio');
+})->name('cardio');
