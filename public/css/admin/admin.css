@@ -351,14 +351,30 @@ body {
     margin-bottom: 15px;
 }
 
-/* .table {
-    overflow-x: scroll;
-} */
+.table {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 91vw;
+
+    @media screen and (min-width: 464px) {
+        width: 93vw;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 89.5vw;
+    }
+
+    @media screen and (min-width: 1024px) {
+        width: 91.3vw;
+    }
+}
 
 .divTable{
 	display: table;
 	width: 100%;
+    border-collapse: collapse;
 }
+
 .divTableRow {
 	display: table-row;
     font-size: 14px;
@@ -390,6 +406,7 @@ body {
 
 .divTableBody {
 	display: table-row-group;
+    overflow-x: scroll;
 }
 
 .relative {
@@ -453,9 +470,9 @@ body {
     & button.edit {
         background: var(--secondary);
 
-        /* & img {
+        & img {
             filter: invert(1);
-        } */
+        }
     }
 }
 
