@@ -387,7 +387,7 @@ body {
 .intro__card {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    border: var(--border);
     max-width: 100%;
     margin: 20px auto;
     overflow: hidden;
@@ -460,12 +460,6 @@ body {
     left: 0;
 }
 
-@media screen and (max-height: 300px) {
-    .sections__menu {
-        margin-top: 40px;
-    }
-}
-
 /*Videos*/
 .section__video h2,
 .section__exercises h2 {
@@ -489,6 +483,21 @@ body {
 }
 
 /*Ejercicios*/
+
+#music{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 24px auto;
+}
+
+.music__player iframe{
+    width: 100%;
+    height: 100%;
+}
+ 
+.music__player{
+    width: 40%;
+}
 
 .excercises__container {
     display: flex;
