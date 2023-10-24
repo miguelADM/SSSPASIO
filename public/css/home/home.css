@@ -380,6 +380,58 @@ body {
     }
 }
 
+/* Blog */
+
+.home__blog {
+    margin-top: 60px;
+
+    & h2 {
+        font-size: 36px;
+    }
+}
+
+.home__blog-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.home__blog-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: var(--border);
+    border-right: none;
+    border-left: none;
+
+    & a {
+        align-self: center;
+    }
+}
+
+.home__blog-content {
+    display: flex;
+
+    & img {
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+}
+
+.home__blog-text {
+    margin-left: 15px;
+
+    & h5 {
+        font-size: 32px;
+    }
+
+    & p {
+        font-size: 18px;
+        margin-top: 10px;
+    }
+}
 
 /*Estilos de las rutinas*/
 
@@ -400,7 +452,6 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
 }
-
 
 .intro__title {
     background-color: var(--primary);
