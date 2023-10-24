@@ -484,6 +484,21 @@ body {
 
 /*Ejercicios*/
 
+#music{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 24px auto;
+}
+
+.music__player iframe{
+    width: 100%;
+    height: 100%;
+}
+ 
+.music__player{
+    width: 40%;
+}
+
 .excercises__container {
     display: flex;
     width: 100%;
