@@ -1,10 +1,12 @@
 <x-layouts.admin-layout>
   <h1>Usuarios</h1>
   <div class="button-container">
-    <button class="button button-primary" type="button" id="open-modal">Agregar Usuario <img
-        src="{{ asset('assets/icons/admin/add-group.svg') }}" alt=""></button>
+    <button class="button button-primary" type="button" id="open-modal">
+      Agregar Usuario
+      <img src="{{ asset('assets/icons/admin/add-group.svg') }}" alt="">
+    </button>
   </div>
-  <section>
+  <section class="table">
     <div class="divTable">
       <div class="divTableBody">
         <div class="divTableHeading">
@@ -16,7 +18,7 @@
           <div class="divTableCell">Salud</div>
           <div class="divTableCell"></div>
         </div>
-        {{-- row --}}
+
         <div class="divTableRow">
           <div class="divTableCell">Spasssio0001</div>
           <div class="divTableCell">
@@ -42,8 +44,7 @@
             </div>
           </div>
         </div>
-        {{-- row --}}
-        {{-- row --}}
+
         <div class="divTableRow">
           <div class="divTableCell">Spasssio0001</div>
           <div class="divTableCell">
@@ -69,8 +70,6 @@
             </div>
           </div>
         </div>
-        {{-- row --}}
-        {{-- row --}}
         <div class="divTableRow">
           <div class="divTableCell">Spasssio0001</div>
           <div class="divTableCell">
@@ -96,8 +95,6 @@
             </div>
           </div>
         </div>
-        {{-- row --}}
-        {{-- row --}}
         <div class="divTableRow">
           <div class="divTableCell">Spasssio0001</div>
           <div class="divTableCell">
@@ -124,13 +121,78 @@
             </div>
           </div>
         </div>
-        {{-- row --}}
+
+        <div class="divTableRow">
+          <div class="divTableCell">Spasssio0001</div>
+          <div class="divTableCell">
+            Kazahura Miller
+          </div>
+          <div class="divTableCell">usuario@mail.com</div>
+          <div class="divTableCell">
+            UNIVERSIDAD NEZA
+          </div>
+          <div class="divTableCell">Premium</div>
+          <div class="divTableCell">Sindrome metabólico</div>
+          <div class="divTableCell relative">
+            <button class="table__options" type="button" data-id="1">
+              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones"
+                loading="lazy">
+            </button>
+            <div class="table__options-menu">
+              <button class="edit">
+                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
+              </button>
+              <button class="delete">
+                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar"
+                  loading="lazy">
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="divTableRow">
+          <div class="divTableCell">Spasssio0001</div>
+          <div class="divTableCell">
+            Kazahura Miller
+          </div>
+          <div class="divTableCell">usuario@mail.com</div>
+          <div class="divTableCell">
+            UNIVERSIDAD NEZA
+          </div>
+          <div class="divTableCell">Premium</div>
+          <div class="divTableCell">Sindrome metabólico</div>
+          <div class="divTableCell relative">
+            <button class="table__options" type="button" data-id="1">
+              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones"
+                loading="lazy">
+            </button>
+            <div class="table__options-menu">
+              <button class="edit">
+                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
+              </button>
+              <button class="delete">
+                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar"
+                  loading="lazy">
+              </button>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
+  <article class="pagination">
+    <button id="prev" title="Anterior">
+      <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
+    </button>
+    <button class="active">1</button>
+    <button>2</button>
+    <button id="next" title="Siguiente">
+      <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
+    </button>
+  </article>
   <div class="modal__container">
-    <form action="" class="modal">
+    <div class="modal">
       <button id="close-modal" type="button">
         <img src="{{ asset('assets/icons/admin/close-filled.svg') }}" alt="icono de cerrar" loading="lazy">
       </button>
@@ -258,6 +320,6 @@
         </div>
       </section>
 
-    </form>
-  </div>
+      </form>
+    </div>
 </x-layouts.admin-layout>

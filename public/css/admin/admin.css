@@ -351,10 +351,30 @@ body {
     margin-bottom: 15px;
 }
 
+.table {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 91vw;
+
+    @media screen and (min-width: 464px) {
+        width: 93vw;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 89.5vw;
+    }
+
+    @media screen and (min-width: 1824px) {
+        width: 91.3vw;
+    }
+}
+
 .divTable{
 	display: table;
 	width: 100%;
+    border-collapse: collapse;
 }
+
 .divTableRow {
 	display: table-row;
     font-size: 14px;
@@ -386,6 +406,7 @@ body {
 
 .divTableBody {
 	display: table-row-group;
+    overflow-x: scroll;
 }
 
 .relative {
@@ -402,12 +423,15 @@ body {
     background: #fff;
     border-radius: 50%;
     padding: 2px;
+    position: relative;
+    z-index: 10;
 
     &:hover {
         background: var(--primary);
 
         & img {
             filter: invert(1);
+            z-index: -1;
         }
     }
 }
@@ -429,6 +453,10 @@ body {
       background: #fff;
       border-radius: 50%;
       padding: 8px;
+
+      &:hover {
+          filter: contrast(.8);
+      }
     }
 
     & button.delete {
@@ -442,14 +470,47 @@ body {
     & button.edit {
         background: var(--secondary);
 
-        /* & img {
+        & img {
             filter: invert(1);
-        } */
+        }
     }
 }
 
 .show__options {
     display: flex;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+
+    & button {
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        width: 35px;
+        height: 35px;
+        border-radius: var(--radius);
+        background: transparent;
+        font-size: 15px;
+
+        &:hover {
+            background: #eeeeee;
+        }
+
+        &.active {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* &:where(#prev, #next) {
+            background: var(--primary);
+            border-radius: 50%;
+        } */
+
+    }
 }
 
 .modal__container {
@@ -500,15 +561,15 @@ body {
     background-color: #fff;
     padding: 30px;
     margin: 0px auto;
-    
+
   }
-  
+
   .form-container .title {
     font-size: 25px;
     font-weight: 500;
     position: relative;
   }
-  
+
   .form-container .title::before {
     content: "";
     position: absolute;
@@ -519,34 +580,34 @@ body {
     border-radius: var(--radius);
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
   }
-  
+
   .content .formularioAdmin .user-details{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0 12px 0;
   }
-  
+
   .formularioAdmin .user-details .input-box {
     margin-bottom: 15px;
   }
-  
+
   .dos-col .user-details .input-box {
     margin-bottom: 15px;
     width: calc(100% / 2 - 20px);
   }
-  
+
   .una-col .user-details .input-box {
     margin-bottom: 15px;
     width: 100%;
   }
-  
+
   .formularioAdmin .input-box span.details {
     display: block;
     font-weight: 500;
     margin-bottom: 5px;
   }
-  
+
   .user-details .input-box input, .user-details .input-box select{
     height: 45px;
     width: 100%;
@@ -558,13 +619,13 @@ body {
     border-bottom-width: 2px;
     transition: all 0.3s ease;
   }
-  
+
   .formularioAdmin .input-box img{
     width: 75%;
     height: 75%;
     margin-bottom: 12px;
   }
-  
+
   .user-details .input-box textarea{
     width: 100%;
     outline: none;
@@ -586,38 +647,38 @@ body {
     border-bottom-width: 2px;
     transition: all 0.3s ease;
   }
-  
+
   .formularioAdmin .input-box input:focus, .formularioAdmin .input-box select:focus, .formularioAdmin textarea:focus{
     border-color: #9b59b6;
   }
-  
+
   input:read-only {
     background-color: gray;
     color: white;
   }
-  
+
   .periodo-details {
     width: 100%;
   }
-  
+
   .formularioAdmin .periodo-details .periodo-title {
     font-size: 20px;
     font-weight: 500;
   }
-  
+
   .formularioAdmin .category {
     display: flex;
     width: 80%;
     margin: 14px 0;
     justify-content: space-between;
   }
-  
+
   .formularioAdmin .category label {
     display: flex;
     align-items: center;
     cursor: pointer;
   }
-  
+
   .formularioAdmin .category label .dot {
     height: 18px;
     width: 18px;
@@ -627,7 +688,7 @@ body {
     border: 5px solid transparent;
     transition: all 0.3s ease;
   }
-  
+
   #periodo4:checked~.category label .one,
   #periodo5:checked~.category label .two,
   #periodo1:checked~.category label .three,
@@ -636,16 +697,16 @@ body {
     background: #9b59b6;
     border-color: #d9d9d9;
   }
-  
+
   .formularioAdmin input[type="radio"] {
     display: none;
   }
-  
+
   .formularioAdmin .btn-form-admin {
     height: 45px;
     margin: 35px 0
   }
-  
+
   .formularioAdmin .btn-form-admin input {
     height: 100%;
     width: 100%;
@@ -659,35 +720,35 @@ body {
     transition: all 0.3s ease;
     background: var(--primary);
   }
-  
+
   .formularioAdmin .btn-form-admin input:hover {
     transform: scale(1.05);
   }
-  
+
   @media(max-width: 584px) {
     .form-container {
         max-width: 100%;
     }
-  
+
     .formularioAdmin .user-details .input-box {
         margin-bottom: 15px;
         width: 100%;
     }
-  
+
     .formularioAdmin .category {
         width: 100%;
     }
-  
+
     .content .formularioAdmin .user-details {
         max-height: 300px;
         overflow-y: scroll;
     }
-  
+
     .user-details::-webkit-scrollbar {
         width: 5px;
     }
   }
-  
+
   @media(max-width: 459px) {
     .form-container .content .category {
         flex-direction: column;
