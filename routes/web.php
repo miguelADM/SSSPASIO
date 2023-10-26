@@ -67,3 +67,7 @@ Route::get('/rt-cardio', function () {
 Route::get('/top-winners', function () {
     return view('home/top-winners');
 })->name('top-winners');
+
+Route::get('/settings', function () {
+    return view('home/settings');
+})->name('settings');
