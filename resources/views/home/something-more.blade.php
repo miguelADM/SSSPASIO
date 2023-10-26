@@ -122,7 +122,7 @@
             <div class="links__container">
 
                 <div class="links__title">
-                    <h3>Más articulos</h3>
+                    <h3>Articulos más leídos</h3>
                 </div>
 
                 <div class="link__card">

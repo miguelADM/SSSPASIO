@@ -786,6 +786,7 @@ body {
 
         & p {
             margin-bottom: 10px;
+            font-size: 17px;
         }
     }
 
@@ -793,6 +794,7 @@ body {
         padding: 20px 12.5px;
         display: flex;
         justify-content: space-between;
+        font-size: 15px;
 
         & a {
             font-style: italic;
