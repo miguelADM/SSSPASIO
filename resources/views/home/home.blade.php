@@ -73,7 +73,7 @@
               </p>
             </div>
           </div>
-          <a href="">Saber más</a>
+          <a href="/something-more">Saber más</a>
         </div>
 
         <div class="home__blog-card">

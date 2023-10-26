@@ -63,3 +63,7 @@ Route::get('/routines', function () {
 Route::get('/rt-cardio', function () {
     return view('home/rt-cardio');
 })->name('cardio');
+
+Route::get('/something-more', function () {
+    return view('home/something-more');
+})->name('more');
