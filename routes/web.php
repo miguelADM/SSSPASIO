@@ -67,3 +67,7 @@ Route::get('/rt-cardio', function () {
 Route::get('/something-more', function () {
     return view('home/something-more');
 })->name('more');
+
+Route::get('/diet', function () {
+    return view('home/diet');
+})->name('diet');
