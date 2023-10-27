@@ -17,6 +17,7 @@ use Illuminate\support\Str as Str;
 use Redirect,Response;
 use UsersExport;
 
+
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 {
     /**
@@ -70,6 +71,32 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     alert()->success('SPAsssio', 'Usuario editado correctamente');
     return redirect()->route('users.index');
 }
+
+
+    public function update(User $user, array $input): void
+    {
+        Validator::make($input, [
+            'name' => ['required', 'string', 'max:255'],
+
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+                Rule::unique('users')->ignore($user->id),
+            ],
+        ])->validateWithBag('updateProfileInformation');
+
+        if ($input['email'] !== $user->email &&
+            $user instanceof MustVerifyEmail) {
+            $this->updateVerifiedUser($user, $input);
+        } else {
+            $user->forceFill([
+                'name' => $input['name'],
+                'email' => $input['email'],
+            ])->save();
+        }
+    }
 
     /**
      * Update the given verified user's profile information.

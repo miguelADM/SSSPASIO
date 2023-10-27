@@ -155,6 +155,13 @@ return [
             'confirmPassword' => true,
             // 'window' => 0,
         ]),
+
+        /* Features::updatePasswords(), */
+        /* Features::twoFactorAuthentication([
+            'confirm' => true,
+            'confirmPassword' => true,
+            // 'window' => 0,
+        ]), */
     ],
 
 ];
