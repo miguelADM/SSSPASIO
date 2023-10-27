@@ -64,10 +64,10 @@ Route::get('/rt-cardio', function () {
     return view('home/rt-cardio');
 })->name('cardio');
 
-Route::get('/top-winners', function () {
-    return view('home/top-winners');
-})->name('top-winners');
+Route::get('/something-more', function () {
+    return view('home/something-more');
+})->name('more');
 
-Route::get('/settings', function () {
-    return view('home/settings');
-})->name('settings');
+Route::get('/diet', function () {
+    return view('home/diet');
+})->name('diet');

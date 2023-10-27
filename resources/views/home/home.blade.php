@@ -25,7 +25,7 @@
             <p>Optimiza tu dieta para maximizar tus resultados.</p>
           </div>
           <div class="home__option-buttons">
-            <a href="#">Continuar 🍎</a>
+            <a href="/diet">Continuar 🍎</a>
           </div>
         </div>
         <img src="{{ asset('assets/images/home/recomnedacion.png') }}" alt="Dieta">
@@ -73,7 +73,7 @@
               </p>
             </div>
           </div>
-          <a href="">Saber más</a>
+          <a href="/something-more">Saber más</a>
         </div>
 
         <div class="home__blog-card">
