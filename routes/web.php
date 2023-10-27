@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\EjercicioController;
+use App\Http\Controllers\enfermedadesController;
+use App\Http\Controllers\GruposController;
+use App\Http\Controllers\UserController;
+use App\Models\ClasificacionEjercicio;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +22,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('components.auth.login');
-});
+Route::view('home','components.home');
+
+//ruta grupos
+Route::resource('grupos', GruposController::class);
+
+
+//ruta enfermedades
+Route::resource('enfermedades', enfermedadesController::class);
+
+//ruta Usuarios
+Route::resource('usuarios', UserController::class);
+
+//ruta clasificacion Ejercicios
+Route::resource('clasificacion_ejercicios', ClasificacionEjercicio::class);
+
+//ruta Ejercicios
+Route::get('/ejercicios/{id}', [EjercicioController::class, 'index'])->name('ejercicios.index');
+Route::get('/agregar_ejercicios/{id}', [EjercicioController::class, 'create'])->name('ejercicios.create');
+Route::post('/store_ejercicios/{id}', [EjercicioController::class, 'store'])->name('ejercicios.store');
+Route::get('/edit_ejercicios/{slug}', [EjercicioController::class, 'edit'])->name('ejercicios.edit');
+Route::put('/update_ejercicios/{slug}', [EjercicioController::class, 'update'])->name('ejercicios.update');
+Route::get('/show_ejercicios/{slug}',[EjercicioController::class, 'show'])->name('ejercicios.show');
+Route::delete('/destroy_ejercicios/{slug}',[EjercicioController::class, 'destroy'])->name('ejercicios.destroy');
