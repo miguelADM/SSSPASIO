@@ -95,7 +95,19 @@ Route::get('/rt-cardio', function () {
 
 Route::get('/something-more', function () {
     return view('home/something-more');
-})->name('more');
+})->name('something-more');
+
+Route::get('/find-out', function () {
+    return view('home/find-out');
+})->name('find-out');
+
+Route::get('/motivation', function () {
+    return view('home/motivation');
+})->name('motivation');
+
+Route::get('/tips', function () {
+    return view('home/tips');
+})->name('tips');
 
 Route::get('/diet', function () {
     return view('home/diet');

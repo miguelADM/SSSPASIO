@@ -666,7 +666,8 @@ body {
     margin: 0 auto;
     padding: var(--padding);
 
-    & p {
+    & p,
+    h3 {
         width: 100%;
         margin: 24px auto;
     }
@@ -806,12 +807,12 @@ body {
     }
 }
 
-.diet__header{
+.diet__header {
     position: relative;
     width: fit-content;
     margin: 0 auto;
 
-    & img{
+    & img {
         width: 1000px;
         height: 500px;
         object-fit: cover;
@@ -819,44 +820,44 @@ body {
     }
 }
 
-.diet__header-title{
+.diet__header-title {
     position: absolute;
-    bottom:100px;
+    bottom: 100px;
     left: 50px;
 
-    & h2{
+    & h2 {
         color: #fff;
         font-size: 45px;
     }
 }
 
-.diet__content{
+.diet__content {
     width: 70%;
     margin: 24px auto;
     padding: var(--padding) 0;
     background: #fff;
 
-    & .diet__info{
+    & .diet__info {
         width: 100%;
         margin: 0 auto;
         font-size: 20px;
-        padding: 24 48px ;
+        padding: 24 48px;
         background: var(--third);
         color: #fff
     }
 }
 
-.diet__recipes{
+.diet__recipes {
     display: flex;
     justify-content: space-evenly;
     padding: var(--padding);
 }
 
-.recipe__card{
+.recipe__card {
     border: var(--border);
     width: 250px;
 
-    & img{
+    & img {
         width: 100%;
         height: 250px;
         object-fit: cover;
@@ -864,16 +865,16 @@ body {
         margin: 0 auto 20px;
     }
 
-    & .recipe__text{
+    & .recipe__text {
         padding: var(--padding);
-        
-        & h3{
+
+        & h3 {
             width: 100%;
             margin-bottom: 15px;
             border-bottom: 1px solid var(--secondary);
         }
 
-        & p{
+        & p {
             margin-bottom: 15px;
         }
 
