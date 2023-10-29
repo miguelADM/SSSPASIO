@@ -16,16 +16,6 @@ use Illuminate\Support\Facades\RateLimiter;
 use App\Actions\Fortify\UpdateUserProfileInformation;
 use App\Http\Responses\LoginResponse;
 use Laravel\Fortify\Contracts\LoginResponse as FortifyLoginResponse;
-use App\Actions\Fortify\CreateNewUser;
-use App\Actions\Fortify\ResetUserPassword;
-use App\Actions\Fortify\UpdateUserPassword;
-use App\Actions\Fortify\UpdateUserProfileInformation;
-use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\RateLimiter;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
-use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -36,11 +26,8 @@ class FortifyServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->instance(FortifyLoginResponse::class,new LoginResponse);
-    public function register(): void
-    {
-        //
-
     }
+
 
     /**
      * Bootstrap any application services.
@@ -60,14 +47,14 @@ class FortifyServiceProvider extends ServiceProvider
             $user = User::where('email', $request->email)->first();
             $con = User::where('password', $request->password)->first();
      
-            if ($user && $con
-                ) {
+            if ($user && $con) {
                 return $user;
             }
         });
 
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())).'|'.$request->ip());
+        });
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
 
