@@ -29,14 +29,14 @@
 
     <div class="sections__menu-container">
         <ul class="sections__menu">
-            <li><a href="#tutorial">Tutorial</a></li>
-            <li><a href="#warm-up">Calentamiento</a></li>
-            <li><a href="#exercises">Ejercicios</a></li>
-            <li><a href="#cooldown">Enfriamiento</a></li>
+            <li><a id="btn_tuto" onclick="toggleVisibility('tutorial')" >Tutorial</a></li>
+            <li><a id="btn_warm" onclick="toggleVisibility('warm-up')" >Calentamiento</a></li>
+            <li><a id="btn_exe" onclick="toggleVisibility('exercises')" >Ejercicios</a></li>
+            <li><a id="btn_cool" onclick="toggleVisibility('cooldown')" >Enfriamiento</a></li>
         </ul>
     </div>
 
-    <div id="tutorial" class="section__video">
+    <div id="tutorial" class="section__video toggle__section">
         <h2>Tutorial</h2>
         <iframe src="https://www.youtube.com/embed/0ORbQuMKUk4?si=m1dk_o88p4g07sEP" title="Video tutorial"
             frameborder="0"
@@ -44,7 +44,7 @@
             allowfullscreen></iframe>
     </div>
 
-    <div id="warm-up" class="section__video">
+    <div id="warm-up" class="section__video toggle__section">
         <h2>Calentamiento</h2>
         <iframe src="https://www.youtube.com/embed/uNeIBIHYAGg?si=5y-cmMdB_VllWym3" title="Video de calentamiento"
             frameborder="0"
@@ -52,8 +52,7 @@
             allowfullscreen></iframe>
     </div>
 
-
-    <div id="exercises" class="section__exercises">
+    <div id="exercises" class="section__exercises toggle__section">
         <h2>Ejercicios</h2>
 
         <div id="music">
@@ -137,11 +136,12 @@
 
     </div>
 
-    <div id="cooldown" class="section__video">
+    <div id="cooldown" class="section__video toggle__section">
         <h2>Enfriamiento</h2>
         <iframe src="https://www.youtube.com/embed/ZAbls6xmkUk?si=vIMiP1AHUmepuTwm" title="Video de enfriamiento"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
+
     </div>
 </x-layouts.user-layout>
