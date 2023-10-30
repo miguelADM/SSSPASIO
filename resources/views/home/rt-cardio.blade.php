@@ -37,7 +37,6 @@
     </div>
 
     <div id="tutorial" class="section__video toggle__section">
-        <h2>Tutorial</h2>
         <iframe src="https://www.youtube.com/embed/0ORbQuMKUk4?si=m1dk_o88p4g07sEP" title="Video tutorial"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -45,7 +44,6 @@
     </div>
 
     <div id="warm-up" class="section__video toggle__section">
-        <h2>Calentamiento</h2>
         <iframe src="https://www.youtube.com/embed/uNeIBIHYAGg?si=5y-cmMdB_VllWym3" title="Video de calentamiento"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -53,8 +51,6 @@
     </div>
 
     <div id="exercises" class="section__exercises toggle__section">
-        <h2>Ejercicios</h2>
-
         <div id="music">
             <div id="spotify" class="music__player">
                 <iframe style="border-radius:12px"
@@ -87,7 +83,7 @@
                 <div class="box__title-cont">
                     <h3 class="box__title">Ejercicio 1</h3>
                 </div>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sed
+                <p class="box__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sed
                     elit luctus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     consectetur augue sed orci faucibus facilisis.</p>
             </div>
@@ -97,7 +93,7 @@
                 <div class="box__title-cont">
                     <h3 class="box__title">Ejercicio 2</h3>
                 </div>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sed
+                <p class="box__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sed
                     elit luctus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     consectetur augue sed orci faucibus facilisis.</p>
             </div>
@@ -107,7 +103,7 @@
                 <div class="box__title-cont">
                     <h3 class="box__title">Ejercicio 3</h3>
                 </div>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sed
+                <p class="box__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sed
                     elit luctus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     consectetur augue sed orci faucibus facilisis.</p>
             </div>
@@ -117,7 +113,7 @@
                 <div class="box__title-cont">
                     <h3 class="box__title">Ejercicio 4</h3>
                 </div>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sed
+                <p class="box__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sed
                     elit luctus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     consectetur augue sed orci faucibus facilisis.</p>
             </div>
@@ -127,7 +123,7 @@
                 <div class="box__title-cont">
                     <h3 class="box__title">Ejercicio 5</h3>
                 </div>
-                <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sed
+                <p class="box__description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed posuere sed
                     elit luctus tincidunt. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
                     consectetur augue sed orci faucibus facilisis.</p>
             </div>
@@ -137,7 +133,6 @@
     </div>
 
     <div id="cooldown" class="section__video toggle__section">
-        <h2>Enfriamiento</h2>
         <iframe src="https://www.youtube.com/embed/ZAbls6xmkUk?si=vIMiP1AHUmepuTwm" title="Video de enfriamiento"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

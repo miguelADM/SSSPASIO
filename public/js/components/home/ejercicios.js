@@ -5,7 +5,7 @@ var sCooldown = document.getElementById('cooldown')
 
 var arrSections = [sTutorial, sWarmUp, sExercises, sCooldown] 
 
-sTutorial.classList.remove('toggle__section') //Sección que se verá siempre que se entre a la página
+//sTutorial.classList.remove('toggle__section') //Sección que se verá siempre que se entre a la página
 
 function toggleVisibility(sectionId) {
 
