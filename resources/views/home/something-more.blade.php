@@ -130,7 +130,7 @@
                     <div class="link__card-text">
                         <h5>Entérate</h5>
                         <p>Conoce las noticias más reelevantes que pueden influir en tu salud.</p>
-                        <a href="">Saber más</a>
+                        <a href="/find-out">Saber más</a>
                     </div>
                 </div>
 
@@ -139,7 +139,7 @@
                     <div class="link__card-text">
                         <h5>Motívate</h5>
                         <p>Aprende a como mantener la motivación necesaria para darle un cambio a tu vida.</p>
-                        <a href="">Saber más</a>
+                        <a href="/motivation">Saber más</a>
                     </div>
                 </div>
 
@@ -148,7 +148,7 @@
                     <div class="link__card-text">
                         <h5>Tips</h5>
                         <p>Descubre los tips más importantes para mejorar y mantener tus resultados.</p>
-                        <a href="">Saber más</a>
+                        <a href="/tips">Saber más</a>
                     </div>
                 </div>
 
@@ -171,7 +171,7 @@
                 </div>
                 <div class="related__card-data">
                     <p>25 de Octubre 2023</p>
-                    <a href="">Saber más</a>
+                    <a href="/find-out">Saber más</a>
                 </div>
             </div>
 
@@ -183,7 +183,7 @@
                 </div>
                 <div class="related__card-data">
                     <p>25 de Octubre 2023</p>
-                    <a href="">Saber más</a>
+                    <a href="/motivation">Saber más</a>
                 </div>
             </div>
 
@@ -195,7 +195,7 @@
                 </div>
                 <div class="related__card-data">
                     <p>25 de Octubre 2023</p>
-                    <a href="">Saber más</a>
+                    <a href="/tips">Saber más</a>
                 </div>
             </div>
         </div>
