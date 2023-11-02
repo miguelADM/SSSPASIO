@@ -11,22 +11,24 @@ use App\Models\Enfermedades;
 use App\Models\GrupoTrabajo;
 use Illuminate\Http\Request;
 use App\Models\UserEnfermedad;
-use App\Models\GrupoTrabajoUser;
 use CreateUserEnfermedadsTable;
+use App\Models\GrupoTrabajoUser;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
 
+    
     public function index()
     {
         
-        $users = DB::table(function ($subquery) {
+        $param['users'] = DB::table(function ($subquery) {
             $subquery->select(
                 'users.id as id_user',
                 'users.name as user_name',
-                DB::raw('GROUP_CONCAT(DISTINCT grupo_trabajos.nombre) as grupo_name'), 
-                DB::raw('GROUP_CONCAT(DISTINCT rutinas.nombre) as rutina_name'), 
+                DB::raw('GROUP_CONCAT(DISTINCT grupo_trabajos.nombre) as grupo_name'),  
                 DB::raw('GROUP_CONCAT(DISTINCT enfermedades.nombre) as salud'), 
                 'membresias.nombre as membresia_name', 
                 'membresias.duracion as periodo', 
@@ -35,8 +37,6 @@ class UserController extends Controller
                 'users.expired_at as fin_periodo',
             )
             ->from('users')
-            ->join('user_rutinas', 'users.id', '=', 'user_rutinas.id_user')
-            ->join('rutinas', 'user_rutinas.id_rutina', '=', 'rutinas.id')
             ->join('grupo_trabajo_users', 'users.id', '=', 'grupo_trabajo_users.id_user')
             ->join('grupo_trabajos', 'grupo_trabajo_users.id_grupo_trabajo', '=', 'grupo_trabajos.id')
             ->join('membresias', 'users.membresia_id', '=', 'membresias.id')
@@ -45,34 +45,44 @@ class UserController extends Controller
             ->groupBy('id_user', 'user_name', 'membresia_name', 'periodo', 'email', 'sexo', 'fin_periodo');
         }, 'subquery')
         ->get();
-         
-    return view('components.usuarios.inicio_usuarios', compact('users'));
+       
+        $param['grupos_trabajo'] = GrupoTrabajo::all();
+        $param['enfermedades'] = Enfermedades::all();
+        $param['membresias'] = Membresias::all();
+        $param['rutinas'] = Rutina::all();
+
+         return view('admin.users',$param );
     
     }
 
+    
     public function create()
     {
-        $grupos_trabajo = GrupoTrabajo::all();
-        $membresias = Membresias::all();
-        $enfermedades = Enfermedades::all();
-        $rutinas = Rutina::all();
-        
-        return view('components.usuarios.agregar_usuarios', compact('grupos_trabajo', 'membresias', 'enfermedades','rutinas'));
+        return route('users.create');   
     }
+
+    
+
+
 
 
     public function store(Request $request)
     {
-       
+        $existingUser = User::where('email', $request->email)->first();
+
+    if ($existingUser) {
+        return redirect()->back();
+    } else {
+        // Inserta el nuevo usuario en la base de datos.
     
         // Crear un nuevo usuario
         $user = new User();
         $user->name = $request->input('nombre');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
+        $user->password = Hash::make($request->confirm_password);
         $user->sexo = $request->input('sexo');
         $user->membresia_id = $request->input('membresia'); // Asociar el usuario con la membresía
-        
         $today = Carbon::now();
         // Calcular la fecha de vencimiento basada en la duración de la membresía
         if ($request->membresia == '1') {
@@ -88,35 +98,20 @@ class UserController extends Controller
         
         $user->save(); // Guarda el usuario en la base de datos
         
-        // Insertar los IDs de grupos desde el arreglo
-        $grupoIds = $request->input('grupos', []);
-        foreach ($grupoIds as $grupoId) {
             
             $userGrupo = new GrupoTrabajoUser();
             $userGrupo->id_user = $user->id;
-            $userGrupo->id_grupo_trabajo = $grupoId; // Asignar el ID del grupo actual
+            $userGrupo->id_grupo_trabajo = $request->input('grupo'); 
             $userGrupo->save();
-        }
+    
 
-        $enfermedadIds = $request->input('enfermedades', []);
-        foreach ($enfermedadIds as $enfermedadID) {
-            
             $userEnfermedad = new  UserEnfermedad();
             $userEnfermedad->id_user = $user->id;
-            $userEnfermedad->id_enfermedad = $enfermedadID; // Asignar el ID del enefermedad actual
+            $userEnfermedad->id_enfermedad = $request->input('enfermedad'); 
             $userEnfermedad->save();
-        }
         
-        $rutinaId = $request->input('rutinas', []);
-        foreach ($rutinaId as $RutinaID) {
-            
-            $userRutinas = new UserRutina();
-            $userRutinas->id_user = $user->id;
-            $userRutinas->id_rutina = $RutinaID; // Asignar el ID de la rutina
-            $userRutinas->save();
+        return redirect()->route('users.index');
         }
-
-        return redirect()->route('usuarios.index')->with('success','Agregado con exito!');
     }
 
     public function show($id)
@@ -126,7 +121,6 @@ class UserController extends Controller
                 'users.id as id_user',
                 'users.name as user_name',
                 DB::raw('GROUP_CONCAT(DISTINCT grupo_trabajos.nombre) as grupo_name'), 
-                DB::raw('GROUP_CONCAT(DISTINCT rutinas.nombre) as rutina_name'), 
                 DB::raw('GROUP_CONCAT(DISTINCT enfermedades.nombre) as salud'), 
                 'membresias.nombre as membresia_name', 
                 'membresias.duracion as periodo', 
@@ -135,8 +129,6 @@ class UserController extends Controller
                 'users.expired_at as fin_periodo'
             )
             ->from('users')
-            ->join('user_rutinas', 'users.id', '=', 'user_rutinas.id_user')
-            ->join('rutinas', 'user_rutinas.id_rutina', '=', 'rutinas.id')
             ->join('grupo_trabajo_users', 'users.id', '=', 'grupo_trabajo_users.id_user')
             ->join('grupo_trabajos', 'grupo_trabajo_users.id_grupo_trabajo', '=', 'grupo_trabajos.id')
             ->join('membresias', 'users.membresia_id', '=', 'membresias.id')
@@ -153,11 +145,10 @@ class UserController extends Controller
     public function edit($id)
     {
         
-        $usuarios = User::select(
+        $param['usuarios'] = User::select(
                 'users.id as id_usuario',
                 'users.name as usuario_name',
                 'grupo_trabajos.nombre as grupo_name',
-                'rutinas.nombre as rutina_name', 
                 'enfermedades.nombre as salud',  
                 'membresias.duracion as periodo', 
                 'users.email as email', 
@@ -165,8 +156,6 @@ class UserController extends Controller
                 'users.expired_at as fin_periodo',
                 'users.password as password'
             )
-        ->join('user_rutinas', 'users.id', '=', 'user_rutinas.id_user')
-        ->join('rutinas', 'user_rutinas.id_rutina', '=', 'rutinas.id')
         ->join('grupo_trabajo_users', 'users.id', '=', 'grupo_trabajo_users.id_user')
         ->join('grupo_trabajos', 'grupo_trabajo_users.id_grupo_trabajo', '=', 'grupo_trabajos.id')
         ->join('membresias', 'users.membresia_id', '=', 'membresias.id')
@@ -175,24 +164,24 @@ class UserController extends Controller
         ->where('users.id', $id)
         ->get();
         
-        $grupos_asociados = GrupoTrabajoUser::where('id_user', $id)
+        $param['grupos_asociados'] = GrupoTrabajoUser::where('id_user', $id)
         ->pluck('id_grupo_trabajo')
         ->toArray();
 
-        $enfermedades_asociadas = UserEnfermedad::where('id_user', $id)
+        $param['enfermedades_asociadas'] = UserEnfermedad::where('id_user', $id)
         ->pluck('id_enfermedad')
         ->toArray();
 
-        $rutinas_asociadas = UserRutina::where('id_user', $id)
+        $param['rutinas_asociadas'] = UserRutina::where('id_user', $id)
         ->pluck('id_rutina')
         ->toArray();
         
-        $enfermedades = Enfermedades::all();
-        $grupos_trabajo = GrupoTrabajo::all();
-        $rutinas = Rutina::all();
-        $membresias = Membresias::all();
+        $param['enfermedades'] = Enfermedades::all();
+        $param['grupos_trabajo'] = GrupoTrabajo::all();
+        $param['rutinas'] = Rutina::all();
+        $param['membresias'] = Membresias::all();
            
-       return view('components.usuarios.actualizar_usuarios',compact('usuarios','membresias','grupos_trabajo','grupos_asociados','enfermedades','enfermedades_asociadas','rutinas_asociadas', 'rutinas'));
+       return route('users.index',$param);
     }
 
     public function update(Request $request, $id)
@@ -228,6 +217,6 @@ class UserController extends Controller
     {
         $users = User::find($id);
         $users->delete();
-        return redirect()->route('usuarios.index')->with('success','Eliminado con exito con exito!');
+        return redirect()->route('users.index');
     }
 }

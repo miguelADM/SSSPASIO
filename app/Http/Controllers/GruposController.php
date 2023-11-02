@@ -11,15 +11,14 @@ class GruposController extends Controller
     public function index()
     {
         $grupos_trabajo = GrupoTrabajo::all();
-        return view('components.grupos.inicio_grupo', compact('grupos_trabajo'));
+        return view('admin.working-groups', compact('grupos_trabajo'));
     }
 
 
     public function create()
     {
-        return view('components.grupos.agregar_grupo');
+        return view('working-groups.create');
     }
-
 
     public function store(Request $request)
     {
@@ -28,7 +27,7 @@ class GruposController extends Controller
         $grupo->descripcion = $request->post('descripcion');
         $grupo->save();
 
-        return redirect()->route('grupos.index')->with('success','Agregado con exito!');
+        return redirect()->back();
 
     }
 
@@ -36,14 +35,14 @@ class GruposController extends Controller
     public function show($id)
     {
         $grupo = GrupoTrabajo::find($id);
-        return view('components.grupos.eliminar_grupo',compact('grupo'));
+        return view('admin.working-groups',compact('grupo'));
     }
 
 
     public function edit($id)
     {
         $grupo = GrupoTrabajo::find($id);
-        return view('components.grupos.actualizar_grupo',compact('grupo'));
+        return view('admin.working-groups',compact('grupo'));
     }
 
 
@@ -54,14 +53,14 @@ class GruposController extends Controller
         $grupo->descripcion = $request->post('descripcion');
         $grupo->save();
 
-        return redirect()->route('grupos.index')->with('success','Actualizado con exito con exito!');
+        return redirect()->route('working-groups.index');
     }
 
 
-    public function destroy( $id)
+    public function destroy($id)
     {
         $grupo = GrupoTrabajo::find($id);
         $grupo->delete();
-        return redirect()->route('grupos.index')->with('success','Eliminado con exito con exito!');
+        return redirect()->route('working-groups.index');
     }
 }

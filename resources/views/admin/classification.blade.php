@@ -14,9 +14,10 @@
           <div class="divTableCell"></div>
         </div>
 
+        @foreach ($clasifica_ejercicios as $item)
         <div class="divTableRow">
-          <div class="divTableCell">Cardio</div>
-          <div class="divTableCell">EJERCICIOS PARA PROGRAMA CARDIOVASCULAR</div>
+          <div class="divTableCell">{{$item->nombre}}</div>
+          <div class="divTableCell">{{$item->descripcion}}</div>
           <div class="divTableCell relative">
             <button class="table__options" type="button" data-id="1">
               <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
@@ -25,12 +26,17 @@
               <button class="edit">
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
+              <form action="{{route('classification.destroy',$item->id)}}" method="POST" class="delete">
+                @csrf 
+                @method('DELETE')
+                <button class="delete">
+                <img type="submit" src="{{ asset('assets/icons/admin/round-delete.svg') }}"  alt="icono de eliminar" loading="lazy">
               </button>
+              </form>
             </div>
           </div>
         </div>
+        @endforeach
       </div>
     </div>
   </section>
@@ -50,12 +56,12 @@
       <button id="close-modal" type="button">
         <img src="{{ asset('assets/icons/admin/close-filled.svg') }}" alt="icono de cerrar" loading="lazy">
       </button>
-
       <section class="content">
         <div class="form-container">
           <div class="title">Registrar clasificación</div>
           <div class="content">
-            <form action="" class="formularioAdmin una-col">
+            <form action="{{route('classification.store')}}" method="POST" class="formularioAdmin dos-col">
+              @csrf
               <div class="user-details">
                 <div class="input-box">
                   <span class="details">Nombre</span>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClasificacionEjercicioController;
 use App\Http\Controllers\EjercicioController;
 use App\Http\Controllers\enfermedadesController;
 use App\Http\Controllers\GruposController;
@@ -24,17 +25,18 @@ Route::prefix('admin')/* ->middleware('auth', 'email.check:admin@example.com') *
         return view('admin/users');
     });
 
-    Route::get('/working-groups', function () {
-        return view('admin/working-groups');
-    });
+    //ruta Usuarios
+    Route::resource('/users', UserController::class);
 
-    Route::get('/diseases', function () {
-        return view('admin/diseases');
-    });
+    //ruta para los grupos
+    Route::resource('/working-groups', GruposController::class);
 
-    Route::get('/classification', function () {
-        return view('admin/classification');
-    });
+    //ruta para las enfermedades
+    Route::resource('/diseases', enfermedadesController::class);
+
+    //ruta para la clasificacion de ejercicios
+    Route::resource('/classification', ClasificacionEjercicioController::class);
+
 
     Route::get('/exercises', function () {
         return view('admin/exercises');
@@ -42,15 +44,6 @@ Route::prefix('admin')/* ->middleware('auth', 'email.check:admin@example.com') *
 
 Route::view('home','components.home');
 
-//ruta grupos
-Route::resource('grupos', GruposController::class);
-
-
-//ruta enfermedades
-Route::resource('enfermedades', enfermedadesController::class);
-
-//ruta Usuarios
-Route::resource('usuarios', UserController::class);
 
 //ruta clasificacion Ejercicios
 Route::resource('clasificacion_ejercicios', ClasificacionEjercicio::class);
