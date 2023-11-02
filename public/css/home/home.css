@@ -1489,3 +1489,113 @@ button.active {
         }
     }
 }
+
+/* Mi progreso */
+
+#myProgress__info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.progress__info {
+    display: flex;
+    flex-direction: row;
+}
+
+.progress__info-card {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: 300px;
+    margin: 30px auto;
+    border-radius: 5px;
+
+    & .info__card-img {
+        background: var(--primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & img {
+            width: 240px;
+            height: 240px;
+            padding: var(--padding);
+        }
+    }
+
+    & .info__card-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+        width: 400px;
+        padding: var(--padding);
+        background: #fff;
+
+        & h3 {
+            text-align: center;
+            width: 100%;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: var(--black);
+        }
+
+        & h2 {
+            text-align: center;
+            width: 100%;
+            font-size: 20px;
+        }
+
+        & p {
+            margin-top: 14px;
+            font-size: 17px;
+            text-align: center;
+        }
+    }
+}
+
+.progress__table{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.tableCellProgress {
+    text-align: center;
+}
+
+.divTableRow:hover {
+    background: #d6ebff;
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+
+    & button {
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        width: 35px;
+        height: 35px;
+        border-radius: var(--radius);
+        background: transparent;
+        font-size: 15px;
+
+        &:hover {
+            background: #eeeeee;
+        }
+
+        &.active {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* &:where(#prev, #next) {
+            background: var(--primary);
+            border-radius: 50%;
+        } */
+
+    }
+}
