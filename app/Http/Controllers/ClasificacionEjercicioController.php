@@ -15,7 +15,7 @@ class ClasificacionEjercicioController extends Controller
     public function index()
     {
         $clasifica_ejercicios = ClasificacionEjercicio::all();
-        return view('components.clasificacion_ejercicios.inicio_clasifica_ejercicio', compact('clasifica_ejercicios'));
+        return view('admin.classification', compact('clasifica_ejercicios'));
     }
 
     /**
@@ -25,7 +25,7 @@ class ClasificacionEjercicioController extends Controller
      */
     public function create()
     {
-        return view('components.clasificacion_ejercicios.agregar_clasifica_ejercicio');
+        return view('classification.create');
     }
 
     /**
@@ -40,8 +40,8 @@ class ClasificacionEjercicioController extends Controller
         $clasifica_ejercicios->nombre = $request->post('nombre');
         $clasifica_ejercicios->descripcion = $request->post('descripcion');
         $clasifica_ejercicios->save();
-        
-        return redirect()->route('clasificacion_ejercicios.index')->with('success','Agregado con exito!');
+
+        return redirect()->back();
     }
 
     /**
@@ -53,7 +53,7 @@ class ClasificacionEjercicioController extends Controller
     public function show($id)
     {
         $clasifica_ejercicios = ClasificacionEjercicio::find($id);
-        return view('components.clasificacion_ejercicios.eliminar_clasifica_ejercicio',compact('clasifica_ejercicios'));
+        return view('admin.classification',compact('clasifica_ejercicios'));
     }
 
     /**
@@ -65,7 +65,7 @@ class ClasificacionEjercicioController extends Controller
     public function edit($id)
     {
         $clasifica_ejercicios = ClasificacionEjercicio::find($id);
-        return view('components.clasificacion_ejercicios.actualizar_clasifica_ejercicio',compact('clasifica_ejercicios'));
+        return view('admin.classification',compact('clasifica_ejercicios'));
     }
 
     /**
@@ -82,7 +82,7 @@ class ClasificacionEjercicioController extends Controller
         $clasifica_ejercicio->descripcion = $request->post('descripcion');
         $clasifica_ejercicio->save();
 
-        return redirect()->route('clasificacion_ejercicios.index')->with('success','Actualizado con exito con exito!');
+        return redirect()->route('classification.index');
     }
 
     /**
@@ -95,6 +95,6 @@ class ClasificacionEjercicioController extends Controller
     {
         $clasifica_ejercicio = ClasificacionEjercicio::find($id);
         $clasifica_ejercicio->delete();
-        return redirect()->route('clasificacion_ejercicios.index')->with('success','Eliminado con exito con exito!');
+        return redirect()->route('classification.index');
     }
 }

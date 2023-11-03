@@ -18,18 +18,18 @@
           <div class="divTableCell">Salud</div>
           <div class="divTableCell"></div>
         </div>
-
+        @foreach ($users as $item)
         <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
+          <div class="divTableCell">No hay nombre de usuario</div>
           <div class="divTableCell">
-            Kazahura Miller
+            {{$item->user_name}}
           </div>
-          <div class="divTableCell">usuario@mail.com</div>
+          <div class="divTableCell">{{$item->email}}</div>
           <div class="divTableCell">
-            UNIVERSIDAD NEZA
+            {{$item->grupo_name}}
           </div>
-          <div class="divTableCell">Premium</div>
-          <div class="divTableCell">Sindrome metabólico</div>
+          <div class="divTableCell">{{$item->membresia_name}}</div>
+          <div class="divTableCell">{{$item->salud}}</div>
           <div class="divTableCell relative">
             <button class="table__options" type="button" data-id="1">
               <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
@@ -38,146 +38,22 @@
               <button class="edit">
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
-              </button>
-            </div>
-          </div>
-        </div>
 
-        <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
-          <div class="divTableCell">
-            Kazahura Miller
-          </div>
-          <div class="divTableCell">usuario@mail.com</div>
-          <div class="divTableCell">
-            UNIVERSIDAD NEZA
-          </div>
-          <div class="divTableCell">Premium</div>
-          <div class="divTableCell">Sindrome metabólico</div>
-          <div class="divTableCell relative">
-            <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
-            </button>
-            <div class="table__options-menu">
-              <button class="edit">
-                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
-              </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
-          <div class="divTableCell">
-            Kazahura Miller
-          </div>
-          <div class="divTableCell">usuario@mail.com</div>
-          <div class="divTableCell">
-            UNIVERSIDAD NEZA
-          </div>
-          <div class="divTableCell">Premium</div>
-          <div class="divTableCell">Sindrome metabólico</div>
-          <div class="divTableCell relative">
-            <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
-            </button>
-            <div class="table__options-menu">
-              <button class="edit">
-                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
-              </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
-          <div class="divTableCell">
-            Kazahura Miller
-          </div>
-          <div class="divTableCell">usuario@mail.com</div>
-          <div class="divTableCell">
-            UNIVERSIDAD NEZA
-          </div>
-          <div class="divTableCell">Premium</div>
-          <div class="divTableCell">Sindrome metabólico</div>
-          <div class="divTableCell relative">
-            <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
-            </button>
-            <div class="table__options-menu">
-              <button class="edit">
-                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
-              </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar"
-                  loading="lazy">
-              </button>
-            </div>
-          </div>
-        </div>
+              
+              <form action="{{route('users.destroy',$item->id_user)}}" method="POST" class="delete">
+                @csrf 
+                @method('DELETE')
+                <button type="submit">
+                <img type="submit" src="{{ asset('assets/icons/admin/round-delete.svg') }}"  alt="icono de eliminar" loading="lazy">
+                </button>
+              </form>
 
-        <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
-          <div class="divTableCell">
-            Kazahura Miller
-          </div>
-          <div class="divTableCell">usuario@mail.com</div>
-          <div class="divTableCell">
-            UNIVERSIDAD NEZA
-          </div>
-          <div class="divTableCell">Premium</div>
-          <div class="divTableCell">Sindrome metabólico</div>
-          <div class="divTableCell relative">
-            <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones"
-                loading="lazy">
-            </button>
-            <div class="table__options-menu">
-              <button class="edit">
-                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
-              </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar"
-                  loading="lazy">
-              </button>
+
             </div>
           </div>
         </div>
-
-        <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
-          <div class="divTableCell">
-            Kazahura Miller
-          </div>
-          <div class="divTableCell">usuario@mail.com</div>
-          <div class="divTableCell">
-            UNIVERSIDAD NEZA
-          </div>
-          <div class="divTableCell">Premium</div>
-          <div class="divTableCell">Sindrome metabólico</div>
-          <div class="divTableCell relative">
-            <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones"
-                loading="lazy">
-            </button>
-            <div class="table__options-menu">
-              <button class="edit">
-                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
-              </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar"
-                  loading="lazy">
-              </button>
-            </div>
-          </div>
-        </div>
-
+        @endforeach
+    
       </div>
     </div>
   </section>
@@ -191,6 +67,7 @@
       <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
     </button>
   </article>
+
   <div class="modal__container">
     <div class="modal">
       <button id="close-modal" type="button">
@@ -200,15 +77,20 @@
         <div class="form-container">
           <div class="title">Registrar usuario</div>
           <div class="content">
-            <form action="" class="formularioAdmin dos-col">
+            <form action="{{route('users.store')}}" method="POST" class="formularioAdmin dos-col">
+              @csrf
               <div class="user-details">
                 <div class="input-box">
                   <span class="details">Alias</span>
-                  <input type="text" id="nombre" name="nombre" readonly="" disabled required>
+                  <input type="text" id="nombre"  readonly="" disabled required>
                 </div>
                 <div class="input-box">
                   <span class="details">E-mail</span>
-                  <input type="text" placeholder="Correo electrónico" required>
+                  <input type="text" placeholder="Correo electrónico" name="email" required>
+                </div>
+                <div class="input-box">
+                  <span class="details">Nombre</span>
+                  <input type="text" placeholder="nombre" name="nombre" required>
                 </div>
                 <div class="input-box">
                   <span class="details">Teléfono</span>
@@ -224,7 +106,7 @@
                 </div>
                 <div class="input-box">
                   <span class="details">Contraseña</span>
-                  <input type="password" id="password" name="password" placeholder="Contraseña">
+                  <input type="password" id="password" name="password" placeholder="Contraseña" autocomplete="new-password">
                 </div>
                 <div class="input-box">
                   <span class="details">Repite la contraseña</span>
@@ -240,81 +122,36 @@
                   </select>
                 </div>
                 <div class="input-box">
-                  <span class="details">Rutina</span>
-                  <input type="text" required id="rutina" name="rutina" placeholder="Nombre rutina"
-                    old="{{ old('rutina') }}">
-                </div>
-                <div class="input-box">
                   <span class="details">Grupo de trabajo</span>
-                  <select required id="grupo" name="grupo">
-                    <option disabled selected value>Seleccionar...</option>
-                    <option value="1">Grupo 1</option>
-                    <option value="2">Grupo 2</option>
-                    <option value="3">Grupo 3</option>
-                    <option value="4">Grupo 4</option>
+                  <select name="grupo" class="form-control" id="grupo">
+                    <option value="">Seleccione una membresia</option>
+                      @foreach ($grupos_trabajo as $grupo)
+                        <option value="{{$grupo->id}}">{{$grupo->nombre}}</option>
+                      @endforeach
                   </select>
                 </div>
                 <div class="input-box">
                   <span class="details">Enfermedades/Condiciones</span>
-                  <select required id="enf" name="enf">
-                    <option disabled selected value>Seleccionar...</option>
-                    <option value="1">Enfermedad 1</option>
-                    <option value="2">Enfermedad 2</option>
-                    <option value="3">Enfermedad 3</option>
-                    <option value="4">Enfermedad 4</option>
+                  <select name="enfermedad" class="form-control" id="enfermedad">
+                    <option value="">Seleccione una membresia</option>
+                      @foreach ($enfermedades as $enfermedad)
+                        <option value="{{$enfermedad->id}}">{{$enfermedad->nombre}}</option>
+                      @endforeach
                   </select>
                 </div>
                 <div class="input-box">
                   <span class="details">Membresía</span>
-                  <select required id="membresia" name="membresia">
-                    <option disabled selected value>Seleccionar...</option>
-                    <option value="Prueba">Prueba</option>
-                    <option value="Básico">Básico</option>
-                    <option value="Premium">Premium</option>
-                  </select>
-                </div>
-                <div class="input-box">
-                  <span class="details">Observaciones</span>
-                  <textarea id="" cols="50" rows="3" class="form-control" name="observaciones"
-                    placeholder="Observaciones acerca del usuario a considerar"></textarea>
-                </div>
-                <div class="periodo-details">
-                  <input type="radio" name="periodo" id="periodo4" value="15 Días">
-                  <input type="radio" name="periodo" id="periodo5" value="1 Mes">
-                  <input type="radio" name="periodo" id="periodo1" value="Trimestral">
-                  <input type="radio" name="periodo" id="periodo2" value="Semestral">
-                  <input type="radio" name="periodo" id="periodo3" value="Anualidad">
-
-                  <span class="periodo-title">Periodo</span>
-                  <div class="category">
-                    <label for="periodo4">
-                      <span class="dot one"></span>
-                      <span class="periodo">15 Días</span>
-                    </label>
-                    <label for="periodo5">
-                      <span class="dot two"></span>
-                      <span class="periodo">1 Mes</span>
-                    </label>
-                    <label for="periodo1">
-                      <span class="dot three"></span>
-                      <span class="periodo">Trimestral</span>
-                    </label>
-                    <label for="periodo2">
-                      <span class="dot four"></span>
-                      <span class="periodo">Semestral</span>
-                    </label>
-                    <label for="periodo3">
-                      <span class="dot five"></span>
-                      <span class="periodo">Anualidad</span>
-                    </label>
-                  </div>
+                  <select name="membresia" class="form-control" id="membresia">
+                    <option value="">Seleccione una membresia</option>
+                @foreach ($membresias as $membresia)
+                    <option value="{{$membresia->id}}">{{$membresia->id}}{{$membresia->nombre}}</option>
+                @endforeach
+                </select>
                 </div>
               </div>
-
               <div class="btn-form-admin">
                 <input type="submit" value="Registrar">
               </div>
-
             </form>
           </div>
         </div>
@@ -322,4 +159,4 @@
 
       </form>
     </div>
-</x-layouts.admin-layout>
+  </x-layouts.admin-layout>

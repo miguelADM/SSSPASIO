@@ -10,18 +10,19 @@
       <div class="divTableBody">
         <div class="divTableHeading">
           <div class="divTableCell">Nombre</div>
-          <div class="divTableCell">Estatus</div>
+          <div class="divTableCell">Descripción</div>
           <div class="divTableCell">Observaciones</div>
           <div class="divTableCell"></div>
         </div>
         {{-- row --}}
+        @foreach ($grupos_trabajo as $item)
         <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
+          <div class="divTableCell">{{$item->nombre}}</div>
           <div class="divTableCell">
-            Kazahura Miller
+            {{$item->descripcion}}
           </div>
           <div class="divTableCell">
-            Son personas que viven en esa zona
+            No existe ninguna observación
           </div>
           <div class="divTableCell relative">
             <button class="table__options" type="button" data-id="1">
@@ -31,16 +32,22 @@
               <button class="edit">
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
-              </button>
+              <form action="{{ route('ejercicios.destroy', $item->id) }}" method="POST" class="delete">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="delete">
+                  <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
+                </button>
+              </form>
             </div>
           </div>
         </div>
         {{-- row --}}
+        @endforeach
       </div>
     </div>
   </section>
+  
 
   <div class="modal__container">
     <div action="" class="modal">
@@ -52,24 +59,17 @@
         <div class="form-container">
           <div class="title">Registrar grupo de trabajo</div>
           <div class="content">
-            <form action="" class="formularioAdmin dos-col">
+            <form action="{{route('working-groups.store')}}" method="POST" class="formularioAdmin dos-col">
+              @csrf
               <div class="user-details">
                 <div class="input-box">
                   <span class="details">Nombre</span>
                   <input type="text" id="nombre" name="nombre" placeholder="Nombre del grupo de trabajo">
                 </div>
-                <div class="input-box">
-                  <span class="details">Estatus</span>
-                  <select id="estatus" required name="estatus">
-                    <option disabled selected value>Seleccionar...</option>
-                    <option value="ACTIVO">Activo</option>
-                    <option value="DESACTIVADO">Inactivo</option>
-                  </select>
-                </div>
               </div>
               <div class="input-box observaciones">
-                <span class="details">Observaciones</span>
-                <textarea id="" cols="50" rows="5" class="form-control" name="observaciones"
+                <span class="details">Descripcion</span>
+                <textarea id="" cols="50" rows="5" class="form-control" name="descripcion"
                   placeholder="Observaciones acerca del grupo de trabajo"></textarea>
               </div>
               <div class="btn-form-admin">

@@ -16,13 +16,13 @@ class enfermedadesController extends Controller
     public function index()
     {
         $enfermedad = Enfermedades::all();
-        return view('components.enfermedades.inicio_enfermedad', compact('enfermedad'));
+        return view('admin.diseases', compact('enfermedad'));
     }
 
 
     public function create()
     {
-        return view('components.enfermedades.agregar_enfermedad');
+        return view('diseases.create');
     }
 
 
@@ -33,7 +33,7 @@ class enfermedadesController extends Controller
         $enfermedad->descripcion = $request->post('descripcion');
         $enfermedad -> save();
 
-        return redirect()->route('enfermedades.index')->with('success','Agregado con exito!');
+        return redirect()->back();
     }
 
 
@@ -42,14 +42,14 @@ class enfermedadesController extends Controller
         
         $enfermedad = Enfermedades::find($id);
         $enfermedad->delete();
-        return redirect()->route('enfermedades.index')->with('success','Eliminado con exito con exito!');
+        return redirect()->route('diseases.index')->with('success','Eliminado con exito con exito!');
     }
 
 
     public function edit($id)
     {
         $enfermedad = Enfermedades::find($id);
-        return view('components.enfermedades.actualizar_enfermedad',compact('enfermedad'));
+        return view('admin.diseases',compact('enfermedad'));
     }
 
 
@@ -60,7 +60,7 @@ class enfermedadesController extends Controller
         $enfermedad->descripcion = $request->post('descripcion');
         $enfermedad->save();
 
-        return redirect()->route('enfermedades.index')->with('success','Actualizada con exito con exito!');
+        return redirect()->route('diseases.index')->with('success','Actualizada con exito con exito!');
     }
 
 
@@ -68,6 +68,6 @@ class enfermedadesController extends Controller
     {
         $enfermedad = Enfermedades::find($id);
         $enfermedad->delete();
-        return redirect()->route('enfermedades.index')->with('success','Eliminado con exito con exito!');
+        return redirect()->route('diseases.index');
     }
 }
