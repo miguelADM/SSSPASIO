@@ -97,4 +97,18 @@
 
     </div>
   </div>
+  <script src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@11') }}"></script>
+  <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css') }}" />
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js') }}"></script>
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')}}"></script>
+
+  @if(session('success'))
+  <script>
+    iziToast.success({
+        title: 'Correcto!',
+        message: '{{ session('success')}}',
+        possition: 'center'
+    })
+    </script>
+  @endif
 </x-layouts.admin-layout>

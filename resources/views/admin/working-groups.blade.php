@@ -32,7 +32,7 @@
               <button class="edit">
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
-              <form action="{{ route('ejercicios.destroy', $item->id) }}" method="POST" class="delete">
+              <form action="{{ route('working-groups.destroy', $item->id) }}" method="POST" class="borrarGT">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="delete">
@@ -82,4 +82,40 @@
 
     </div>
   </div>
+  <script src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@11') }}"></script>
+  <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css') }}" />
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js') }}"></script>
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')}}"></script>
+
+  @if(session('success'))
+  <script>
+    iziToast.success({
+        title: 'Correcto!',
+        message: '{{ session('success')}}',
+        possition: 'center'
+    })
+    </script>
+  @endif
+  
+
+  <script>
+    $('.borrarGT').submit(function(e){
+e.preventDefault();
+
+    Swal.fire({
+  title: '¿Estas seguro de eliminar el Grupo de Trabajo?',
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Si, Eliminarlo!',
+  cancelButtonText: 'No Eliminarlo!'
+}).then((result) => {
+  if (result.value){
+
+this.submit();
+}
+})
+})
+  </script>
 </x-layouts.admin-layout>

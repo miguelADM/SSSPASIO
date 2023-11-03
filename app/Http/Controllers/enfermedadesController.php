@@ -68,6 +68,6 @@ class enfermedadesController extends Controller
     {
         $enfermedad = Enfermedades::find($id);
         $enfermedad->delete();
-        return redirect()->route('diseases.index');
+        return redirect()->route('diseases.index')->with('success','Ejercicio eliminado');
     }
 }

@@ -27,9 +27,15 @@
               <button class="edit">
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
+              <form action="{{route('clasificacion_ejercicios.destroy',$user->id)}}" method="POST" class="delete">
+                @csrf 
+                @method('DELETE')
+                <button class="delete">
+                <img type="submit" src="{{ asset('assets/icons/admin/round-delete.svg') }}"  alt="icono de eliminar" loading="lazy">
               </button>
+              </form>
+              
+              
             </div>
           </div>
         </div>
@@ -106,4 +112,18 @@
 
     </div>
   </div>
+  <script src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@11') }}"></script>
+  <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css') }}" />
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js') }}"></script>
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')}}"></script>
+
+  @if(session('success'))
+  <script>
+    iziToast.success({
+        title: 'Correcto!',
+        message: '{{ session('success')}}',
+        possition: 'center'
+    })
+    </script>
+  @endif
 </x-layouts.admin-layout>

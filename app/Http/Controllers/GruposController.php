@@ -61,6 +61,6 @@ class GruposController extends Controller
     {
         $grupo = GrupoTrabajo::find($id);
         $grupo->delete();
-        return redirect()->route('working-groups.index');
+        return redirect()->route('working-groups.index')->with('success','Grupo de Trabajo eliminado');
     }
 }
