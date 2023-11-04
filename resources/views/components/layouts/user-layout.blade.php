@@ -25,6 +25,8 @@
     {{ $slot }}
   </main>
   <script src="{{ asset('js/components/home/app.js') }}" type="module"></script>
+
 </body>
+<script src="{{ asset('js/components/home/ejercicios.js') }}"></script>
 
 </html>

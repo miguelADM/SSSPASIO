@@ -85,6 +85,10 @@ Route::get('/home', function () {
     return view('home/home');
 })->name('home')/* ->middleware('auth') */;
 
+Route::get('/my-progress', function () {
+    return view('home/my-progress');
+})->name('my-progress');
+
 Route::get('/top-winners', function () {
     return view('home/top-winners');
 })->name('top-winners');
