@@ -1410,47 +1410,7 @@ button.active {
 }
 
 /*Dietas*/
-.diet__header {
-    position: relative;
-    width: fit-content;
-    margin: 0 auto;
-
-    & img {
-        width: 1000px;
-        height: 500px;
-        object-fit: cover;
-        border-radius: 5px;
-    }
-}
-
-.diet__header-title {
-    position: absolute;
-    bottom: 100px;
-    left: 50px;
-
-    & h2 {
-        color: #fff;
-        font-size: 45px;
-    }
-}
-
-.diet__content {
-    width: 70%;
-    margin: 24px auto;
-    padding: var(--padding) 0;
-    background: #fff;
-
-    & .diet__info {
-        width: 100%;
-        margin: 0 auto;
-        font-size: 20px;
-        padding: 24 48px;
-        background: var(--third);
-        color: #fff;
-    }
-}
-
-.diet__recipes {
+.nutritional__header {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1487,11 +1447,13 @@ button.active {
         font-size: 32px;
         margin-bottom: 20px;
         text-align: center;
+        margin: 0 auto;
     }
 
     & p {
         font-size: 18px;
         text-align: center;
+        margin-top: 10px;
     }
 
     & .nutritional__button {
