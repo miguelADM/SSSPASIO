@@ -1564,6 +1564,7 @@ button.active {
 
 .recipe {
     display: flex;
+    justify-content: center;
     gap: 30px;
 }
 
@@ -1594,11 +1595,14 @@ button.active {
         font-weight: var(--bold);
         text-align: left;
         margin-bottom: 10px;
+        display: inline-block;
+        width: max-content;
     }
 }
 
 .recipe__list {
     margin-left: 15px;
+    width: 70ch;
 
     & li {
         margin-bottom: 10px;
