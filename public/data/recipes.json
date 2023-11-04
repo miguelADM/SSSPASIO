@@ -1,0 +1,1203 @@
+[
+    {
+        "id": 1,
+        "title": "Quinoa con crudités",
+        "description": "2 personas | 25 minutos",
+        "ingredients": [
+            "150 g de quinoa",
+            "1 cebolla morada picada",
+            "1 rama de apio",
+            "1 zanahoria en daditos",
+            "½  pimiento amarillo en daditos",
+            "½  pimiento rojo en daditos",
+            "1 pimiento verde italiano en daditos",
+            "Hierbas frescas muy picadas",
+            "Aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Lava la quinoa y escúrrela bien. Pon un cazo al fuego con el doble de agua salada que de quinoa, y caliéntala hasta que llegue a ebullición.",
+            "Añade la quinoa y cuécela a fuego medio y tapada durante 20 minutos; comprueba que no esté dura, y, si fuera así, prolonga la cocción unos minutos más. Pásala a un escurridor y deja que se seque bien del agua de cocción.",
+            "Pasa la quinoa a una ensaladera, añade la zanahoria, los pimientos, la cebolla y el apio, y salpimienta.",
+            "Riega con un chorrito de aceite, espolvorea con las hierbas y remueve con cuidado; sirve enseguida."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/03/quinoa-con-crudites_74f88d57_1280x1820.jpg"
+    },
+    {
+        "id": 2,
+        "title": "Macarrones con gambas",
+        "description": "4 personas | 30 minutos",
+        "ingredients": [
+            "300 g de macarrones",
+            "1 puerro cortado",
+            "1 calabacín cortado en daditos",
+            "400 g de gambas cocidas y peladas",
+            "300 ml de crema de avena para cocinar",
+            "1 cucharadita de orégano seco",
+            "100 g de queso emmental rallado",
+            "Orégano",
+            "Pimienta rosa",
+            "Aceite de oliva",
+            "Sal"
+        ],
+        "instructions": [
+            "Precalienta el horno a 200 ºC. Sofríe el puerro 3 minutos. Añade el calabacín, sazona y rehoga 5 minutos. Incorpora las gambas y sofríe un minuto.",
+            "Agrega la crema de avena y el orégano seco, y mezcla. Prosigue la cocción dos minutos y retira.",
+            "Lleva a ebullición abundante agua salada en una cazuela. Agrega los macarrones y cuécelos el tiempo que indique el envase.",
+            "Mezcla los macarrones con la salsa y disponlos en una fuente refractaria. Cubre con el queso y gratina en el horno.",
+            "Espolvoréalos con la pimienta rosa ligeramente machacada y el orégano fresco, lavado y picado, y sirve."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/comidas-rapidas-macarrones-con-gambas_1edaec94_1000x1500.jpg"
+    },
+    {
+        "id": 3,
+        "title": "Pepinos rellenos de ensalada de arroz",
+        "description": "4 personas",
+        "ingredients": [
+            "2 pepinos",
+            "200 g de arroz largo",
+            "2 zanahorias picadas",
+            "1 latita de 80 g de atún",
+            "4 cucharadas de olivas verdes deshuesadas",
+            "50 g de maíz dulce",
+            "Hojas de rúcula",
+            "2 cucharadas de vinagre de Jerez",
+            "5 cucharadas de aceite de oliva picadas",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Cuece el arroz en agua salada, 16 minutos. Escúrrelo y refréscalo con agua fría.",
+            "Pela los pepinos y córtalos por la mitad, a lo largo. Vacíalos ligeramente con una cucharilla.",
+            "Pica la pulpa y mézclala con el arroz, el atún escurrido, las zanahorias y las aceitunas.",
+            "Prepara una vinagreta batiendo el aceite con el vinagre de Jerez y una pizca de sal y pimienta.",
+            "Aliña con ella la preparación anterior y rellena las barquitas de pepino."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/05/recetas-saludables-pepinos-rellenos-ensalada-arroz-atun_01fd953f_1280x1829.jpg"
+    },
+    {
+        "id": 4,
+        "title": "Judías verdes con patata y sepia",
+        "description": "2 personas | 30 minutos",
+        "ingredients": [
+            "200 g de sepia",
+            "200 g de judías verdes troceadas",
+            "200 g de patatas troceadas",
+            "1 diente de ajo en láminas",
+            "Perejil",
+            "Aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Cuece las patatas en agua salada durante 5 minutos. Añade las judías verdes, prosigue la cocción 10 minutos y escurre las dos.",
+            "Limpia la sepia, lávala, sécala y trocéala. Lava también el perejil y pícalo fino.",
+            "Calienta 4 cucharadas de aceite en una sartén antiadherente, agrega los ajos y dóralos 1 minuto.",
+            "Incorpora las judías verdes y las patatas, saltea todo junto durante 4 minutos y condimenta con sal, pimienta y el perejil.",
+            "Saltea la sepia en una sartén con 2 cucharadas de aceite, hasta que se dore por todos lados. Retírala y sazónala.",
+            "Reparte las judías y las patatas en platos, agrega la sepia y sirve.",
+            "Añade a la sartén, a la vez que las hortalizas, unos trocitos de jamón curado o de beicon."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/judias-verdes-con-patata-y-sepia_fbf74e4a_1600x2239.jpg"
+    },
+    {
+        "id": 5,
+        "title": "Hamburguesas de quinoa y verduras con tomate",
+        "description": "2 personas | 20 minutos",
+        "ingredients": [
+            "2 huevos cocidos en rodajas",
+            "150 g de quinoa cocida",
+            "½ puerro picado",
+            "1 zanahoria rallada",
+            "½ cebolla morada picada",
+            "Harina de garbanzo",
+            "1 cucharada de queso cheddar cortado en dados muy pequeños",
+            "1 tomate pera duro en rodajas",
+            "50 g de brotes tiernos variados",
+            "1 rabanito en rodajas",
+            "Unas hojas de rúcula",
+            "Aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Calienta la quinoa ligeramente y pásala a un bol grande. ",
+            "Pon el puerro en un recipiente apto para el microondas, vierte medio dedo de agua, tapa y cuece 2 minutos. Remueve con cuidado de no quemarte, cuece 1 minuto más y escúrrelo. ",
+            "Mezcla la quinoa con el puerro, la zanahoria, la cebolla, el queso, pimienta y sal. Agrega los huevos restantes, uno a uno y removiendo.",
+            "Añade 2 cucharadas rasas de harina de garbanzo y mezcla hasta integrarla.",
+            "Forma 4 bolas con la masa anterior, aplástalas un poco para hacer 4 hamburguesas y rebózalas con harina de garbanzo. Fríe en la sartén.",
+            "Cubre 2 hamburguesas con el tomate, el huevo y los brotes, y coloca encima las demás. "
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/comidas-rapidas-hamburguesas-de-quinoa-y-verduras-con-tomate_2fa5ed4d_1280x1820.jpg"
+    },
+    {
+        "id": 6,
+        "title": "Salteado oriental de ternera con verduras",
+        "description": "4 personas | 20 minutos",
+        "ingredients": [
+            "400 g de filetes finos de ternera",
+            "100 g de champiñones en láminas",
+            "2 pimientos verdes en tiras",
+            "1 pimiento rojo en tiras",
+            "2 zanahorias en juliana",
+            "1 cebolla en juliana",
+            "2 cucharadas de salsa de soja",
+            "1 cucharada de semillas de sésamo",
+            "Cilantro",
+            "Harina",
+            "Aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Corta en tiras los filetes, salpimiéntalos y enharínalos ligeramente.",
+            "Calienta un wok y cuando empiece a humear agrega un hilo de aceite. Ve añadiendo las hortalizas, por tandas, y saltéalas 1 minuto.",
+            "Añade otro hilo de aceite y saltea también la ternera un par de minutos, hasta que se dore.",
+            "Incorpora de nuevo las verduras y añade la salsa de soja. Saltea todo junto unos minutos, espolvorea con el sésamo y el cilantro lavado y picado, y sirve."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/03/comidas-rapidas-salteado-oriental-de-ternera-con-verduras_c8401566_1279x1820.jpg"
+    },
+    {
+        "id": 7,
+        "title": "Tomates rellenos de atún y encurtidos",
+        "description": "4 personas | 20 minutos",
+        "ingredients": [
+            "4 tomates",
+            "175 g de atún en conserva",
+            "150 g de mayonesa",
+            "125 g de aceitunas rellenas de anchoa",
+            "4 pepinillos en vinagre",
+            "8 aceitunas negras"
+        ],
+        "instructions": [
+            "Lava los tomates, sécalos y corta la parte superior. Reserva la tapa de los tomates y retira la pulpa.",
+            "Escurre los pepinillos, pícalos y reserva unos cuantos para decorar. Pica las aceitunas verdes, pica igualmente las negras y reserva 2 cortadas en rodajas para decorar.",
+            "Mezcla el atún escurrido con las aceitunas, los pepinillos y la mayonesa. Rellena los tomates con la mezcla, coloca la tapa, y sírvelos decorado con los pepinillos y las aceitunas en rodajas."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/05/tomates-rellenos-de-atun-y-encurtidos_f42ee590_1600x2081.jpg"
+    },
+    {
+        "id": 8,
+        "title": "Sardinas en papillote con verduras",
+        "description": "4 personas | 25 minutos",
+        "ingredients": [
+            "½ kg de sardinas en filetes",
+            "2 zanahorias en juliana",
+            "2 patatas en láminas",
+            "1 calabacín en juliana",
+            "1 ramita de romero",
+            "Aceite de oliva",
+            "2 dientes de ajo en láminas",
+            "Sal"
+        ],
+        "instructions": [
+            "Precalienta el horno a 200 ºC. Corta cuatro trozos de papel sulfurizado para hacer los paquetes.",
+            "Coloca en el centro una base de patata y sazona ligeramente. Dispón el calabacín y la zanahoria por encima.",
+            "Cubre las verduras con varios filetes de sardina. Agrega un trocito de romero lavado y unas láminas de ajo.",
+            "Dobla el papel sobre el relleno formando unos paquetes bien sellados y átalos con hilo de cocina. Hornea durante 15 minutos.",
+            "Deja reposar los paquetes unos minutos antes de abrirlos. Riega el pescado con un hilo de aceite y sirve enseguida."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/03/comidas-rapidas-sardinas-verduras-papillote_eb10e904_1000x1500.jpg"
+    },
+    {
+        "id": 9,
+        "title": "Lasaña vegetal light",
+        "description": "4 personas | 50 minutos ",
+        "ingredients": [
+            "1 paquete de placas de lasaña precocida",
+            "200 g de champiñones",
+            "200 g de espinacas frescas",
+            "3 zanahorias en dados",
+            "1 calabacín en dados",
+            "1 berenjena en datos",
+            "200 g de salsa de tomate",
+            "500 ml de leche desnatada",
+            "100 g de queso rallado",
+            "1 cucharada de harina",
+            "Aceite de oliva",
+            "Sal"
+        ],
+        "instructions": [
+            "Precalienta el horno a 170ºC. Calienta en una sartén dos cucharadas de aceite de oliva y tuesta la harina. Vierte la leche en un hilo sin dejar de mover. Sazona y cocina hasta que espese.",
+            "Cuece las espinacas al vapor y mézclalas con un poco de besamel. Sofríe el calabacín y la zanahoria 2 minutos, incorpora la berenjena y cocina 4 minutos, añade los champiñones y déjalo cocinar durante 2 minutos más.",
+            "Incorpora las espinacas a las verduras. Cuece la pasta según las instrucciones del fabricante y déjala escurrir en un paño de algodón.",
+            "Monta la lasaña alternando capas de pasta con verdura y salsa de tomate. Cubre con la besamel restante, espolvorea con el queso rallado y hornea la lasaña durante 20 minutos."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/lasana-vegetal-light_6a8ccbcd_1000x1501.jpg"
+    },
+    {
+        "id": 10,
+        "title": "Coliflor gratinada con besamel",
+        "description": "4 personas | 20 minutos",
+        "ingredients": [
+            "1 coliflor",
+            "650 ml de leche",
+            "50 g de harina",
+            "75 g de mantequilla",
+            "85 g de queso Emmental rallado",
+            "Una pizca de nuez moscada",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Limpia la coliflor, sepárala en ramitos y lávala. Cuécela en una cazuela con agua salada durante 10 minutos. Escúrrela y repártela en 4 cuencos refractarios.",
+            "Funde la mantequilla en una sartén, añade la harina y tuéstala ligeramente, removiendo. Vierte la leche en un hilo, salpimienta y aromatiza con la nuez moscada.",
+            "Deja cocer la mezcla, sin parar de remover con una cuchara de madera, hasta conseguir una salsa homogénea y ligeramente espesa.",
+            "Viértela sobre la coliflor, repartiéndola bien, y espolvorea con el queso.",
+            "Gratínala bajo el grill del horno unos minutos hasta que se dore la superficie. "
+        ],
+        "image": "https://www.clara.es//medio/2023/01/03/comidas-rapidas-coliflor-gratinada-con-besamel_35c30c02_1280x1920.jpg"
+    },
+    {
+        "id": 11,
+        "title": "Sartenada de arroz con pimientos y tomatitos",
+        "description": "4 personas | 20 minutos",
+        "ingredients": [
+            "320 g de arroz basmati cocido",
+            "1 pimiento rojo en dados",
+            "1 pimiento amarillo en dados",
+            "12 tomates cherry cortados por la mitad",
+            "1 cebolla picada fina",
+            "2 cucharadas de aceite de oliva",
+            "Orégano seco",
+            "Pimienta ",
+            "Sal"
+        ],
+        "instructions": [
+            "Calienta el aceite en una sartén grande y sofríe la cebolla y los pimientos durante 5 minutos.",
+            "Salpimienta y agrega los tomates. Remueve con una cuchara de madera y deja cocer unos 2 o 3 minutos más.",
+            "Agrega entonces el arroz y saltéalo unos instantes. Ajusta de sal y de pimienta, espolvorea con orégano y sirve."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/comidas-rapidas-sartenada-de-arroz-con-pimientos-y-tomatitos_706801de_1279x1820.jpg"
+    },
+    {
+        "id": 12,
+        "title": "Crema de hortalizas con garbanzos",
+        "description": "2 personas | 20 minutos",
+        "ingredients": [
+            "1 patata pelada",
+            "2 zanahorias medianas peladas",
+            "1 tallo de apio picado fino",
+            "300 g de coliflor",
+            "1 cebolla pelada",
+            "80 g de garbanzos cocidos en conserva",
+            "2 o 3 lonchas de jamón curado",
+            "Pimentón dulce",
+            "Pimentón picante",
+            "Cúrcuma molida",
+            "Aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Precalienta el horno a 180 °C. Desmenuza los ramitos de la coliflor y ralla el tronco, junto con el resto de las hortalizas.",
+            "Rehoga las verduras con un poco de aceite 2 minutos. Cúbrelas con agua, lleva a ebullición y deja cocer 10 minutos.",
+            "Enjuaga y escurre los garbanzos, extiéndelos en una fuente refractaria y espolvoréalos con cúrcuma y con los 2 tipos de pimentón.",
+            "Dispón las lonchas de jamón sobre la placa forrada con papel vegetal, cúbrelas con otro papel y coloca encima otra placa que haga peso.",
+            "Hornea los garbanzos y el jamón 7 minutos, hasta que los primeros se tuesten y el segundo esté crujiente.",
+            "Tritura las verduras cocidas con un poco de sal, pimienta y cúrcuma.",
+            "Distribuye la sopa en unas cazuelitas y añade los garbanzos tostados y el jamón."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/comidas-rapidas-crema-de-hortalizas-con-garbanzos-y-crujiente-de-jamon_9ae579a5_1280x1819.jpg"
+    },
+    {
+        "id": 13,
+        "title": "Filetes de pavo con champiñones",
+        "description": "4 personas | 40 minutos",
+        "ingredients": [
+            "600 g de filetes de pavo",
+            "150 g de champiñones pequeños",
+            "1 cebolla en juliana",
+            "100 ml de caldo de pollo",
+            "150 ml de cava",
+            "Pimienta",
+            "Aceite de oliva suave",
+            "Perejil picado",
+            "Sal"
+        ],
+        "instructions": [
+            "Limpia los champiñones, lávalos y sécalos. Reserva algunos enteros y corta el resto en láminas.",
+            "Rehoga la cebolla en una sartén 15 minutos. Añade los champiñones cortados en láminas. Salpimiéntalos, remueve y prosigue la cocción hasta que se evapore el agua.",
+            "Retira el sofrito de la sartén, añade unas gotas de aceite y saltea los champiñones enteros; retíralos y resérvalos.",
+            "Salpimienta el pavo y dóralo en la sartén 2 minutos por cada lado.",
+            "Añade el sofrito, vierte el cava y déjalo reducir a fuego vivo. Agrega el caldo y, cuando hierva, baja la llama y cuece 3 minutos más.",
+            "Sirve el pavo con los champiñones enteros y espolvorea con el perejil."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/cenas-ligeras-pavo-champinones-papillote_da38605b_1000x1500.jpg"
+    },
+    {
+        "id": 14,
+        "title": "Sepia con alcachofas y champiñones",
+        "description": "4 personas | 35 minutos",
+        "ingredients": [
+            "2 sepias limpias",
+            "1 berenjena en dados",
+            "1 pimiento verde en dados",
+            "1 pimiento rojo en dados",
+            "3 alcachofas en rodajas",
+            "200 g de champiñones",
+            "2 dientes de ajo en láminas finas",
+            "Pimienta",
+            "Perejil picado",
+            "Aceite de oliva",
+            "Sal"
+        ],
+        "instructions": [
+            "Forra el interior de una fuente refractaria con una hoja de papel sulfurizado y añade todas las hortalizas. Salpimienta y remueve.",
+            "Lava las sepias, sécalas y salpimiéntalas también. Colócalas encima, rocía con 2 cucharadas de aceite y hornea 20 minutos.",
+            "Retira la fuente del horno y corta las sepias en trozos con un cuchillo. Sírvelas enseguida, con las verduras, los jugos de cocción, unas gotas de aceite y un poco más de perejil picado."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/cenas-ligeras-sepia-alcachofa-champinones_36ef1cc9_1000x1500.jpg"
+    },
+    {
+        "id": 15,
+        "title": "Ensalada multicolor",
+        "description": "2 personas | 15 minutos",
+        "ingredients": [
+            "Hojas de lechuga",
+            "50 g de judías verdes cocidas",
+            "1 lata de atún",
+            "1 patata cocida con piel",
+            "1 tomate",
+            "1 huevo cocido",
+            "1 cucharada de mostaza",
+            "1 cucharada de vinagre balsámico",
+            "Aceite de oliva",
+            "Sal"
+        ],
+        "instructions": [
+            "Corta el huevo y la patata en rodajas, y el tomate en gajos. Mezcla la mostaza con el vinagre, el aceite y la sal. ",
+            "Emplata con ayuda de un aro de repostería. Sigue este orden: lechuga, patata, judías, tomate, atún y huevo. Aliña y sirve."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/03/recetas-rapidas-con-procesados-saludables-ensalada-atun-huevo_d54f5f2d_1280x1829.jpg"
+    },
+    {
+        "id": 16,
+        "title": "Rollitos de ternera con verduras",
+        "description": "4 personas | 45 minutos",
+        "ingredients": [
+            "600 g de filetes de espalda de ternera",
+            "1 cebolla roja",
+            "1 calabacín",
+            "4 dientes de ajo",
+            "½ pimiento verde",
+            "½ pimiento rojo",
+            "Aceite de oliva",
+            "Perejil",
+            "Sal",
+            "Pimienta"
+        ],
+        "instructions": [
+            "Precalienta el horno a 180 ºC. Corta los filetes por la mitad a lo largo, sazónalos con sal y pimienta y dóralos 2 minutos por cada lado en una sartén con una cucharada de aceite de oliva.",
+            "Pela la cebolla y el ajo, lava los pimientos y el calabacín, y corta todas las verduras en tiras finas. Rehoga la cebolla en una cazuela con un poco de aceite de oliva y cuando haya cogido color, incorpora los ajos.",
+            "Añade el pimiento y cocina un par de minutos más. Agrega el calabacín y sigue cocinando 1 minuto más.",
+            "Reparte las verduras sobre los filetes, enróllalos y ciérralos con un palillo. Colócalos en la placa del horno y hornéalos durante 8 minutos. Sirve los rollitos espolvoreados con perejil fresco picado."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/rollitos-ternera-verduras_aee1cd07_1000x1501.jpg"
+    },
+    {
+        "id": 17,
+        "title": "Patatas rellenas de carne picada",
+        "description": "4 personas | 25 minutos",
+        "ingredients": [
+            "6 patatas medianas, dependiendo del tamaño",
+            "200 g de carne picada de ternera",
+            "200 g de tomate frito",
+            "4 champiñones en láminas finas",
+            "50 g de queso curado",
+            "Aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Lava las patatas, sécalas y pínchalas varias veces con la punta de un cuchillo. Envuélvelas en film o cúbrelas con una tapa apta para microondas y cuécelas durante 4 minutos.",
+            "Dales la vuelta y prosigue la cocción 3-5 minutos, según el tipo de patata y de su tamaño. Retíralas y espera a que se templen.",
+            "Rehoga la carne picada. Incorpora el tomate frito, salpimienta al gusto y mezcla.",
+            "Corta las patatas por la mitad a lo largo; retírales un poco de la pulpa con una cucharita y mézclala con el sofrito de carne y tomate.",
+            "Salpimienta el interior de las patatas y rellénalas con la preparación anterior. Reparte por encima las láminas de champiñón y ralla el queso curado sobre ellas.",
+            "Precalienta el horno a 180 ºC, coloca dentro las patatas y caliéntalas 2 o 3 minutos, hasta que el queso se funda."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/comidas-rapidas-patatas-rellenas-de-carne-picada-con-portobellos_e95c1502_1280x1820.jpg"
+    },
+    {
+        "id": 18,
+        "title": "Conejo al horno con patatas",
+        "description": "4 personas | 50 minutos",
+        "ingredients": [
+            "1 conejo troceado",
+            "4 dientes de ajo picados finos",
+            "250 g de champiñones",
+            "400 g de patatas de guarnición cocidas",
+            "1 cebolla en juliana",
+            "4 ramitas de romero",
+            "Pimentón",
+            "Pimienta",
+            "Aceite de oliva",
+            "Sal"
+        ],
+        "instructions": [
+            "Precalienta el horno a 180 ºC. Unta la carne con sal, pimienta, pimentón y aceite de oliva. Hornéalo durante 10 minutos junto con la cebolla.",
+            "Saca el conejo del horno, mueve las piezas y vuelve a hornear durante 10 minutos más. Agrega los champiñones y las patatas y prosigue con la cocción durante 6 minutos. Pica 2 ramitas de romero y mézclalo con el ajo, dos cucharadas de aceite de oliva y una pizca de sal.",
+            "Retira la fuente del horno. Añade el ajo y el romero a la fuente, remueve y vuelve a hornear 4 minutos para que el ajo se dore. "
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/cenas-sanas-patatas-conejo-asados_4174f52d_1000x1500.jpg"
+    },
+    {
+        "id": 19,
+        "title": "Cuscús con huevo y hortalizas",
+        "description": "4 personas | 35 minutos",
+        "ingredients": [
+            "400 ml de caldo de verduras",
+            "200 g de cuscús precocido",
+            "½ pimiento verde en dados",
+            "½ pimiento rojo en dados",
+            "1 zanahoria en dados",
+            "1 cebolla morada en dados",
+            "100 g de judías verdes redondas troceadas",
+            "20 ml de vinagre",
+            "4 huevos",
+            "Cebollino",
+            "Aceite de oliva",
+            "Pimienta negra",
+            "Sal"
+        ],
+        "instructions": [
+            "Dispón el caldo en una cazuela, añade una pizca de sal y lleva a ebullición.",
+            "Coloca el cuscús en un cuenco grande, añade la tercera parte del caldo, deja que lo absorba y mezcla bien. Repite el proceso dos veces más hasta agotar el caldo.",
+            "Saltea las verduras en una sartén. Agrega el cuscús, remueve y salpimienta. Escalda las judías verdes en agua salada durante dos minutos.",
+            "Lleva a ebullición 2 litros de agua en una cazuela grande. Vierte el vinagre, reduce la intensidad de la llama y remueve el agua con una cuchara de madera hasta que se forme un remolino.",
+            "Casca un huevo, añádelo en el centro y cuécelo durante 3 minutos, envolviendo la yema con la clara con una espumadera. Escúrrelo, pásalo a una fuente y repite la operación.",
+            "Emplata como en la imagen, espolvorea con el cebollino lavado y picado, y sirve."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/recetas-saludables-cuscus-con-huevo-hortalizas_30131bfe_1280x1829.jpg"
+    },
+    {
+        "id": 20,
+        "title": "Brochetas de pavo y verduras",
+        "description": "4 personas | 45 minutos ",
+        "ingredients": [
+            "750 g de pechuga de pavo en dados",
+            "2 pimientos rojos",
+            "2 calabacines",
+            "200 g de arroz basmati cocido",
+            "Aceite de oliva",
+            "Sal"
+        ],
+        "instructions": [
+            "Lava los pimientos y trocéalos en cuadrados del mismo tamaño que el pavo. Lava los calabacines y córtalos en rodajas de un dedo de grosor.",
+            "En una sartén o parrilla, cocina con un chorrito de aceite de oliva el pavo sazonado, 2 minutos por cada lado. Marca los pimientos y el calabacín.",
+            "Monta las brochetas alternando el pimiento rojo, las rodajas de calabacín y los dados de pavo.",
+            "Acompaña las brochetas con un puñadito de arroz basmati. Puedes completar el plato añadiendo unos brotes de ensalada."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/cenas-sanas-brochetas-pavo-verduras_729dce40_1000x1500.jpg"
+    },
+    {
+        "id": 21,
+        "title": "Lubina asada con lima",
+        "description": "4 personas | 50 minutos",
+        "ingredients": [
+            "2 lubinas limpias (de unos 350 g cada una)",
+            "2 limas",
+            "1 limón",
+            "12 patatas pequeñas",
+            "8 cebollitas francesas",
+            "150 ml de vino blanco",
+            "Eneldo picado",
+            "Aceite de oliva",
+            "Pimienta rosa",
+            "Sal"
+        ],
+        "instructions": [
+            "Precalienta el horno a 180 ºC. Parte el limón y una lima en rodajas finas; córtalas a continuación en medias lunas. Ralla la cáscara de la restante y resérvala.",
+            "Pon las lubinas en una fuente refractaria y practícales 3 incisiones profundas en el lomo. Introduce en ellas rodajas de lima y de limón, alternándolas.",
+            "Pela las patatas y las cebollitas; lávalas y sécalas. Condimenta ambas con 1 pizca de sal y de pimienta, y agrégalas a la fuente.",
+            "Rocía las lubinas y las hortalizas con el aceite; hornea durante 20 minutos. Riega con el vino y prosigue la cocción 10 minutos.",
+            "Si el líquido que sale por los cortes realizados en el lomo del pescado es blanquecino y espeso, está en su punto; si no es así, hornea 2 o 3 minutos más.",
+            "Retira el pescado y separa los lomos con cuidado, desechando la cabeza y la espina central.",
+            "Repártelos en 4 platos, colocándolos con la piel hacia abajo, y riégalos con el jugo de cocción. Dispón a un lado las patatas y las cebollitas.",
+            "Espolvoréalos con la pimienta rosa, el eneldo y la ralladura de lima reservada. "
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/cenas-ligeras-lubina-asada-con-pimienta-rosa-y-lima-limon_44ca2ede_1280x1820.jpg"
+    },
+    {
+        "id": 22,
+        "title": "Berenjenas rellenas",
+        "description": "4 personas | 35 minutos",
+        "ingredients": [
+            "2 berenjenas",
+            "2 bolas de mozzarella",
+            "12 tomates cherry partidos por la mitad",
+            "50 g de jamón curado en lonchas",
+            "2 ramitas de albahaca",
+            "4 cucharadas de salsa de tomate",
+            "Orégano",
+            "Aceite de oliva",
+            "Pimienta negra",
+            "Sal"
+        ],
+        "instructions": [
+            "Lava las berenjenas, despúntalas y córtalas en láminas, a lo largo, de 2 cm de grosor. Escurre la mozzarella y córtala en rodajas.",
+            "Dora las berenjenas en una sartén con poco aceite, 2 minutos por cada lado. Retíralas y déjalas sobre la placa. Cúbrelas con la salsa de tomate y agrega la mozzarella, los tomates y las lonchas de jamón. Condiméntalas con una pizca de orégano, sal y pimienta negra recién molida.",
+            "Cuece las berenjenas 10 minutos en el horno precalentado a 200º. Retíralas y sírvelas enseguida, decoradas con las hojitas de albahaca lavadas y secas."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/418330-falsa-minipizza-de-berenjenas-asadas_fb3360cd_568x757.jpeg"
+    },
+    {
+        "id": 23,
+        "title": "Crema de zanahoria",
+        "description": "4 personas | 30 minutos",
+        "ingredients": [
+            "½ kg de zanahorias en rodajas",
+            "1 cebolla en juliana",
+            "1 puerro en rodajas finas",
+            "1 patata pequeña en trozos pequeños",
+            "150 ml de leche de coco",
+            "Jengibre",
+            "Cebollino picado",
+            "Aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Rehoga 5 minutos la cebolla y el puerro en una olla. Añade las zanahorias, las patatas y el jengibre, sazona con sal y pimienta y deja cocinar durante unos minutos más.",
+            "Cubre las verduras con agua y pon la olla a hervir. Cuando empiece a hervir, baja el fuego al mínimo y deja cocinar durante 20 minutos.",
+            "Agrega la leche de coco, reservando un poco para decorar los platos.",
+            "Aparta la olla del fuego y tritura las verduras. Decora cada plato con un chorrito de leche de coco y cebollino espolvoreado."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/cremas-de-verduras-zanahorias_4a621e36_1000x1500.jpg"
+    },
+    {
+        "id": 24,
+        "title": "Rulos de calabacín con brandada",
+        "description": "4 personas | 15 minutos",
+        "ingredients": [
+            "2 calabacines medianos cortados en láminas finas",
+            "Brandada en conserva",
+            "Pimentón dulce ahumado",
+            "Brotes tiernos",
+            "Aceite",
+            "Sal"
+        ],
+        "instructions": [
+            "Pasa por la plancha las láminas de calabacín, 30 segundos por cada lado.",
+            "Extiende 10 láminas de calabacín sobre la mesa de trabajo forrada con papel sulfurizado.",
+            "Cúbrelas con la brandada, dejando un borde de 7 mm todo alrededor, y enróllalas.",
+            "Espolvorea los rulos con el pimentón, decora con los brotes tiernos, lavados y secos, y sírvelos."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/rulos-calabacin-brandada_0c93c33a_1000x1500.jpg"
+    },
+    {
+        "id": 25,
+        "title": "Ensalada de frutas",
+        "description": "2 personas | 10 minutos",
+        "ingredients": [
+            "6 hojas de lechuga",
+            "6 fresas en láminas finas",
+            "½ manzana en dados",
+            "½ mango",
+            "Fiambre de pavo en tacos",
+            "½ cebolleta picada",
+            "Aceite",
+            "Vinagre",
+            "Sal"
+        ],
+        "instructions": [
+            "Reserva dos hojas de lechuga para decorar y pica el resto. ",
+            "Coloca todos los ingredientes en un bol menos las láminas de fresa y las hojas de lechuga reservadas y aliña.",
+            "Dispón las láminas de fresa en la cara interna de un recipiente transparente, coloca la hoja de lechuga y rellena con la ensalada de frutas."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/comidas-rapidas-ensalada-de-frutas_59f33bd4_1000x1500.jpg"
+    },
+    {
+        "id": 26,
+        "title": "Pechuga de pollo con verduras",
+        "description": "2 personas | 25 minutos",
+        "ingredients": [
+            "4 filetes de pechuga de pollo",
+            "½ cebolla en plumas",
+            "½ zanahoria en rodajas",
+            "3 espárragos verdes troceados",
+            "½ coliflor en ramitos",
+            "1 tomate en dados",
+            "½ limón",
+            "Cebollino",
+            "Aceite de oliva",
+            "Salsa pesto",
+            "Sal"
+        ],
+        "instructions": [
+            "Sofríe las verduras 8 minutos en una sartén con 2 cucharadas de aceite y agrega una cucharada de pesto y una pizca de sal.",
+            "Rocía con zumo de limón los filetes y dóralos en una sartén con un hilo de aceite de oliva 2 minutos por cada lado.",
+            "Emplata como en la imagen y decora con cebollino."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/pechuga-pollo-verduras_05159f6b_1000x1501.jpg"
+    },
+    {
+        "id": 27,
+        "title": "Espárragos a la crema",
+        "description": "4 personas | 20 minutos",
+        "ingredients": [
+            "1 lata de champiñones",
+            "1 bote de espárragos verdes en conserva",
+            "2 cucharadas de mantequilla",
+            "1 cebolla",
+            "1 vaso de nata líquida",
+            "Nuez moscada",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Corta los champiñones en láminas y los espárragos en tres trozos.",
+            "Pica la cebolla y rehógala en una sartén con la mantequilla a fuego suave. Cuando empiece a estar transparente, añade los champiñones y los espárragos. Sazona con sal, pimienta y nuez moscada, y cuece a fuego suave durante 5 minutos.",
+            "Agrega la nata líquida y continúa la cocción, siempre a fuego suave, durante 10 minutos más. Rectifica de sazón si fuese necesario."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/receta-con-esparragos-crema-champinones_76486f2b_1280x1829.jpg"
+    },
+    {
+        "id": 28,
+        "title": "Ensalada de alubias y aguacate",
+        "description": "8 personas | 25 minutos",
+        "ingredients": [
+            "300 g de judías blancas cocidas",
+            "1 aguacate",
+            "½ cebolla morada",
+            "4 tomates cherry",
+            "1 zanahoria",
+            "½ pepino",
+            "100 g de queso feta",
+            "8 tortillas mexicanas",
+            "Cilantro picado",
+            "½ limón",
+            "3 cucharadas de aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Parte el aguacate, extrae el hueso, retira la pulpa con una cuchara y córtala en dados.",
+            "Pela la cebolla; raspa y lava la zanahoria, y pica ambas. Pela el pepino y córtalo en dados.",
+            "Corta el queso también en dados. Mezcla todos estos ingredientes en un bol y añade las judías enjuagadas y escurridas.",
+            "Aliña con sal, pimienta, zumo de limón y aceite, y remueve.",
+            "Precalienta el horno a 180º. Humedece las tortillas y disponlas en moldes individuales formando una cesta. Hornéalas durante 10 minutos.",
+            "Deja enfriar las tortillas. Rellénalas con la ensalada preparada y añade los tomates lavados y partidos por la mitad. Espolvorea con cilantro y sirve."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/ensaladas-con-aguacate-alubias-queso-feta_81a6208d_1000x1500.jpg"
+    },
+    {
+        "id": 29,
+        "title": "Tallarines con pollo y verduras",
+        "description": "4 personas | 30 minutos",
+        "ingredients": [
+            "300 g de tallarines",
+            "300 g de filetes de pechuga de pollo",
+            "½ calabacín en tiras",
+            "1 zanahoria en tiras ",
+            "1 pimiento rojo pequeño en tiras",
+            "1 pimiento amarillo pequeño en tiras",
+            "8 espárragos en tiras",
+            "75 g de tirabeques",
+            "2 pimientos del piquillo frescos",
+            "Unas hojitas de perejil",
+            "Aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Haz los filetes a la plancha y córtalos en tiras. Retira las puntas de los tirabeques y limpiar los piquillos; lava los dos y sécalos.",
+            "Corta los últimos en rodajitas y saltéalos, durante un minuto, en una sartén con unas gotas de aceite.",
+            "Pon al fuego un wok o una sartén honda con tres cucharadas de aceite y saltea la zanahoria y los pimientos dos minutos.",
+            "Agrega los tirabeques, el calabacín y los espárragos, y sofríelos tres minutos. Sazona, agrega la carne, remueve y retira.",
+            "Hierve la pasta hasta que esté al dente. Retira unas cucharadas de su agua de cocción y añádelas al wok, con los tallarines escurridos.",
+            "Mezcla, decora con las rodajas de piquillos y el perejil lavado, y sirve."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/comidas-rapidas-tallarines-pollo-verduras_26639251_1000x1501.jpg"
+    },
+    {
+        "id": 30,
+        "title": "Espárragos con huevo y vinagreta",
+        "description": "2 personas | 10 minutos",
+        "ingredients": [
+            "400 g de espárragos blancos en conserva",
+            "2 huevos cocidos",
+            "½ tomate maduro en dados",
+            "½  cebolla morada picada fina",
+            "½ pimiento rojo en dados",
+            "50 ml de aceite de oliva virgen extra",
+            "25 ml de vinagre",
+            "Cebollino",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Mezcla la cebolla, el tomate y el pimiento en un cuenco. Salpimienta, añade el vinagre y el aceite, y remueve hasta integrarlos. ",
+            "Reparte los espárragos y riégalos con la vinagreta. Pela los huevos, repártelos sobre los espárragos y espolvorea el cebollino."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/03/comidas-rapidas-esparragos-con-huevo-y-vinagreta_0665b9d3_1279x1820.jpg"
+    },
+    {
+        "id": 31,
+        "title": "Tortilla de verduras",
+        "description": "4 personas | 50 minutos",
+        "ingredients": [
+            "6 huevos",
+            "250 g de judías verdes cocidas",
+            "100 g de champiñones laminados",
+            "1 cebolla picada",
+            "2 pimientos verdes",
+            "2 tomates en dados",
+            "3 cucharadas de leche",
+            "Aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Rehoga la cebolla en 4 cucharadas de aceite de oliva hasta que esté bien doradita. Incorpora el pimiento verde y las judías y cocina durante 6 minutos. Añade los champiñones y cocina 3 minutos más.",
+            "Bate los huevos, añade la leche y sazona con sal y pimienta. Añade las verduras y mezcla bien todos los ingredientes.",
+            "Haz la tortilla en una sartén antiadherente. Puedes servirla recién hecha."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/tortilla-de-verduras_5ad4ae0b_1000x1500.jpg"
+    },
+    {
+        "id": 32,
+        "title": "Timbal de pavo y espinacas",
+        "description": "4 personas | 40 minutos",
+        "ingredients": [
+            "300 g de pechuga de pavo en taquitos",
+            "500 g de espinacas frescas",
+            "1 cebolla",
+            "1 pimiento rojo en dados",
+            "1 calabacín en rodajas finas",
+            "Aceite de oliva",
+            "Sal\n "
+        ],
+        "instructions": [
+            "Precalienta el horno a 100 ºC. Coloca las rodajas de calabacín sobre una bandeja de horno con papel sulfurizado, sazónalas y rocíalas con un poco de aceite de oliva.",
+            "Hornéalas 15 minutos, dales la vuelta, y vuelve a hornear 15 minutos más para que queden doradas y crujientes.",
+            "Escalda las espinacas en agua hirviendo con sal 2 minutos y escúrrelas bien. Pela y pica la cebolla y rehógala junto con el pimiento en 2 cucharadas de aceite de oliva durante 5 minutos.",
+            "Agrega la carne y cocina 4 minutos. Incorpora las espinacas, cuece 1 minuto más y sazona.",
+            "Monta un timbal sobre el plato con las verduras y la pechuga de pollo, y decóralo con unos chips de calabacín."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/recetas-saludables-pechuga-de-pavo-con-chips-de-calabacin_366ee9ed_1280x1820.jpg"
+    },
+    {
+        "id": 33,
+        "title": "Arroz integral con verduras",
+        "description": "4 personas | 50 minutos",
+        "ingredients": [
+            "300 g de arroz integral",
+            "100 g de judías verdes troceada",
+            "1 cebolla en dados",
+            "1 zanahoria en dados",
+            "1 pimiento verde en dados",
+            "1 diente de ajo",
+            "50 g de almendras tostadas",
+            "Romero",
+            "Aceite de oliva",
+            "Pimienta ",
+            "Sal"
+        ],
+        "instructions": [
+            "Calienta 2 veces y medio el volumen del arroz en agua y sazona. Cuando el agua rompa a hervir, añade el arroz y las judías, y cuece según las indicaciones del envase.",
+            "Sofríe la cebolla 2 minutos en una sartén con dos cucharadas de aceite de oliva bien caliente. Añade el pimiento y la zanahoria y cocina 10 minutos más a fuego lento. Pela y pica el diente de ajo y el romero y añade las almendras a la picada. Sofríelo todo un minuto en la sartén con una cucharada de aceite.",
+            "Añade el arroz con las judías a la sartén junto con las verduras. Rehógalo todo un par de minutos más y sirve."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/recetas-con-arroz-integral-verduras-temporada_a7badaf6_1000x1500.jpg"
+    },
+    {
+        "id": 34,
+        "title": "Crepes rellenas de espinacas, jamón cocido y queso blanco",
+        "description": "4 personas | 40 minutos",
+        "ingredients": [
+            "3 huevos",
+            "1 vaso de leche",
+            "150 g de harina",
+            "1 cebolla",
+            "600 g de espinacas",
+            "180 g de queso blanco para untar",
+            "150 g de jamón cocido en lonchas",
+            "Pimentón dulce",
+            "Aceite de oliva",
+            "Pimienta negra",
+            "Sal"
+        ],
+        "instructions": [
+            "Bate los huevos con una cucharada de aceite de oliva, la harina y la leche y deja reposar 1 hora.",
+            "Mientras tanto escalda las espinacas 1 minuto en agua salada. Enjuágalas con agua fría y escúrrelas. Corta las lonchas de jamón cocido en lonchas.",
+            "Pela y pica finamente la cebolla, y sofríela 5 minutos en una sartén con un poco de aceite de oliva. Añade las espinacas, sazona al gusto, y cocina dos minutos más. Añade el queso y remueve hasta obtener una mezcla. Incorpora el jamón cocido.",
+            "Engrasa una sartén antiadherente con unas gotas de aceite de oliva y vierte un cazo de la mezcla de crepes y deja cocinar 2 minutos. Dale la vuelta y cocina otro minuto más, y repite el proceso hasta terminar la masa.",
+            "Reparte el relleno en cada crepe y dóblalas en cuatro. Sírvelas bien calientes con una pizca de pimentón dulce."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/05/crepes-rellenas-de-espinacas-jamon-cocido-y-queso-blanco_a92c40cb_1600x2400.jpg"
+    },
+    {
+        "id": 35,
+        "title": "Ensalada tricolor",
+        "description": "4 personas | 30 minutos",
+        "ingredients": [
+            "200 g de queso fresco cortado en rodajas",
+            "4 tomates rojos",
+            "2 aguacates",
+            "Unos tomatitos cherry",
+            "1 limón",
+            "Hojas pequeñas de albahaca",
+            "60 ml de aceite",
+            "Pimienta en grano",
+            "Sal"
+        ],
+        "instructions": [
+            "Lava los dos tipos de tomates y sécalos con papel de cocina. Corta los grandes en rodajas y reserva los otros. Exprime el limón y cuela el zumo. ",
+            "Parte los aguacates por la mitad y retírales el hueso. Pélalos y córtalos en medias lunas, y rocía con el limón.",
+            "Emplata como en la imagen. Sazona, espolvorea con pimienta recién molida y riega con el aceite. Decora con los tomatitos y la albahaca y sirve."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/comidas-rapidas-ensalada-tomate-aguacate-mozzarella_a45d421b_1000x1500.jpg"
+    },
+    {
+        "id": 36,
+        "title": "Atún encebollado con arroz",
+        "description": "4 personas | 30 minutos",
+        "ingredients": [
+            "600 g de atún fresco",
+            "2 cebollas grandes",
+            "4 dientes de ajo",
+            "5 cucharadas de aceite de oliva",
+            "75 ml de vino blanco",
+            "2 hojas de laurel",
+            "1 taza de guisantes cocidos",
+            "320 g de arroz blanco cocido",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Pela los ajos y córtalos en rodajas finas. Pela las cebollas y pártelas en aros finos.",
+            "Calienta 3 cucharadas de aceite en una sartén, añade los ajos y sofríelos sin que se doren.",
+            "Agrega las hojas de laurel lavadas y la cebolla. Sazona, remueve y tapa. Deja cocer unos 12 o 15 minutos a fuego suave, hasta que esta esté blandita y transparente.",
+            "Lava el atún, sécalo y salpimiéntalo. Calienta el resto del aceite en una sartén grande, agrega el atún y dóralo ligeramente por los dos lados.",
+            "Pasa el atún a la sartén de la cebolla con el vino y los guisantes, y deja cocer a fuego fuerte, unos 2 o 3 minutos, hasta que se evapore el alcohol.",
+            "Reparte el arroz en platos y sírvelo, caliente, con las verduras y el atún cortado en porciones."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/comidas-rapidas-arroz-atun-encebollado_fd4f5f95_1000x1500.jpg"
+    },
+    {
+        "id": 37,
+        "title": "Salmón con verduras",
+        "description": "4 personas | 40 minutos",
+        "ingredients": [
+            "4 lomos de salmón",
+            "½ brócoli en ramitas",
+            "16 tomates cherry",
+            "16 espárragos verdes",
+            "1 cebolla en juliana",
+            "1 limón",
+            "Aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Precalienta el horno a 180 ºC. Coloca en un bol las ramitas de brócoli junto con los espárragos, los tomates cherry y la cebolla. Aliña y mezcla bien.",
+            "Corta 4 hojas de papel sulfurizado (40 cm de lado), y dóblalas a la mitad. Vuelve a desdoblarlas y pinta con aceite de oliva la cara interior del papel dejando un margen limpio. Coloca las verduritas sazonadas, el salmón salpimentado y una rodaja de limón.",
+            "Cierra bien los paquetitos y hornea durante 15 minutos."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/cenas-sanas-salmon-esparragos-silvestres_21c0dffd_1000x1500.jpg"
+    },
+    {
+        "id": 38,
+        "title": "Espinacas a la crema con almendras",
+        "description": "2 personas | 12 minutos",
+        "ingredients": [
+            "250 g de espinacas frescas troceadas",
+            "125 ml de leche evaporada",
+            "1 diente de ajo picado",
+            "40 g de almendras fileteadas",
+            "125 g de taquitos de jamón de pavo",
+            "Aceite de oliva",
+            "Nuez moscada",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Dora el ajo, las almendras y el pavo durante un minuto. En otra sartén saltea las espinacas.",
+            "Añade la leche evaporada a las espinacas y cuece durante dos minutos a fuego lento. Condimenta con nuez moscada, sal y pimienta.",
+            "Reparte las espinacas en platos hondos y añade el resto de ingredientes."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/recetas-faciles-y-baratas-espinacas-a-la-crema-con-almendras_d54bcf62_1280x1820.jpg"
+    },
+    {
+        "id": 39,
+        "title": "Fajitas de carne con pimientos",
+        "description": "4 personas | 20 minutos",
+        "ingredients": [
+            "2 filetes de ternera a la plancha en tiras",
+            "2 tomates en daditos",
+            "1 guindilla troceada",
+            "2 cebolletas en plumas",
+            "2 pimientos verdes en tiras",
+            "2 pimientos rojos en tiras",
+            "2 cucharadas de tomate frito",
+            "8 tortillas de maíz o de trigo",
+            "Aceite de oliva",
+            "Sal"
+        ],
+        "instructions": [
+            "Calienta un fondo de aceite y rehoga la cebolleta y el pimiento 2 minutos. Añade el tomate y la guindilla, y prosigue la cocción 2 minutos más, removiendo de vez en cuando.",
+            "Agrega el tomate frito y sazona. Incorpora los filetes. Calienta las tortillas unos segundos en una sartén, sin añadir grasa.",
+            "Reparte la preparación en ellas, dóblalas sobre el relleno, y sírvelas."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/comidas-rapidas-fajitas-de-carne-con-pimientos_4f67d163_1279x1820.jpg"
+    },
+    {
+        "id": 40,
+        "title": "Rollitos de tortilla",
+        "description": "4 personas | 30 minutos",
+        "ingredients": [
+            "4 huevos",
+            "150 gr de queso de cabra en rodajas",
+            "100 gr de rúcula",
+            "Aceite de oliva",
+            "Pimienta",
+            "Pimentón dulce",
+            "Sal"
+        ],
+        "instructions": [
+            "Aliña la rúcula con un poco de sal y un chorrito de aceite de oliva, mezclando bien en un cuenco.",
+            "Bate los huevos uno a uno por separado, sazonados con una pizca de pimentón dulce y un poco de sal. Agrégalo a una sartén pequeña antiadherente con una cucharadita de aceite de oliva bien caliente. Cuaja bien la tortilla por ambos lados como si se tratase de una crepe.",
+            "Extiende la tortilla en un plato, ponle una capa de rúcula y unas rodajas de queso de cabra. Repite el proceso para cada una de las tortillas.",
+            "Cuando tengas las tortillas ya con el relleno, enróllalas formando un rulo. Sirve las tortillas cortadas en rodajas gruesas."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/rollitos-de-tortilla_c635fd8d_1160x1500.jpg"
+    },
+    {
+        "id": 41,
+        "title": "Dorada con ajitos",
+        "description": "4 personas | 1 hora",
+        "ingredients": [
+            "4 doradas de ración limpias y abiertas",
+            "8 patatas",
+            "1 calabacín",
+            "1 cebolla",
+            "4 ajos",
+            "1 guindilla",
+            "Vinagre de Jerez",
+            "Aceite",
+            "Pimienta",
+            "Perejil picado",
+            "Sal"
+        ],
+        "instructions": [
+            "Lava y seca las doradas y retira con unas pinzas las posibles espinas que puedan quedar.",
+            "Pela las patatas, lávalas con el calabacín y parte ambos en rodajas. Pela la cebolla y córtala en plumas.",
+            "Pon la verdura en una fuente refractaria, salpimiéntala y riégala con un poco de aceite. Ásala 30 minutos en el horno precalentado a 180º.",
+            "Incorpora encima las doradas, sazónalas, riégalas con un poco de aceite y hornéalas 10 minutos.",
+            "Pela los ajos y córtalos en láminas. Calienta 100 ml de aceite con la guindilla troceada, añade el ajo y dóralo. Retira y añade un chorrito de vinagre y perejil.",
+            "Retira el pescado del horno y vierte el refrito encima, mojándolo todo bien.",
+            "Remueve la fuente unos instantes para que el aliño se mezcle con los jugos de cocción y sirve."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/dorada-con-ajitos_59e23d23_1000x1500.jpg"
+    },
+    {
+        "id": 42,
+        "title": "Garbanzos con espinacas",
+        "description": "4 personas | 30 minutos",
+        "ingredients": [
+            "600 g de garbanzos cocidos escurridos",
+            "1 cebolla morada en rodajas finas",
+            "El zumo de ½ limón",
+            "1 cucharadita de azúcar",
+            "120 g de beicon en taquitos",
+            "2 dientes de ajo picados",
+            "1 manojo de espinacas frescas",
+            "1 cucharada de comino molido",
+            "50 g de piñones",
+            "Aceite de oliva",
+            "Sal"
+        ],
+        "instructions": [
+            "Mezcla en un bol una cucharadita de sal y otra de azúcar, el zumo del limón y un vaso de agua. Sumerge la cebolla en la mezcla y deja macerar durante 30 o 45 minutos en la nevera.",
+            "Lava las espinacas, quítales los tallos y conserva solo las hojas; trocéalas gruesas.",
+            "Calienta durante unos segundos un wok o una sartén un poco profunda, con una cucharada de aceite de oliva. Añade los taquitos de beicon y el ajo picado, y saltéalos hasta que se doren ligeramente.",
+            "Agrega los garbanzos, espolvorea con el comino y saltear un minuto a fuego fuerte, removiendo. Baja el fuego a la mitad, incorpora las espinacas, sala ligeramente y saltea hasta que se empiecen a ablandar. Retira del fuego.",
+            "Pon al fuego una sartén pequeña sin aceite y, cuando esté caliente, añade los piñones y tuéstalos durante unos segundos.",
+            "Escurre la cebolla macerada, y decora con ella el salteado de garbanzos, espinacas y beicon. Completa con los piñones tostados y sirve."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/comidas-rapidas-garbanzos-con-espinacas_677478bc_1000x1500.jpg"
+    },
+    {
+        "id": 43,
+        "title": "Gratinado de brócoli",
+        "description": "2 personas | 15 minutos",
+        "ingredients": [
+            "40 g de brócoli",
+            "40 g de patatas cocidas",
+            "20 g de queso rallado",
+            "Besamel",
+            "Sal"
+        ],
+        "instructions": [
+            "Precalienta el horno a 180 ºC. Cuece el brócoli en el microondas dos minutos.",
+            "Coloca la patata y el brócoli en un recipiente apto para el horno y colócalos en una fuente para horno.",
+            "Cubre las verduras con la bechamel, espolvorea el queso rallado y gratina 8 minutos."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/brocoli-gratinado_284af266_1000x1500.jpg"
+    },
+    {
+        "id": 44,
+        "title": "Judías verdes con cítricos",
+        "description": "2 personas | 15 minutos",
+        "ingredients": [
+            "150 gramos de judías verdes redondas cocidas",
+            "100 g de queso roquefort desmenuzado",
+            "25 g de nueces pecanas picadas",
+            "25 g de anacardos picados",
+            "25 g de uvas pasas sultanas",
+            "½ lima",
+            "½ limón",
+            "½ naranja",
+            "½ cebolleta",
+            "Germinados",
+            "Aceite de oliva virgen extra",
+            "Sal"
+        ],
+        "instructions": [
+            "Lava los cítricos y ralla la piel de cada uno.",
+            "Exprime el zumo del limón y la naranja y mézclalos con las ralladuras (reservando una pizca), la cebolleta troceada, 75 ml de aceite de oliva y una pizca de sal. Tritura hasta obtener una salsa homogénea y reserva.",
+            "Dispón las judías verdes en una fuente y reparte por encima el roquefort, las uvas pasas, los frutos secos y un poco de ralladura de los cítricos.",
+            "Riega las judías con la salsa de cítricos y decora con unos germinados."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/judias-verdes-con-citricos-y-frutos-secos_0080c62f_1000x1500.jpg"
+    },
+    {
+        "id": 45,
+        "title": "Crema de calabaza asada al curry",
+        "description": "4 personas | 50 minutos",
+        "ingredients": [
+            "1 kg de calabaza en dados",
+            "2 cebolletas",
+            "3 dientes de ajo",
+            "300 ml de caldo vegetal",
+            "1 cucharadita de curry",
+            "2 cucharadas de almendras fileteadas tostadas",
+            "2 cucharaditas de semillas de sésamo",
+            "Aceite de oliva",
+            "Sal"
+        ],
+        "instructions": [
+            "Precalienta el horno a 200 ºC. Coloca la calabaza en una fuente de horno junto con los ajos enteros y sin pelar, y las cebolletas lavadas. Riégalo todo con un hilo de aceite y hornéalo durante 30 minutos.",
+            "Cuando las verduras se hayan enfriado, corta en aros la parte tierna de las cebolletas y resérvalas para decorar. Trocea el resto de las cebolletas y pela los ajos.",
+            "Coloca todos los ingredientes en una olla y tritúralos hasta obtener un puré. Añade el caldo caliente y el curry, y cuece la crema 10 minutos más.",
+            "Sirve la crema caliente, y decórala con las almendras laminadas, los aros de cebolleta y las semillas de sésamo."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/crema-de-calabaza-asada-al-curry_53b81d72_1280x1820.jpg"
+    },
+    {
+        "id": 46,
+        "title": "Huevo con patatas y pimentón",
+        "description": "4 personas | 1 hora",
+        "ingredients": [
+            "4 huevos",
+            "300 g de patatas cocidas",
+            "150 g de pimiento rojo asado",
+            "1 cucharadita de pimentón dulce",
+            "1 cucharadita de pimentón picante",
+            "3 hojas de laurel",
+            "Aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Precalienta el horno a 200 ºC. Cuece los huevos 5 minutos. Pasado el tiempo, enjuaga los huevos con agua fría y pélalos.",
+            "Corta las patatas en rodajas. En una sartén con una cuchara de aceite de oliva caliente, dora las patatas 1 minuto por cada lado. ",
+            "Coloca las patatas en una fuente, sazónalas con sal, pimienta y el pimentón picante.",
+            "Añade los pimientos, luego los huevos, con un pequeño corte transversal y sazónalo todo con el pimentón dulce. Decora con una hoja de laurel."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/huevo-con-patatas-y-pimenton_3b092811_1000x1500.jpg"
+    },
+    {
+        "id": 47,
+        "title": "Caballa con verduras",
+        "description": "4 personas | 40 minutos",
+        "ingredients": [
+            "4 lomos de caballa limpios y sin espinas troceados",
+            "1 cebolla picada",
+            "1 calabacín en dados gruesos",
+            "2 zanahorias en daditos",
+            "3 tomates en dados",
+            "Orégano fresco",
+            "½ vaso de vino blanco",
+            "Aceite de oliva",
+            "Pimienta",
+            "Sal"
+        ],
+        "instructions": [
+            "Pocha la cebolla en una sartén. Añade la zanahoria y cocina 2 minutos más. Incorpora el calabacín y sofríe un minuto más.",
+            "Vierte el vino blanco y déjalo cocinar un par de minutos hasta que el alcohol se haya evaporado. Añade el tomate y cocina a fuego medio 5 minutos.",
+            "Incorpora los trozos de caballa a las verduras, sazona al gusto, y cuece el pescado tapado a fuego medio 5 minutos. ",
+            "Apártalo del fuego, déjalo reposar un par de minutos y sirve."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/cenas-sanas-caballa-con-verduras_dff1bca3_1000x1500.jpg"
+    },
+    {
+        "id": 48,
+        "title": "Tortilla de champiñones y jamón",
+        "description": "4 personas | 30 minutos",
+        "ingredients": [
+            "8 huevos",
+            "250 gramos de champiñones laminados",
+            "100 gramos de jamón serrano en daditos",
+            "2 dientes de ajo",
+            "Perejil picado",
+            "Aceite de oliva",
+            "Pimienta negra",
+            "Sal"
+        ],
+        "instructions": [
+            "Sofríe el ajo en una sartén con una cucharada de aceite de oliva caliente. Agrega los champiñones, saltéalos 5 minutos y retira del fuego. Añade el jamón y el perejil.",
+            "Bate los huevos en un cuenco, añade una pizca de sal y el sofrito anterior mezclando bien los ingredientes.",
+            "Engrasa una sartén de buen tamaño con un poco de aceite y ponla al fuego. Vierte la mezcla y déjala cuajar 4 minutos. Dale la vuelta y cocínala 4 minutos más por el otro."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/tortilla-de-champinones-y-jamon_bfdcd2ec_568x756.jpg"
+    },
+    {
+        "id": 49,
+        "title": "Tallarines de calabacín con setas y huevo",
+        "description": "4 personas",
+        "ingredients": [
+            "250 g de setas shiitake troceadas",
+            "4 huevos grandes",
+            "4 calabacines medianos en tiras finas a lo largo",
+            "2 dientes de ajo picados",
+            "5 cucharadas de aceite de oliva",
+            "Sal"
+        ],
+        "instructions": [
+            "Corta un cuadrado de film transparente de unos 15 x 15 cm y forra con él el interior de un vaso pequeño. ",
+            "Engrásalo con un poco de aceite y casca dentro un huevo, con cuidado de no romper la yema. ",
+            "Junta las puntas del film, enróllalas para formar un paquetito y ciérralo sujetándolo con una gomita.",
+            "Repite el proceso con los huevos restantes y cuécelos, por tandas, en un cazo con agua durante 4-5 minutos cada uno. ",
+            "Sofríe el ajo y el calabacín. Aparte sofríe las setas. ",
+            "Reparte las tiras de calabacín en los platos, añade por encima las setas y corona cada uno con un huevo."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/05/recetas-rapidas-con-procesados-saludables-tallarines-calabacin-setas-huevo_5d1131ad_1280x1829.jpg"
+    },
+    {
+        "id": 50,
+        "title": "Calamar a la plancha con verduras",
+        "description": "4 personas | 35 minutos",
+        "ingredients": [
+            "8 calamares medianos limpios",
+            "2 dientes de ajo",
+            "2 pimientos verdes en tiras",
+            "1 calabacín en tiras",
+            "1 zanahoria en tiras",
+            "Zumo de ½ limón",
+            "Aceite de oliva",
+            "Perejil",
+            "Sal"
+        ],
+        "instructions": [
+            "Prepara un aliño para los calamares con una picada de ajo y perejil mezclada con el zumo de limón, una pizca de sal y 5 cucharadas de aceite de oliva. Mezcla bien y reserva.",
+            "Rehoga las verduras. Sazona con un poco de sal y sofríelas 4 minutos. Conserva las verduras en un recipiente y utiliza esa misma sartén con una cucharada de aceite para cocinar los calamares 3 minutos por cada lado.",
+            "Las patitas cocínalas a parte, 2 minutos serán suficientes para que queden bien hechas.",
+            "Sirve los calamares regados con el aliño y acompañados del salteado de verduras."
+        ],
+        "image": "https://www.clara.es//medio/2023/01/04/cenas-sanas-calamar-verduras_32f1cc4e_1000x1500.jpg"
+    }
+]
