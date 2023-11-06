@@ -1,8 +1,10 @@
 <x-layouts.admin-layout>
   <h1>Rutinas</h1>
   <div class="button-container">
-    <button class="button button-primary" type="button" id="open-modal">Agregar rutina <img
-        src="{{ asset('assets/icons/admin/exercise-running.svg') }}" alt=""></button>
+    <button class="button button-primary" type="button" id="open-modal">
+      Agregar rutina
+      <img src="{{ asset('assets/icons/admin/exercise-running.svg') }}" alt="">
+    </button>
   </div>
 
   <section class="table">
@@ -13,7 +15,6 @@
           <div class="divTableCell">Nombre</div>
           <div class="divTableCell"></div>
         </div>
-
         <div class="divTableRow">
           <div class="divTableCell">Cardio</div>
           <div class="divTableCell">CARDIO 2</div>
@@ -22,6 +23,31 @@
               <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
             </button>
             <div class="table__options-menu">
+              <button class="view" id="open-modal">
+                <img src="{{ asset('assets/icons/admin/plus.svg') }}" alt="icono de editar" loading="lazy">
+                Asignar
+              </button>
+              <button class="edit">
+                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
+              </button>
+              <button class="delete">
+                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="divTableRow">
+          <div class="divTableCell">Cardio</div>
+          <div class="divTableCell">CARDIO 2</div>
+          <div class="divTableCell relative">
+            <button class="table__options" type="button" data-id="1">
+              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
+            </button>
+            <div class="table__options-menu">
+              <button class="view" id="open-modal">
+                <img src="{{ asset('assets/icons/admin/plus.svg') }}" alt="icono de editar" loading="lazy">
+                Asignar
+              </button>
               <button class="edit">
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
@@ -34,6 +60,7 @@
       </div>
     </div>
   </section>
+
   <article class="pagination">
     <button id="prev" title="Anterior">
       <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
@@ -89,4 +116,39 @@
 
     </div>
   </div>
+
+  <div class="modal__container" id="modal__assign">
+    <div action="" class="modal">
+      <button id="close-modal" type="button">
+        <img src="{{ asset('assets/icons/admin/close-filled.svg') }}" alt="icono de cerrar" loading="lazy">
+      </button>
+
+      <section class="content">
+        <div class="form-container">
+          <div class="title">Asignar rutina a</div>
+          <div class="content">
+            <p class="instruction">Seleccione al usuario que desea asignar la rutina</p>
+            <div class="divTable">
+              <div class="divTableBody">
+                <div class="divTableHeading">
+                  <div class="divTableCell">Usuario</div>
+                  <div class="divTableCell">Correo</div>
+                </div>
+                <div class="divTableRow">
+                  <div class="divTableCell">Spasssio0001</div>
+                  <div class="divTableCell">usuario@mail.com</div>
+                </div>
+                <div class="divTableRow">
+                  <div class="divTableCell">Spasssio0001</div>
+                  <div class="divTableCell">usuario@mail.com</div>
+                </div>
+                <div class="divTableRow">
+                  <div class="divTableCell">Spasssio0001</div>
+                  <div class="divTableCell">usuario@mail.com</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
 </x-layouts.admin-layout>
