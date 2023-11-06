@@ -29,7 +29,7 @@ const getRandomRecipes = () => {
 
 function createRecipeCard(recipe) {
     const recipe_card = document.createElement("li");
-    recipe_card.classList.add("nutritional__recipe");
+    recipe_card.classList.add("nutritional__recipe", "animate__animated", "animate__fadeIn");
     recipe_card.style.setProperty("--bg-image", `url(${recipe.image})`);
     recipe_card.setAttribute("data-id", recipe.id);
 
@@ -72,7 +72,7 @@ function handleChangeRecipe() {
                 getRecipeById(id - 1);
 
             const recipe = `
-                <div class="recipe">
+                <div class="recipe animate__animated animate__fadeIn">
                     <div class="recipe__image">
                         <img src="${image}" alt="${title}">
                     </div>
