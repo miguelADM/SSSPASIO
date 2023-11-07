@@ -20,7 +20,13 @@
         </div>
         @foreach ($users as $item)
         <div class="divTableRow">
-          <div class="divTableCell">No hay nombre de usuario</div>
+          <div class="divTableCell">
+            @if ($item->id_rol == 1)
+            Usuario
+            @else
+            Administrador
+            @endif
+          </div>
           <div class="divTableCell">
             {{$item->user_name}}
           </div>

@@ -31,6 +31,7 @@ class UserController extends Controller
 
     $param['users'] = DB::table(function ($subquery) {
         $subquery->select(
+            'id_rol as id_rol',
             'users.id as id_user',
             'users.name as user_name',
             DB::raw('GROUP_CONCAT(DISTINCT grupo_trabajos.nombre) as grupo_name'),
@@ -76,6 +77,7 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6',
             'confirm_password' => 'required|same:password',
+            'rol' => 'required|in:1,2',
             'sexo' => 'required',
             'membresia' => 'required|in:1,2,3',
             'grupo' => 'required|integer', // Ajusta la regla según el tipo de dato del campo
@@ -103,6 +105,7 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
         $user->password = Hash::make($request->confirm_password);
+        $user->id_rol = $request->input('rol');
         $user->sexo = $request->input('sexo');
         $user->membresia_id = $request->input('membresia'); // Asociar el usuario con la membresía
         $today = Carbon::now();
@@ -140,6 +143,7 @@ class UserController extends Controller
     {
         $users = DB::table(function ($subquery) use ($id) {
             $subquery->select(
+                'id_rol as id_rol',
                 'users.id as id_user',
                 'users.name as user_name',
                 DB::raw('GROUP_CONCAT(DISTINCT grupo_trabajos.nombre) as grupo_name'), 
