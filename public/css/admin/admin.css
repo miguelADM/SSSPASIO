@@ -1,6 +1,7 @@
 :root {
     /* colors */
     --primary: #52459f;
+    --primaryHome: #003366;
     --secondary: #84e9f5;
     --text: #797c83;
     --bgPrimary: #84eaf52c;
@@ -369,14 +370,14 @@ body {
     }
 }
 
-.divTable{
-	display: table;
-	width: 100%;
+.divTable {
+    display: table;
+    width: 100%;
     border-collapse: collapse;
 }
 
 .divTableRow {
-	display: table-row;
+    display: table-row;
     font-size: 14px;
     transition: var(--transition);
 }
@@ -390,22 +391,24 @@ body {
 }
 
 .divTableHeading {
-	display: table-row;
+    display: table-row;
     font-weight: var(--black);
     text-transform: uppercase;
     font-size: 13px;
     letter-spacing: 1.5px;
 
 }
-.divTableCell, .divTableHead {
-	border-bottom: var(--border);
-	display: table-cell;
+
+.divTableCell,
+.divTableHead {
+    border-bottom: var(--border);
+    display: table-cell;
     vertical-align: middle;
-	padding: 14px 10px;
+    padding: 14px 10px;
 }
 
 .divTableBody {
-	display: table-row-group;
+    display: table-row-group;
     overflow-x: scroll;
 }
 
@@ -447,16 +450,16 @@ body {
     padding: 14px 10px;
 
     & button {
-      border: none;
-      cursor: pointer;
-      transition: var(--transition);
-      background: #fff;
-      border-radius: 50%;
-      padding: 8px;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        background: #fff;
+        border-radius: 50%;
+        padding: 8px;
 
-      &:hover {
-          filter: contrast(.8);
-      }
+        &:hover {
+            filter: contrast(.8);
+        }
     }
 
     & button.delete {
@@ -562,15 +565,15 @@ body {
     padding: 30px;
     margin: 0px auto;
 
-  }
+}
 
-  .form-container .title {
+.form-container .title {
     font-size: 25px;
     font-weight: 500;
     position: relative;
-  }
+}
 
-  .form-container .title::before {
+.form-container .title::before {
     content: "";
     position: absolute;
     left: 0;
@@ -579,36 +582,37 @@ body {
     width: 30px;
     border-radius: var(--radius);
     background: linear-gradient(135deg, #71b7e6, #9b59b6);
-  }
+}
 
-  .content .formularioAdmin .user-details{
+.content .formularioAdmin .user-details {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 0 12px 0;
-  }
+}
 
-  .formularioAdmin .user-details .input-box {
+.formularioAdmin .user-details .input-box {
     margin-bottom: 15px;
-  }
+}
 
-  .dos-col .user-details .input-box {
+.dos-col .user-details .input-box {
     margin-bottom: 15px;
     width: calc(100% / 2 - 20px);
-  }
+}
 
-  .una-col .user-details .input-box {
+.una-col .user-details .input-box {
     margin-bottom: 15px;
     width: 100%;
-  }
+}
 
-  .formularioAdmin .input-box span.details {
+.formularioAdmin .input-box span.details {
     display: block;
     font-weight: 500;
     margin-bottom: 5px;
-  }
+}
 
-  .user-details .input-box input, .user-details .input-box select{
+.user-details .input-box input,
+.user-details .input-box select {
     height: 45px;
     width: 100%;
     outline: none;
@@ -618,15 +622,15 @@ body {
     border: 1px solid #ccc;
     border-bottom-width: 2px;
     transition: all 0.3s ease;
-  }
+}
 
-  .formularioAdmin .input-box img{
+.formularioAdmin .input-box img {
     width: 75%;
     height: 75%;
     margin-bottom: 12px;
-  }
+}
 
-  .user-details .input-box textarea{
+.user-details .input-box textarea {
     width: 100%;
     outline: none;
     font-size: 16px;
@@ -635,9 +639,9 @@ body {
     border: 1px solid #ccc;
     border-bottom-width: 2px;
     transition: all 0.3s ease;
-  }
+}
 
-  .formularioAdmin .input-box textarea{
+.formularioAdmin .input-box textarea {
     width: 100%;
     outline: none;
     font-size: 16px;
@@ -646,40 +650,42 @@ body {
     border: 1px solid #ccc;
     border-bottom-width: 2px;
     transition: all 0.3s ease;
-  }
+}
 
-  .formularioAdmin .input-box input:focus, .formularioAdmin .input-box select:focus, .formularioAdmin textarea:focus{
+.formularioAdmin .input-box input:focus,
+.formularioAdmin .input-box select:focus,
+.formularioAdmin textarea:focus {
     border-color: #9b59b6;
-  }
+}
 
-  input:read-only {
+input:read-only {
     background-color: gray;
     color: white;
-  }
+}
 
-  .periodo-details {
+.periodo-details {
     width: 100%;
-  }
+}
 
-  .formularioAdmin .periodo-details .periodo-title {
+.formularioAdmin .periodo-details .periodo-title {
     font-size: 20px;
     font-weight: 500;
-  }
+}
 
-  .formularioAdmin .category {
+.formularioAdmin .category {
     display: flex;
     width: 80%;
     margin: 14px 0;
     justify-content: space-between;
-  }
+}
 
-  .formularioAdmin .category label {
+.formularioAdmin .category label {
     display: flex;
     align-items: center;
     cursor: pointer;
-  }
+}
 
-  .formularioAdmin .category label .dot {
+.formularioAdmin .category label .dot {
     height: 18px;
     width: 18px;
     border-radius: var(--radius);
@@ -687,27 +693,27 @@ body {
     background: #d9d9d9;
     border: 5px solid transparent;
     transition: all 0.3s ease;
-  }
+}
 
-  #periodo4:checked~.category label .one,
-  #periodo5:checked~.category label .two,
-  #periodo1:checked~.category label .three,
-  #periodo2:checked~.category label .four,
-  #periodo3:checked~.category label .five {
+#periodo4:checked~.category label .one,
+#periodo5:checked~.category label .two,
+#periodo1:checked~.category label .three,
+#periodo2:checked~.category label .four,
+#periodo3:checked~.category label .five {
     background: #9b59b6;
     border-color: #d9d9d9;
-  }
+}
 
-  .formularioAdmin input[type="radio"] {
+.formularioAdmin input[type="radio"] {
     display: none;
-  }
+}
 
-  .formularioAdmin .btn-form-admin {
+.formularioAdmin .btn-form-admin {
     height: 45px;
     margin: 35px 0
-  }
+}
 
-  .formularioAdmin .btn-form-admin input {
+.formularioAdmin .btn-form-admin input {
     height: 100%;
     width: 100%;
     border-radius: var(--radius);
@@ -719,13 +725,13 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     background: var(--primary);
-  }
+}
 
-  .formularioAdmin .btn-form-admin input:hover {
+.formularioAdmin .btn-form-admin input:hover {
     transform: scale(1.05);
-  }
+}
 
-  @media(max-width: 584px) {
+@media(max-width: 584px) {
     .form-container {
         max-width: 100%;
     }
@@ -747,10 +753,179 @@ body {
     .user-details::-webkit-scrollbar {
         width: 5px;
     }
-  }
+}
 
-  @media(max-width: 459px) {
+@media(max-width: 459px) {
     .form-container .content .category {
         flex-direction: column;
     }
-  }
+}
+
+/*   Progreso du usuarios */
+
+.user__profile-card {
+    display: flex;
+    border: var(--border);
+    width: 900px;
+    margin: 24px auto;
+    padding: 24px;
+
+    & img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        margin: auto;
+        border: 7px solid var(--primary);
+        border-radius: 50%;
+    }
+
+    & .user_profile-text {
+        width: 100%;
+        align-self: center;
+        margin-left: 24px;
+
+        & h3 {
+            font-size: 40px;
+            margin-bottom: 8px;
+        }
+
+        & p {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.user_profile-data {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 20px;
+
+    & .user__data {
+        width: 100%;
+        display: flex;
+
+        & .tag {
+            width: 150px;
+            color: var(--primary);
+        }
+    }
+}
+
+.period__buttons-container {
+    width: 100%;
+    margin-bottom: 30px;
+
+    & h3 {
+        font-size: 30px;
+        margin: 0 auto;
+
+    }
+}
+
+.period__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 30px 0;
+
+    & button {
+        color: var(--primary);
+        font-weight: var(--black);
+        text-transform: capitalize;
+        font-size: 18px;
+        display: inline-block;
+        padding: 12px 28px;
+        position: relative;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        border-radius: var(--radius);
+
+        &::after {
+            background: none repeat scroll 0 0 transparent;
+            bottom: 0;
+            content: "";
+            display: block;
+            height: 3px;
+            left: 50%;
+            position: absolute;
+            background: var(--secondary);
+            transition: width 0.3s ease 0s, left 0.3s ease 0s;
+            width: 0;
+        }
+
+        &:hover:after {
+            width: 100%;
+            left: 0;
+        }
+    }
+
+
+    .btn__progress-menu.active {
+        background: var(--primary);
+        color: #fff;
+    }
+}
+
+.points {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 24px auto 48px; 
+}
+
+/* Graficas */
+/* .progress__section .column tr:nth-child(even) {
+    --color: var(--primary);
+}
+
+.progress__section .column tr:nth-child(odd) {
+    --color: var(--primaryHome);
+} */
+
+.toggle__section {
+    display: none;
+}
+
+.progress__chart {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 250px 50px;
+    grid-template-areas:
+        "data-axis-1 chart data-axis-2"
+        ". primary-axis .";
+    width: 90%;
+    margin: 0 auto;
+}
+
+.charts-css.show-heading caption {
+    margin-bottom: 24px;
+}
+
+.charts-css.column tbody tr td span {
+    font-weight: var(--black);
+    transform: translateY(-20px);
+}
+
+
+.progress__chart .column {
+    grid-area: chart;
+}
+
+.progress__chart .primary-axis {
+    grid-area: primary-axis;
+    font-size: 20px;
+    font-weight: var(--bold);
+}
+
+.progress__chart .data-axis-1 {
+    grid-area: data-axis-1;
+    writing-mode: tb-rl;
+    transform: rotateZ(180deg);
+    font-size: 20px;
+    font-weight: var(--bold);
+}
