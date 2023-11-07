@@ -11,11 +11,13 @@ use App\Models\Enfermedades;
 use App\Models\GrupoTrabajo;
 use Illuminate\Http\Request;
 use App\Models\UserEnfermedad;
-use CreateUserEnfermedadsTable;
 use App\Models\GrupoTrabajoUser;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+
+
 
 class UserController extends Controller
 {
@@ -64,9 +66,6 @@ class UserController extends Controller
 
     
 
-
-
-
     public function store(Request $request)
     {
         $request->validate([
@@ -82,7 +81,7 @@ class UserController extends Controller
         $existingUser = User::where('email', $request->email)->first();
 
     if ($existingUser) {
-        return redirect()->back();
+        return redirect()->back()->with('Email','El email ya esta en el sistema');
     } else {
         // Inserta el nuevo usuario en la base de datos.
     
@@ -122,7 +121,7 @@ class UserController extends Controller
             $userEnfermedad->id_enfermedad = $request->input('enfermedad'); 
             $userEnfermedad->save();
         
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('Agregado','Usuario Agregado Correctamente');;
         }
     }
 
@@ -130,6 +129,7 @@ class UserController extends Controller
     {
         $users = DB::table(function ($subquery) use ($id) {
             $subquery->select(
+                'id_rol as id_rol',
                 'users.id as id_user',
                 'users.name as user_name',
                 DB::raw('GROUP_CONCAT(DISTINCT grupo_trabajos.nombre) as grupo_name'), 
@@ -138,6 +138,8 @@ class UserController extends Controller
                 'membresias.duracion as periodo', 
                 'users.email as email', 
                 'users.sexo as sexo',
+                'users.expired_at as fin_periodo',
+                'users.password as password'
                 'users.expired_at as fin_periodo',
                 'users.password as password'
             )
@@ -230,6 +232,6 @@ class UserController extends Controller
     {
         $users = User::find($id);
         $users->delete();
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('Eliminado','Usuario eliminado correctamente!');;
     }
 }
