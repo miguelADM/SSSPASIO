@@ -35,6 +35,7 @@ class UserController extends Controller
                 'users.email as email', 
                 'users.sexo as sexo',
                 'users.expired_at as fin_periodo',
+                'users.id_rol as rol'
             )
             ->from('users')
             ->join('grupo_trabajo_users', 'users.id', '=', 'grupo_trabajo_users.id_user')
@@ -42,14 +43,14 @@ class UserController extends Controller
             ->join('membresias', 'users.membresia_id', '=', 'membresias.id')
             ->join('user_enfermedads', 'users.id', '=', 'user_enfermedads.id_user')
             ->join('enfermedades', 'user_enfermedads.id_enfermedad', '=', 'enfermedades.id')
-            ->groupBy('id_user', 'user_name', 'membresia_name', 'periodo', 'email', 'sexo', 'fin_periodo');
+            ->groupBy('id_user', 'user_name', 'membresia_name', 'periodo', 'email', 'sexo', 'fin_periodo','rol')
+            ->orderBy('user_name','ASC');
         }, 'subquery')
-        ->get();
+        ->paginate(10);
        
         $param['grupos_trabajo'] = GrupoTrabajo::all();
         $param['enfermedades'] = Enfermedades::all();
         $param['membresias'] = Membresias::all();
-        $param['rutinas'] = Rutina::all();
 
          return view('admin.users',$param );
     
@@ -68,6 +69,16 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name'=>['required'],
+            'email'=>'required|unique:users',
+            'password'=>['required'],
+            'confirm_password'=>'required|same:password',
+            'rol'=>['required'],
+            'sexo'=>['required'],
+            'membresia'=>['required']
+        ]);
+
         $existingUser = User::where('email', $request->email)->first();
 
     if ($existingUser) {
@@ -77,10 +88,11 @@ class UserController extends Controller
     
         // Crear un nuevo usuario
         $user = new User();
-        $user->name = $request->input('nombre');
+        $user->name = $request->input('name');
         $user->email = $request->input('email');
-        $user->password = bcrypt($request->input('password'));
-        $user->password = Hash::make($request->confirm_password);
+        $encrip = password_hash($request->input('password'), PASSWORD_DEFAULT);
+        $user->password = $encrip;
+        $user->id_rol = $request->input('rol');
         $user->sexo = $request->input('sexo');
         $user->membresia_id = $request->input('membresia'); // Asociar el usuario con la membresía
         $today = Carbon::now();
@@ -126,7 +138,8 @@ class UserController extends Controller
                 'membresias.duracion as periodo', 
                 'users.email as email', 
                 'users.sexo as sexo',
-                'users.expired_at as fin_periodo'
+                'users.expired_at as fin_periodo',
+                'users.password as password'
             )
             ->from('users')
             ->join('grupo_trabajo_users', 'users.id', '=', 'grupo_trabajo_users.id_user')

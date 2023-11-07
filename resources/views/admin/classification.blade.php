@@ -41,15 +41,32 @@
     </div>
   </section>
   <article class="pagination">
-    <button id="prev" title="Anterior">
-      <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
-    </button>
-    <button class="active">1</button>
-    <button>2</button>
-    <button id="next" title="Siguiente">
-      <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
-    </button>
-  </article>
+    @if ($clasifica_ejercicios->onFirstPage())
+        <button id="prev" title="Anterior" disabled>
+            <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
+        </button>
+    @else
+        <a href="{{ $clasifica_ejercicios->previousPageUrl() }}" title="Anterior">
+            <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
+        </a>
+    @endif
+
+    @for ($i = 1; $i <= $clasifica_ejercicios->lastPage(); $i++)
+        <button class="{{ $i === $clasifica_ejercicios->currentPage() ? 'active' : '' }}">
+            <a href="{{ $clasifica_ejercicios->url($i) }}">{{ $i }}</a>
+        </button>
+    @endfor
+
+    @if ($clasifica_ejercicios->hasMorePages())
+        <a href="{{ $clasifica_ejercicios->nextPageUrl() }}" title="Siguiente">
+            <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
+        </a>
+    @else
+        <button id="next" title="Siguiente" disabled>
+            <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
+        </button>
+    @endif
+</article>
 
   <div class="modal__container">
     <div action="" class="modal">
@@ -60,18 +77,28 @@
         <div class="form-container">
           <div class="title">Registrar clasificación</div>
           <div class="content">
-            <form action="{{route('classification.store')}}" method="POST" class="formularioAdmin dos-col">
+            <form action="{{route('classification.store')}}" method="POST" class="formularioAdmin una-col">
               @csrf
               <div class="user-details">
                 <div class="input-box">
                   <span class="details">Nombre</span>
-                  <input type="text" id="nombre" required name="nombre" placeholder="Nombre de la clasificación">
+                  <input type="text" id="nombre"  name="nombre" placeholder="Nombre de la clasificación" value="{{old('nombre')}}">
+                  @error('nombre')
+                   <small style="color: crimson">{{$message}}</small>
+                   <br>
+                  @enderror
                 </div>
               </div>
+              <div class="user-details">
               <div class="input-box">
                 <span class="details">Descripción</span>
-                <textarea name="descripcion" id="descripcion" cols="30" required rows="5" class="form-control"
-                  placeholder="Descripción acerca de la clasificación"></textarea>
+                <input name="descripcion" id="descripcion"  class="form-control"
+                  placeholder="Descripción acerca de la clasificación" value="{{old('descripcion')}}">
+                  @error('descripcion')
+                   <small style="color: crimson">{{$message}}</small>
+                   <br>
+                  @enderror
+              </div>
               </div>
               <div class="btn-form-admin">
                 <input type="submit" value="Registrar">
@@ -83,4 +110,38 @@
 
     </div>
   </div>
+
+  <script src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@11') }}"></script>
+  <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css') }}" />
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js') }}"></script>
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')}}"></script>
+
+  @if(session('Eliminado'))
+  <script>
+    iziToast.error({
+        title: 'Correcto!',
+        message: '{{ session('Eliminado')}}',
+        position: 'center'
+    })
+    </script>
+  @endif
+
+    @if(session('Agregado'))
+  <script>
+    iziToast.success({
+        title: 'Correcto!',
+        message: '{{ session('Agregado')}}',
+        position: 'center'
+    })
+    </script>
+  @endif
+
+  @if(session('Editado'))
+  <script>
+    iziToast.success({
+        title: 'Correcto!',
+        message: '{{ session('Editado')}}'
+    })
+    </script>
+  @endif
 </x-layouts.admin-layout>

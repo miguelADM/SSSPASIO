@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Enfermedades;
+use Illuminate\Support\Facades\DB;
 
 class enfermedadesController extends Controller
 {
@@ -15,7 +16,7 @@ class enfermedadesController extends Controller
      */
     public function index()
     {
-        $enfermedad = Enfermedades::all();
+        $enfermedad = DB::table('enfermedades')->orderBy('nombre','asc')->paginate(10);
         return view('admin.diseases', compact('enfermedad'));
     }
 
@@ -28,12 +29,17 @@ class enfermedadesController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre'=>'required|unique:enfermedades',
+            'descripcion'=>'required'
+        ]);
+
         $enfermedad = new Enfermedades();
         $enfermedad->nombre = $request->post('nombre');
         $enfermedad->descripcion = $request->post('descripcion');
         $enfermedad -> save();
 
-        return redirect()->back();
+        return redirect()->route('diseases.index')->with('Agregado','Enfermedad Agregado');
     }
 
 
@@ -42,7 +48,7 @@ class enfermedadesController extends Controller
         
         $enfermedad = Enfermedades::find($id);
         $enfermedad->delete();
-        return redirect()->route('diseases.index')->with('success','Eliminado con exito con exito!');
+        return redirect()->route('diseases.index');
     }
 
 
@@ -60,7 +66,7 @@ class enfermedadesController extends Controller
         $enfermedad->descripcion = $request->post('descripcion');
         $enfermedad->save();
 
-        return redirect()->route('diseases.index')->with('success','Actualizada con exito con exito!');
+        return redirect()->route('diseases.index')->with('Editado','Enfermedad eliminado');
     }
 
 
@@ -68,6 +74,6 @@ class enfermedadesController extends Controller
     {
         $enfermedad = Enfermedades::find($id);
         $enfermedad->delete();
-        return redirect()->route('diseases.index')->with('success','Ejercicio eliminado');
+        return redirect()->route('diseases.index')->with('Eliminado','Efermedad eliminada');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ClasificacionEjercicio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ClasificacionEjercicioController extends Controller
 {
@@ -14,7 +15,7 @@ class ClasificacionEjercicioController extends Controller
      */
     public function index()
     {
-        $clasifica_ejercicios = ClasificacionEjercicio::all();
+        $clasifica_ejercicios = DB::table('clasificacion_ejercicios')->orderBy('nombre','asc')->paginate(10);
         return view('admin.classification', compact('clasifica_ejercicios'));
     }
 
@@ -36,12 +37,17 @@ class ClasificacionEjercicioController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre'=> ['required'],
+            'descripcion'=> ['required'],
+        ]);
+
         $clasifica_ejercicios = new ClasificacionEjercicio();
         $clasifica_ejercicios->nombre = $request->post('nombre');
         $clasifica_ejercicios->descripcion = $request->post('descripcion');
         $clasifica_ejercicios->save();
 
-        return redirect()->back();
+        return redirect()->route('classification.index')->with('Agregado','Clasificacion de Ejercicio agregada con exito');
     }
 
     /**
@@ -82,7 +88,7 @@ class ClasificacionEjercicioController extends Controller
         $clasifica_ejercicio->descripcion = $request->post('descripcion');
         $clasifica_ejercicio->save();
 
-        return redirect()->route('classification.index');
+        return redirect()->route('classification.index')->with('Editado','Clasificacion actualizada con exito');
     }
 
     /**
@@ -95,6 +101,6 @@ class ClasificacionEjercicioController extends Controller
     {
         $clasifica_ejercicio = ClasificacionEjercicio::find($id);
         $clasifica_ejercicio->delete();
-        return redirect()->route('classification.index');
+        return redirect()->route('classification.index')->with('Eliminado','Clasificacion de Ejercico eliminado');
     }
 }

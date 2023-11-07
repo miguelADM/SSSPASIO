@@ -1,11 +1,10 @@
 <?php
 
-use App\Http\Controllers\ClasificacionEjercicioController;
 use App\Http\Controllers\EjercicioController;
 use App\Http\Controllers\enfermedadesController;
 use App\Http\Controllers\GruposController;
 use App\Http\Controllers\UserController;
-use App\Models\ClasificacionEjercicio;
+use App\Http\Controllers\ClasificacionEjercicioController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,41 +20,24 @@ Route::prefix('admin')/* ->middleware('auth', 'email.check:admin@example.com') *
         return view('admin/admin');
     })->name('admin');
 
-    Route::get('/users', function () {
-        return view('admin/users');
-    });
-
-    //ruta Usuarios
-    Route::resource('/users', UserController::class);
-
-    //ruta para los grupos
-    Route::resource('/working-groups', GruposController::class);
-
-    //ruta para las enfermedades
-    Route::resource('/diseases', enfermedadesController::class);
-
-    //ruta para la clasificacion de ejercicios
-    Route::resource('/classification', ClasificacionEjercicioController::class);
-
-
-    Route::get('/exercises', function () {
-        return view('admin/exercises');
-    });
 
 Route::view('home','components.home');
 
+//ruta grupos
+Route::resource('working-groups', GruposController::class);
+
+
+//ruta enfermedades
+Route::resource('diseases', enfermedadesController::class);
+
+//ruta Usuarios
+Route::resource('users', UserController::class);
 
 //ruta clasificacion Ejercicios
-Route::resource('clasificacion_ejercicios', ClasificacionEjercicio::class);
+Route::resource('classification', ClasificacionEjercicioController::class);
 
 //ruta Ejercicios
-Route::get('/ejercicios/{id}', [EjercicioController::class, 'index'])->name('ejercicios.index');
-Route::get('/agregar_ejercicios/{id}', [EjercicioController::class, 'create'])->name('ejercicios.create');
-Route::post('/store_ejercicios/{id}', [EjercicioController::class, 'store'])->name('ejercicios.store');
-Route::get('/edit_ejercicios/{slug}', [EjercicioController::class, 'edit'])->name('ejercicios.edit');
-Route::put('/update_ejercicios/{slug}', [EjercicioController::class, 'update'])->name('ejercicios.update');
-Route::get('/show_ejercicios/{slug}',[EjercicioController::class, 'show'])->name('ejercicios.show');
-Route::delete('/destroy_ejercicios/{slug}',[EjercicioController::class, 'destroy'])->name('ejercicios.destroy');
+Route::resource('exercises', EjercicioController::class);
 
     Route::get('/routines', function () {
         return view('admin/routines');
