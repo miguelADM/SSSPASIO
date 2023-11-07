@@ -11,11 +11,13 @@ use App\Models\Enfermedades;
 use App\Models\GrupoTrabajo;
 use Illuminate\Http\Request;
 use App\Models\UserEnfermedad;
-use CreateUserEnfermedadsTable;
 use App\Models\GrupoTrabajoUser;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Validator;
+
+
 
 class UserController extends Controller
 {
@@ -24,18 +26,21 @@ class UserController extends Controller
     public function index()
     {
         
-        $param['users'] = DB::table(function ($subquery) {
-            $subquery->select(
-                'users.id as id_user',
-                'users.name as user_name',
-                DB::raw('GROUP_CONCAT(DISTINCT grupo_trabajos.nombre) as grupo_name'),  
-                DB::raw('GROUP_CONCAT(DISTINCT enfermedades.nombre) as salud'), 
-                'membresias.nombre as membresia_name', 
-                'membresias.duracion as periodo', 
-                'users.email as email', 
-                'users.sexo as sexo',
-                'users.expired_at as fin_periodo',
-            )
+
+    $perPage = 10; // EL NUMERO DEL PAGINADO
+
+    $param['users'] = DB::table(function ($subquery) {
+        $subquery->select(
+            'users.id as id_user',
+            'users.name as user_name',
+            DB::raw('GROUP_CONCAT(DISTINCT grupo_trabajos.nombre) as grupo_name'),
+            DB::raw('GROUP_CONCAT(DISTINCT enfermedades.nombre) as salud'),
+            'membresias.nombre as membresia_name',
+            'membresias.duracion as periodo',
+            'users.email as email',
+            'users.sexo as sexo',
+            'users.expired_at as fin_periodo',
+        )
             ->from('users')
             ->join('grupo_trabajo_users', 'users.id', '=', 'grupo_trabajo_users.id_user')
             ->join('grupo_trabajos', 'grupo_trabajo_users.id_grupo_trabajo', '=', 'grupo_trabajos.id')
@@ -43,8 +48,9 @@ class UserController extends Controller
             ->join('user_enfermedads', 'users.id', '=', 'user_enfermedads.id_user')
             ->join('enfermedades', 'user_enfermedads.id_enfermedad', '=', 'enfermedades.id')
             ->groupBy('id_user', 'user_name', 'membresia_name', 'periodo', 'email', 'sexo', 'fin_periodo');
-        }, 'subquery')
-        ->get();
+    }, 'subquery')
+        ->paginate($perPage); //
+        
        
         $param['grupos_trabajo'] = GrupoTrabajo::all();
         $param['enfermedades'] = Enfermedades::all();
@@ -63,15 +69,31 @@ class UserController extends Controller
 
     
 
-
-
-
     public function store(Request $request)
     {
+        $rules = [
+            'nombre' => 'required|string',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|string|min:6',
+            'confirm_password' => 'required|same:password',
+            'sexo' => 'required',
+            'membresia' => 'required|in:1,2,3',
+            'grupo' => 'required|integer', // Ajusta la regla según el tipo de dato del campo
+            'enfermedad' => 'required|integer', // Ajusta la regla según el tipo de dato del campo
+        ];
+
+        // Crea una instancia del validador y aplica las reglas y mensajes personalizados
+        $validator = Validator::make($request->all(), $rules);
+
+        // Verifica si la validación falla
+        if ($validator->fails()) {
+            return redirect()->route('users.index')->with('Email','EL email ya esta en el sistema o contraseñas no conciden');;
+        }
+        
         $existingUser = User::where('email', $request->email)->first();
 
     if ($existingUser) {
-        return redirect()->back();
+        return redirect()->back()->with('Email','El email ya esta en el sistema');
     } else {
         // Inserta el nuevo usuario en la base de datos.
     
@@ -110,7 +132,7 @@ class UserController extends Controller
             $userEnfermedad->id_enfermedad = $request->input('enfermedad'); 
             $userEnfermedad->save();
         
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('Agregado','Usuario Agregado Correctamente');;
         }
     }
 
@@ -126,7 +148,8 @@ class UserController extends Controller
                 'membresias.duracion as periodo', 
                 'users.email as email', 
                 'users.sexo as sexo',
-                'users.expired_at as fin_periodo'
+                'users.expired_at as fin_periodo',
+                'users.password as password'
             )
             ->from('users')
             ->join('grupo_trabajo_users', 'users.id', '=', 'grupo_trabajo_users.id_user')
@@ -217,6 +240,6 @@ class UserController extends Controller
     {
         $users = User::find($id);
         $users->delete();
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('Eliminado','Usuario eliminado correctamente!');;
     }
 }

@@ -30,25 +30,25 @@
           </div>
           <div class="divTableCell">{{$item->membresia_name}}</div>
           <div class="divTableCell">{{$item->salud}}</div>
+
           <div class="divTableCell relative">
             <button class="table__options" type="button" data-id="1">
               <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
             </button>
+
             <div class="table__options-menu">
-              <button class="edit">
+
+              <button class="edit" id="editButton-{{ $item->id_user }}">
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
 
-              
               <form action="{{route('users.destroy',$item->id_user)}}" method="POST" class="delete">
                 @csrf 
                 @method('DELETE')
                 <button type="submit">
-                <img type="submit" src="{{ asset('assets/icons/admin/round-delete.svg') }}"  alt="icono de eliminar" loading="lazy">
+                <img type="submit" src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
                 </button>
               </form>
-
-
             </div>
           </div>
         </div>
@@ -57,16 +57,36 @@
       </div>
     </div>
   </section>
+  
+  
+  
   <article class="pagination">
-    <button id="prev" title="Anterior">
-      <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
-    </button>
-    <button class="active">1</button>
-    <button>2</button>
-    <button id="next" title="Siguiente">
-      <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
-    </button>
-  </article>
+    @if ($users->onFirstPage())
+        <button id="prev" title="Anterior" disabled>
+            <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
+        </button>
+    @else
+        <a href="{{ $users->previousPageUrl() }}" title="Anterior">
+            <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
+        </a>
+    @endif
+
+    @for ($i = 1; $i <= $users->lastPage(); $i++)
+        <button class="{{ $i === $users->currentPage() ? 'active' : '' }}">
+            <a href="{{ $users->url($i) }}">{{ $i }}</a>
+        </button>
+    @endfor
+
+    @if ($users->hasMorePages())
+        <a href="{{ $users->nextPageUrl() }}" title="Siguiente">
+            <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
+        </a>
+    @else
+        <button id="next" title="Siguiente" disabled>
+            <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
+        </button>
+    @endif
+</article>
 
   <div class="modal__container">
     <div class="modal">
@@ -144,19 +164,94 @@
                   <select name="membresia" class="form-control" id="membresia">
                     <option value="">Seleccione una membresia</option>
                 @foreach ($membresias as $membresia)
-                    <option value="{{$membresia->id}}">{{$membresia->id}}{{$membresia->nombre}}</option>
+                    <option value="{{$membresia->id}}">{{$membresia->nombre}}</option>
                 @endforeach
                 </select>
                 </div>
               </div>
               <div class="btn-form-admin">
-                <input type="submit" value="Registrar">
+                <input type="submit" value="Registrar" onclick="confirmAddUser()">
               </div>
             </form>
           </div>
         </div>
       </section>
-
       </form>
     </div>
+  </div>
+
+  
+  <script src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@11') }}"></script>
+  <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css') }}" />
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js') }}"></script>
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')}}"></script>
+
+  @if(session('Eliminado'))
+  <script>
+    iziToast.error({
+        title: 'Correcto!',
+        message: '{{ session('Eliminado')}}',
+        position: 'center'
+    })
+    </script>
+  @endif
+
+  @if(session('Email'))
+  <script>
+    iziToast.error({
+        title: 'ERROR!',
+        message: '{{ session('Email')}}',
+        position: 'center'
+    })
+    </script>
+  @endif
+
+    @if(session('Agregado'))
+  <script>
+    iziToast.success({
+        title: 'Correcto!',
+        message: '{{ session('Agregado')}}',
+        position: 'center'
+    })
+    </script>
+  @endif
+
+  @if(session('Editado'))
+  <script>
+    iziToast.success({
+        title: 'Correcto!',
+        message: '{{ session('Editado')}}'
+    })
+    </script>
+  @endif
+
+
+  {{--CONFIRMAR BORRAR USUARIO--}}
+  <script>
+      
+    document.querySelectorAll('.delete button[type="submit"]').forEach(button => {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        
+        const confirmation = confirm('¿Estás seguro de que deseas eliminar este usuario?');
+        
+        if (confirmation) {
+          // Si el usuario confirma, envía el formulario de eliminación
+          event.target.closest('form').submit();
+        }
+      });
+    });
+
+    function confirmAddUser() {
+  const confirmation = confirm('¿Estás seguro de que deseas Agregar un nuevo usuario?');
+
+  if (confirmation) {
+    event.target.closest('form').submit();
+  } 
+  else{
+    
+  }
+}
+  </script>
+
   </x-layouts.admin-layout>
