@@ -79,6 +79,11 @@ Route::delete('/destroy_ejercicios/{slug}',[EjercicioController::class, 'destroy
     Route::get('/user-progress', function () {
         return view('admin/user-progress');
     });
+
+    
+    Route::get('/usuarioTemp', function () {
+        return view('admin/usuarioTemp');
+    });
 });
 
 Route::get('/home', function () {
@@ -124,4 +129,3 @@ Route::get('/tips', function () {
 Route::get('/diet', function () {
     return view('home/diet');
 })->name('diet');
-

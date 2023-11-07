@@ -1,6 +1,7 @@
 :root {
     /* colors */
     --primary: #52459f;
+    --primaryHome: #003366;
     --secondary: #84e9f5;
     --text: #797c83;
     --bgPrimary: #84eaf52c;
@@ -454,8 +455,16 @@ body {
         cursor: pointer;
         transition: var(--transition);
         background: #fff;
-        border-radius: var(--radius);
-        padding: 6px;
+        border-radius: 50%;
+        padding: 8px;
+
+        &:hover {
+            filter: contrast(.8);
+        }
+    }
+
+    & button.delete {
+        background: #ef4444;
 
         & img {
             filter: invert(1);
@@ -766,4 +775,172 @@ input:read-only {
 
 .instruction {
     margin: 20px 0 10px 0;
+}
+/*   Progreso du usuarios */
+
+.user__profile-card {
+    display: flex;
+    border: var(--border);
+    width: 900px;
+    margin: 24px auto;
+    padding: 24px;
+
+    & img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        margin: auto;
+        border: 7px solid var(--primary);
+        border-radius: 50%;
+    }
+
+    & .user_profile-text {
+        width: 100%;
+        align-self: center;
+        margin-left: 24px;
+
+        & h3 {
+            font-size: 40px;
+            margin-bottom: 8px;
+        }
+
+        & p {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.user_profile-data {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 20px;
+
+    & .user__data {
+        width: 100%;
+        display: flex;
+
+        & .tag {
+            width: 150px;
+            color: var(--primary);
+        }
+    }
+}
+
+.period__buttons-container {
+    width: 100%;
+    margin-bottom: 30px;
+
+    & h3 {
+        font-size: 30px;
+        margin: 0 auto;
+
+    }
+}
+
+.period__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 30px 0;
+
+    & button {
+        color: var(--primary);
+        font-weight: var(--black);
+        text-transform: capitalize;
+        font-size: 18px;
+        display: inline-block;
+        padding: 12px 28px;
+        position: relative;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        border-radius: var(--radius);
+
+        &::after {
+            background: none repeat scroll 0 0 transparent;
+            bottom: 0;
+            content: "";
+            display: block;
+            height: 3px;
+            left: 50%;
+            position: absolute;
+            background: var(--secondary);
+            transition: width 0.3s ease 0s, left 0.3s ease 0s;
+            width: 0;
+        }
+
+        &:hover:after {
+            width: 100%;
+            left: 0;
+        }
+    }
+
+
+    .btn__progress-menu.active {
+        background: var(--primary);
+        color: #fff;
+    }
+}
+
+.points {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 24px auto 48px; 
+}
+
+/* Graficas */
+/* .progress__section .column tr:nth-child(even) {
+    --color: var(--primary);
+}
+
+.progress__section .column tr:nth-child(odd) {
+    --color: var(--primaryHome);
+} */
+
+.toggle__section {
+    display: none;
+}
+
+.progress__chart {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 250px 50px;
+    grid-template-areas:
+        "data-axis-1 chart data-axis-2"
+        ". primary-axis .";
+    width: 90%;
+    margin: 0 auto;
+}
+
+.charts-css.show-heading caption {
+    margin-bottom: 24px;
+}
+
+.charts-css.column tbody tr td span {
+    font-weight: var(--black);
+    transform: translateY(-20px);
+}
+
+
+.progress__chart .column {
+    grid-area: chart;
+}
+
+.progress__chart .primary-axis {
+    grid-area: primary-axis;
+    font-size: 20px;
+    font-weight: var(--bold);
+}
+
+.progress__chart .data-axis-1 {
+    grid-area: data-axis-1;
+    writing-mode: tb-rl;
+    transform: rotateZ(180deg);
+    font-size: 20px;
+    font-weight: var(--bold);
 }
