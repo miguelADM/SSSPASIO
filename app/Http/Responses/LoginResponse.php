@@ -9,8 +9,7 @@ class LoginResponse implements FortifyLoginResponse {
 
     public function toResponse($request)
     {
-          return redirect('home');  
-        
+        return redirect('home');
     }
 }
 ?>

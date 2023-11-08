@@ -204,25 +204,25 @@ class UserController extends Controller
         $user->sexo = $request->post('sexo');
         $user->save();
 
-    //actualizar ids grupos
-    $grupoIds = $request->input('grupos', []);
-    $relacionesActuales = GrupoTrabajoUser::where('id_user', $id)->pluck('id_grupo_trabajo')->toArray();
-    $gruposParaEliminar = array_diff($relacionesActuales, $grupoIds);
-    
-    GrupoTrabajoUser::where('id_user', $id)
-    ->whereIn('id_grupo_trabajo', $gruposParaEliminar)
-    ->delete();
+        //actualizar ids grupos
+        $grupoIds = $request->input('grupos', []);
+        $relacionesActuales = GrupoTrabajoUser::where('id_user', $id)->pluck('id_grupo_trabajo')->toArray();
+        $gruposParaEliminar = array_diff($relacionesActuales, $grupoIds);
+        
+        GrupoTrabajoUser::where('id_user', $id)
+        ->whereIn('id_grupo_trabajo', $gruposParaEliminar)
+        ->delete();
 
-    foreach ($grupoIds as $grupoId) {
-        $userGrupo = new GrupoTrabajoUser();
-        $userGrupo->id_user = $user->id;
-        $userGrupo->id_grupo_trabajo = $grupoId;
-        $userGrupo->save();
+        foreach ($grupoIds as $grupoId) {
+            $userGrupo = new GrupoTrabajoUser();
+            $userGrupo->id_user = $user->id;
+            $userGrupo->id_grupo_trabajo = $grupoId;
+            $userGrupo->save();
+        }
+
+        return redirect()->route('usuarios.index')->with('success','Actualizada con exito con exito!');
+
     }
-
-    return redirect()->route('usuarios.index')->with('success','Actualizada con exito con exito!');
-
-}
 
     public function destroy($id)
     {
