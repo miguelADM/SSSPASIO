@@ -127,58 +127,24 @@
         <div class="form-container">
           <div class="title">Asignar rutina a</div>
           <div class="content">
-            <p class="instruction">Seleccione al usuario que desea asignar la rutina</p>
+            <form class="modal__form">
+              <div class="form__input">
+                <span class="input__icon">🔍</span>
+                <input type="text" class="input__field" id="search" name="search"
+                  placeholder="Busqueda por usuario o correo">
+              </div>
+            </form>
             <div class="divTable">
               <div class="divTableBody">
-                <div class="divTableHeading">
-                  <div class="divTableCell"></div>
-                  <div class="divTableCell">Usuario</div>
-                  <div class="divTableCell">Correo</div>
-                </div>
-                <div class="divTableRow">
-                  <div class="divTableCell">
-                    <input type="checkbox" name="username" id="username">
-                  </div>
-                  <div class="divTableCell">Spasssio0001</div>
-                  <div class="divTableCell">usuario@mail.com</div>
-                </div>
-                <div class="divTableRow">
-                  <div class="divTableCell">
-                    <input type="checkbox" name="username" id="username">
-                  </div>
-                  <div class="divTableCell">Spasssio0001</div>
-                  <div class="divTableCell">usuario@mail.com</div>
-                </div>
-                <div class="divTableRow">
-                  <div class="divTableCell">
-                    <input type="checkbox" name="username" id="username">
-                  </div>
-                  <div class="divTableCell">Spasssio0001</div>
-                  <div class="divTableCell">usuario@mail.com</div>
-                </div>
-                <div class="divTableRow">
-                  <div class="divTableCell">
-                    <input type="checkbox" name="username" id="username">
-                  </div>
-                  <div class="divTableCell">Spasssio0001</div>
-                  <div class="divTableCell">usuario@mail.com</div>
-                </div>
-                <div class="divTableRow">
-                  <div class="divTableCell">
-                    <input type="checkbox" name="username" id="username">
-                  </div>
-                  <div class="divTableCell">Spasssio0001</div>
-                  <div class="divTableCell">usuario@mail.com</div>
-                </div>
+
               </div>
             </div>
+            <div class="button-container mt">
+              <button class="button button-primary" type="button" id="open-modal">
+                Asignar rutina
+                <img src="{{ asset('assets/icons/admin/exercise-running.svg') }}" alt="">
+              </button>
+            </div>
           </div>
-          <div class="button-container mt">
-            <button class="button button-primary" type="button" id="open-modal">
-              Asignar rutina
-              <img src="{{ asset('assets/icons/admin/exercise-running.svg') }}" alt="">
-            </button>
-          </div>
-        </div>
-        <script src="{{ asset('js/admin/routines.js') }}"></script>
+          <script src="{{ asset('js/admin/routines.js') }}"></script>
 </x-layouts.admin-layout>
