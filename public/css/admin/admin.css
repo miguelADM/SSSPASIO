@@ -17,6 +17,10 @@ body {
         "nav nav" 70px "sidebar main" 1fr / max-content 1fr;
 }
 
+.mt {
+    margin-top: 25px;
+}
+
 /* buttons */
 .button {
     padding: 10px 24px;
