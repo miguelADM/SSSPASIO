@@ -407,6 +407,45 @@ nav {
     }
 }
 
+/* testimonios */
+.testimonials__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    & button {
+        & img {
+            filter: invert(1);
+        }
+    }
+}
+
+.testimonial__stars {
+    margin: 0 auto;
+    width: max-content;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.testimonial__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
+    padding: 20px;
+    flex: 1;
+
+    & p {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    & h5 {
+        margin-top: 10px;
+        font-size: 18px;
+    }
+}
+
 /* about */
 .about {
     padding-top: 0;
