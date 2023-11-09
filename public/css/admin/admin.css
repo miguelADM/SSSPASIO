@@ -379,7 +379,7 @@ body {
 .divTable {
     display: table;
     width: 100%;
-    border-collapse: collapse;
+    /* border-collapse: collapse; */
 }
 
 .divTableRow {

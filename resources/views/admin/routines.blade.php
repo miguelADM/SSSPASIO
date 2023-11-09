@@ -146,5 +146,9 @@
               </button>
             </div>
           </div>
-          <script src="{{ asset('js/admin/routines.js') }}"></script>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="{{ asset('js/admin/routines.js') }}"></script>
 </x-layouts.admin-layout>

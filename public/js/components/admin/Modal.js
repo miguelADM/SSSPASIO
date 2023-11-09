@@ -33,13 +33,6 @@ export function modal() {
         }
     })
 
-    modalAssign?.addEventListener("click", (e) => {
-        if (e.target.classList.contains("show-modal")) {
-            modalAssign.classList.remove("show-modal");
-            resetForm();
-        }
-    })
-
     const resetForm = () => {
         const form = document.querySelector('.formularioAdmin');
         form.reset();
