@@ -6,6 +6,8 @@ use App\Http\Controllers\GruposController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClasificacionEjercicioController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TipController;
+use App\Http\Controllers\TipsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -39,6 +41,9 @@ Route::resource('classification', ClasificacionEjercicioController::class);
 //ruta Ejercicios
 Route::resource('exercises', EjercicioController::class);
 
+//ruta Tips
+Route::resource('tips', TipsController::class);
+
     Route::get('/routines', function () {
         return view('admin/routines');
     });
@@ -47,9 +52,7 @@ Route::resource('exercises', EjercicioController::class);
         return view('admin/nutritional-recommendation');
     });
 
-    Route::get('/tips', function () {
-        return view('admin/tips');
-    });
+    
 
     Route::get('/user-progress', function () {
         return view('admin/user-progress');

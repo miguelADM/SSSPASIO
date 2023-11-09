@@ -74,7 +74,7 @@ class EjercicioController extends Controller
         $nuevoEjercicio->save();
     
         // Redireccionar a la página de inicio de ejercicios o a donde desees
-        return redirect()->route('exercises.index')->with('success', 'Ejercicio agregado con éxito');
+        return redirect()->route('exercises.index')->with('Agregado', 'Ejercicio agregado con éxito');
            
     }
 

@@ -139,7 +139,7 @@ class UserController extends Controller
                 'users.email as email', 
                 'users.sexo as sexo',
                 'users.expired_at as fin_periodo',
-                'users.password as password'
+                'users.password as password',
                 'users.expired_at as fin_periodo',
                 'users.password as password'
             )
@@ -224,7 +224,7 @@ class UserController extends Controller
         $userGrupo->save();
     }
 
-    return redirect()->route('usuarios.index')->with('success','Actualizada con exito con exito!');
+    return redirect()->route('usuarios.index')->with('Editado','Actualizada con exito con exito!');
 
 }
 

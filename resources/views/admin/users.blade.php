@@ -21,7 +21,7 @@
         @foreach ($users as $item)
         <div class="divTableRow">
           <div class="divTableCell">
-            @if ($item->id_rol == 1)
+            @if ($item->rol == 1)
             Usuario
             @else
             Administrador
@@ -224,7 +224,7 @@
     iziToast.error({
         title: 'Correcto!',
         message: '{{ session('Eliminado')}}',
-        position: 'center'
+        position: 'topRight'
     })
     </script>
   @endif
@@ -234,7 +234,7 @@
     iziToast.error({
         title: 'ERROR!',
         message: '{{ session('Email')}}',
-        position: 'center'
+        position: 'topRight'
     })
     </script>
   @endif
@@ -244,7 +244,7 @@
     iziToast.success({
         title: 'Correcto!',
         message: '{{ session('Agregado')}}',
-        position: 'center'
+        position: 'topRight'
     })
     </script>
   @endif
@@ -253,7 +253,8 @@
   <script>
     iziToast.success({
         title: 'Correcto!',
-        message: '{{ session('Editado')}}'
+        message: '{{ session('Editado')}}',
+        position: 'topRight'
     })
     </script>
   @endif
@@ -266,12 +267,36 @@
       button.addEventListener('click', function (event) {
         event.preventDefault();
         
-        const confirmation = confirm('¿Estás seguro de que deseas eliminar este usuario?');
+        iziToast.error({
+            timeout: false,
+            close: false,
+            overlay: false,
+            displayMode: 'once',
+            id: 'question',
+            zindex: 999,
+            title: '¿Seguro que quieres Borrar este usuario?',
+            position: 'center',
+            buttons: [
+                ['<button><b>Si</b></button>', function (instance, toast) {
+                
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                    // Si el usuario confirma, envía el formulario de eliminación
+                    event.target.closest('form').submit();
+                }, true],
+                ['<button>NO</button>', function (instance, toast) {
+                
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                
+                }],
+            ],
+            onClosing: function(instance, toast, closedBy){
+                console.info('Closing | closedBy: ' + closedBy);
+            },
+            onClosed: function(instance, toast, closedBy){
+                console.info('Closed | closedBy: ' + closedBy);
+            }
+});
         
-        if (confirmation) {
-          // Si el usuario confirma, envía el formulario de eliminación
-          event.target.closest('form').submit();
-        }
       });
     });
 

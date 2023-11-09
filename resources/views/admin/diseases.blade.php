@@ -13,7 +13,6 @@
         <div class="divTableHeading">
           <div class="divTableCell">Nombre</div>
           <div class="divTableCell">Descripcion</div>
-          <div class="divTableCell">Observaciones</div>
           <div class="divTableCell"></div>
         </div>
         @foreach ($enfermedad as $item)
@@ -138,7 +137,7 @@
     iziToast.error({
         title: 'Correcto!',
         message: '{{ session('Eliminado')}}',
-        position: 'center'
+        position: 'topRight'
     })
     </script>
   @endif
@@ -148,7 +147,7 @@
     iziToast.success({
         title: 'Correcto!',
         message: '{{ session('Agregado')}}',
-        position: 'center'
+        position: 'topRight'
     })
     </script>
   @endif
@@ -157,7 +156,8 @@
   <script>
     iziToast.success({
         title: 'Correcto!',
-        message: '{{ session('Editado')}}'
+        message: '{{ session('Editado')}}',
+        position: 'topRight'
     })
     </script>
   @endif
