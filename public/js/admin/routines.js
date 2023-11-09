@@ -163,8 +163,10 @@ function changeCheckbox() {
     })
 }
 
-const modalAssigns = document.querySelectorAll('#modal__assign')
 function closeAssignModal() {
+    const modalAssigns = document.querySelectorAll('#modal__assign')
+    const closeButtons = document.querySelectorAll('#close-modal')
+
     modalAssigns.forEach((modalAssign) => {
         modalAssign?.addEventListener("click", (e) => {
             if (e.target.classList.contains("show-modal")) {
@@ -174,7 +176,6 @@ function closeAssignModal() {
         })
     })
 
-    const closeButtons = document.querySelectorAll('#close-modal')
     closeButtons.forEach((button) => {
         button?.addEventListener('click', () => {
             resetSearchAndSelect()
