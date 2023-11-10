@@ -5,6 +5,7 @@ use App\Http\Controllers\enfermedadesController;
 use App\Http\Controllers\GruposController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClasificacionEjercicioController;
+use App\Http\Controllers\RecomendacionNutricionalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TipController;
 use App\Http\Controllers\TipsController;
@@ -41,6 +42,9 @@ Route::resource('classification', ClasificacionEjercicioController::class);
 //ruta Ejercicios
 Route::resource('exercises', EjercicioController::class);
 
+//ruta de nutricion
+Route::resource('/nutritional-recommendation', RecomendacionNutricionalController::class);
+
 //ruta Tips
 Route::resource('tips', TipsController::class);
 
@@ -48,9 +52,6 @@ Route::resource('tips', TipsController::class);
         return view('admin/routines');
     });
 
-    Route::get('/nutritional-recommendation', function () {
-        return view('admin/nutritional-recommendation');
-    });
 
     
 

@@ -13,15 +13,23 @@
           <div class="divTableCell">Objetivo</div>
           <div class="divTableCell">Descripcion</div>
           <div class="divTableCell">Clasificacion</div>
+          <div class="divTableCell">Imagen</div>
           <div class="divTableCell"></div>
         </div>
 
-        @foreach ($ejercicios as $ej)
+        @foreach ($ejercicios as $item)
         <div class="divTableRow">
-          <div class="divTableCell">{{$ej->nombre}}</div>
-          <div class="divTableCell">{{$ej->objetivo}}</div>
-          <div class="divTableCell">{{$ej->descripcion}}</div>
-          <div class="divTableCell">{{$ej->clasificacion_nombre}}</div>
+          <div class="divTableCell">{{$item->name_ejercicio}}</div>
+          <div class="divTableCell">{{$item->objetivo_ejercicio}}</div>
+          <div class="divTableCell">{{$item->descripcion_ejercicio}}</div>
+          <div class="divTableCell">{{$item->name_clasificacion}}</div>
+          <div class="divTableCell"> 
+            @if ($item->imagen)
+            <img src="{{ asset('storage/' . $item->imagen) }}" width="70px" height="50px" alt="Imagen del ejercicio">
+            @else
+                No hay imagen
+            @endif
+          </div>
           <div class="divTableCell relative">
             <button class="table__options" type="button" data-id="1">
               <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
@@ -31,11 +39,11 @@
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
               
-              <form action="{{route('exercises.destroy',$ej->id)}}" method="POST" class="form-elim">
+              <form action="{{route('exercises.destroy',$item->id_ejercicio)}}" method="POST" class="delete">
                 @csrf 
                 @method('DELETE')
-                <button class="delete">
-                <img type="submit" src="{{ asset('assets/icons/admin/round-delete.svg') }}"  alt="icono de eliminar" loading="lazy">
+              <button class="delete" type="submit">
+                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
               </button>
               </form>
             </div>
@@ -84,7 +92,7 @@
         <div class="form-container">
           <div class="title">Registrar ejercicio</div>
           <div class="content">
-            <form action="{{route('exercises.store')}}" method="POST" class="formularioAdmin una-col">
+            <form action="{{route('exercises.store')}}" method="POST" enctype="multipart/form-data"class="formularioAdmin una-col">
               @csrf
               <div class="user-details">
                 <div class="input-box">
@@ -97,7 +105,7 @@
                 </div>
                 <div class="input-box">
                   <span class="details">Descripción</span>
-                  <input id="descripcion" class="form-control" value="{{old('descripcion')}}" name="descripcion">
+                  <input id="descripcion" cols="20" rows="50" class="form-control" value="{{old('descripcion')}}" name="descripcion">
                   @error('descripcion')
                    <small style="color: crimson">{{$message}}</small>
                    <br>
@@ -105,7 +113,7 @@
                 </div>
                 <div class="input-box">
                   <span class="details">Objetivos</span>
-                  <input id="objetivo" cols="3" rows="3" class="form-control" name="objetivo" value="{{old('objetivo')}}">
+                  <input id="objetivo" cols="20" rows="50" class="form-control" name="objetivo" value="{{old('objetivo')}}">
                   @error('objetivo')
                    <small style="color: crimson">{{$message}}</small>
                    <br>
@@ -115,8 +123,7 @@
                 <div class="input-box">
                   <span class="details">GIF</span>
                   <div class="custom-file">
-                    <input type="file" accept="image/gif" class="custom-file-input"  id="exampleInputFile"
-                      name="imagen">
+                    <input type="file" accept="image/gif" class="custom-file-input"  id="exampleInputFile" name="imagen">
                   </div>
                 </div>
 
@@ -124,7 +131,7 @@
                   <span class="details">clasificacion</span>
                   <select name="clasificacion" class="form-control" id="clasificacion" >
                     <option>Seleccione una clasificacion</option>
-                @foreach ($clasi as $class)
+                @foreach ($clasificacion as $class)
                     <option value="{{$class->id}}">{{$class->id}}  {{$class->nombre}}</option>
                 @endforeach
                 </select>
@@ -181,4 +188,21 @@
     })
     </script>
   @endif
+
+  
+  <script>
+    document.querySelectorAll('.delete button[type="submit"]').forEach(button => {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        
+        const confirmation = confirm('¿Estás seguro de que deseas eliminar este usuario?');
+        
+        if (confirmation) {
+          // Si el usuario confirma, envía el formulario de eliminación
+          event.target.closest('form').submit();
+        }
+      });
+    });
+  </script>
+
 </x-layouts.admin-layout>

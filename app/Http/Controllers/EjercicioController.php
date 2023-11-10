@@ -10,43 +10,27 @@ use Illuminate\Support\Facades\DB;
 
 class EjercicioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        $clasi = ClasificacionEjercicio::all();
-        $ejercicios = DB::table(function ($subquery) {
-            $subquery->select(
-                'ejercicios.id as id',
-                'ejercicios.nombre as nombre',
-                'ejercicios.descripcion as descripcion',
-                'ejercicios.objetivo as objetivo',                
-                DB::raw('GROUP_CONCAT(DISTINCT clasificacion_ejercicios.nombre) as clasificacion_nombre'),  
-                DB::raw('GROUP_CONCAT(DISTINCT clasificacion_ejercicios.id) as id_clasificacion'), 
-                
-            )
-            ->from('ejercicios')
-            ->join('clasificacion_ejercicios', 'clasificacion_ejercicios.id', '=', 'ejercicios.id_clasificacion')
-            ->groupBy('id', 'nombre', 'descripcion', 'objetivo')
-            ->orderBy('nombre', 'ASC');
-        }, 'subquery')
-        ->paginate(10);
-            return view('admin.exercises', compact('ejercicios','clasi'));
+        $paginado = 10; 
+
+        $param['ejercicios'] = DB::table('ejercicios')
+        ->join('clasificacion_ejercicios', 'ejercicios.id_clasificacion', '=', 'clasificacion_ejercicios.id')
+        ->select('ejercicios.objetivo as objetivo_ejercicio','ejercicios.imagen as imagen','ejercicios.id as id_ejercicio', 'ejercicios.nombre as name_ejercicio', 'clasificacion_ejercicios.nombre as name_clasificacion', 'ejercicios.descripcion as descripcion_ejercicio')
+        ->paginate($paginado);
+
+        $param['clasificacion'] = ClasificacionEjercicio::all();
+        
+            return view('admin.exercises', $param);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($id)
+
+
+    public function create()
     {
-            return view('components.ejercicios.agregar_ejercicio', compact('id'));   
+            return route('exercises.create');   
     }
-
 
     public function store(Request $request)
     {
@@ -54,23 +38,23 @@ class EjercicioController extends Controller
             'descripcion'=> 'required',
             'objetivo'=> 'required',
             'clasificacion'=> 'required',
-            'nombre'=> 'required|unique:ejercicios',
+            'nombre'=> 'required',
         ]);
  
         if ($request->hasFile('imagen')) {
-            $imagenPath = $request->file('imagen')->store('image_ejercicios', 'public');
+            $imagenPath = $request->file('imagen')->store('public/assets/images/home/imgejercicios', 'public');
         } else {
-            $imagenPath = null;
+            $imagenPath = 'No existe imagen';
         }
-    
+        
         // Crear un nuevo registro de ejercicio
         $nuevoEjercicio = new Ejercicios;
         $nuevoEjercicio->nombre = $request->input('nombre');
         $nuevoEjercicio->descripcion = $request->input('descripcion');
         $nuevoEjercicio->objetivo = $request->input('objetivo');
+        $nuevoEjercicio->id_clasificacion = $request->input('clasificacion');
         $nuevoEjercicio->imagen = $imagenPath; // Asignar la ruta de la imagen
         $nuevoEjercicio->id_clasificacion = $request->input('clasificacion');
-    
         $nuevoEjercicio->save();
     
         // Redireccionar a la página de inicio de ejercicios o a donde desees
@@ -78,26 +62,15 @@ class EjercicioController extends Controller
            
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        return route('exercises.edit');
     }
 
     /**
@@ -112,16 +85,12 @@ class EjercicioController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        $ejercicios = Ejercicios::find($id);
-        $ejercicios->delete();
-        return redirect()->route('exercises.index')->with('Eliminado','Ejercicio eliminado');
+
+        $ejercicio = Ejercicios::find($id);
+        $ejercicio->delete();
+        return redirect()->route('exercises.index')->with('Eliminado','Ejercicio eliminado correctamente!');
     }
 }
