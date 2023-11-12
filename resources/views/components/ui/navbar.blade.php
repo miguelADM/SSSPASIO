@@ -5,7 +5,7 @@
         <h2>SPASSSIO</h2>
       </a>
       <ul class="navbar__links">
-        @foreach ($navLinks as $link)
+        @foreach ($nav as $link)
           <li>
             <a href="{{ $link['href'] }}" class="navbar__link">
               {{ $link['text'] }}

@@ -30,8 +30,7 @@ class Navbar extends Component
      */
     public function render()
     {
-        $navLinks = $this->links;
-
-        return view('components.ui.navbar', compact('navLinks'));
+        $param['nav'] = $this->links;
+        return view('components.ui.navbar',$param);
     }
 }

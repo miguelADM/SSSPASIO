@@ -20,13 +20,11 @@
 </head>
 
 <body>
-  <x-home.navbar.navbar />
-  <x-home.sidebar.sidebar />
+  <x-home.navbar.navbar/>
+  <x-home.sidebar.sidebar/>
   <main class="main">
     {{ $slot }}
   </main>
   <script src="{{ asset('js/components/home/app.js') }}" type="module"></script>
-
 </body>
-
 </html>

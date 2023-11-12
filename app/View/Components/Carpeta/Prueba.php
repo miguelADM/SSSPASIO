@@ -1,10 +1,10 @@
 <?php
 
-namespace App\View\Components\Admin\Sidebar;
+namespace App\View\Components\Carpeta;
 
 use Illuminate\View\Component;
 
-class SidebarList extends Component
+class Prueba extends Component
 {
     /**
      * Create a new component instance.
@@ -23,7 +23,7 @@ class SidebarList extends Component
      */
     public function render()
     {
-        $sidebarLinks = getAdminLinks();
-        return view('components.admin.sidebar.sidebar-list', compact('sidebarLinks'));
+        $param['nombre'] = "angel";
+        return view('components.carpeta.Prueba',$param);
     }
 }

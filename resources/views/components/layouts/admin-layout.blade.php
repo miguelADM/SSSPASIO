@@ -19,8 +19,8 @@
 </head>
 
 <body>
-  <x-admin.navbar.navbar />
-  <x-admin.sidebar.sidebar />
+  <x-admin.navbar.navbar/>
+  <x-admin.sidebar.sidebar/>
   <main class="main">
     {{ $slot }}
   </main>
