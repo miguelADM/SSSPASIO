@@ -129,3 +129,7 @@ Route::get('/tips', function () {
 Route::get('/diet', function () {
     return view('home/diet');
 })->name('diet');
+
+Route::get('/privacy', function () {
+    return view('home/privacy');
+})->name('privacy');
