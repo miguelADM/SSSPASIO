@@ -134,3 +134,46 @@ Route::middleware('AuthUser')->group(function () {
     
 });
 
+Route::get('/my-progress', function () {
+    return view('home/my-progress');
+})->name('my-progress');
+
+Route::get('/top-winners', function () {
+    return view('home/top-winners');
+})->name('top-winners');
+
+Route::get('/settings', function () {
+    return view('home/settings');
+})->name('settings');
+
+Route::get('/routines', function () {
+    return view('home/routines');
+})->name('routines');
+
+Route::get('/rt-cardio', function () {
+    return view('home/rt-cardio');
+})->name('cardio');
+
+Route::get('/something-more', function () {
+    return view('home/something-more');
+})->name('something-more');
+
+Route::get('/find-out', function () {
+    return view('home/find-out');
+})->name('find-out');
+
+Route::get('/motivation', function () {
+    return view('home/motivation');
+})->name('motivation');
+
+Route::get('/tips', function () {
+    return view('home/tips');
+})->name('tips');
+
+Route::get('/diet', function () {
+    return view('home/diet');
+})->name('diet');
+
+Route::get('/privacy', function () {
+    return view('home/privacy');
+})->name('privacy');
