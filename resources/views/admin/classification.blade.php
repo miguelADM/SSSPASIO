@@ -14,9 +14,10 @@
           <div class="divTableCell"></div>
         </div>
 
+        @foreach ($clasifica_ejercicios as $item)
         <div class="divTableRow">
-          <div class="divTableCell">Cardio</div>
-          <div class="divTableCell">EJERCICIOS PARA PROGRAMA CARDIOVASCULAR</div>
+          <div class="divTableCell">{{$item->nombre}}</div>
+          <div class="divTableCell">{{$item->descripcion}}</div>
           <div class="divTableCell relative">
             <button class="table__options" type="button" data-id="1">
               <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
@@ -25,47 +26,79 @@
               <button class="edit">
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
+              <form action="{{route('classification.destroy',$item->id)}}" method="POST" class="delete">
+                @csrf 
+                @method('DELETE')
+                <button class="delete">
+                <img type="submit" src="{{ asset('assets/icons/admin/round-delete.svg') }}"  alt="icono de eliminar" loading="lazy">
               </button>
+              </form>
             </div>
           </div>
         </div>
+        @endforeach
       </div>
     </div>
   </section>
   <article class="pagination">
-    <button id="prev" title="Anterior">
-      <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
-    </button>
-    <button class="active">1</button>
-    <button>2</button>
-    <button id="next" title="Siguiente">
-      <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
-    </button>
-  </article>
+    @if ($clasifica_ejercicios->onFirstPage())
+        <button id="prev" title="Anterior" disabled>
+            <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
+        </button>
+    @else
+        <a href="{{ $clasifica_ejercicios->previousPageUrl() }}" title="Anterior">
+            <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
+        </a>
+    @endif
+
+    @for ($i = 1; $i <= $clasifica_ejercicios->lastPage(); $i++)
+        <button class="{{ $i === $clasifica_ejercicios->currentPage() ? 'active' : '' }}">
+            <a href="{{ $clasifica_ejercicios->url($i) }}">{{ $i }}</a>
+        </button>
+    @endfor
+
+    @if ($clasifica_ejercicios->hasMorePages())
+        <a href="{{ $clasifica_ejercicios->nextPageUrl() }}" title="Siguiente">
+            <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
+        </a>
+    @else
+        <button id="next" title="Siguiente" disabled>
+            <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
+        </button>
+    @endif
+</article>
 
   <div class="modal__container">
     <div action="" class="modal">
       <button id="close-modal" type="button">
         <img src="{{ asset('assets/icons/admin/close-filled.svg') }}" alt="icono de cerrar" loading="lazy">
       </button>
-
       <section class="content">
         <div class="form-container">
           <div class="title">Registrar clasificación</div>
           <div class="content">
-            <form action="" class="formularioAdmin una-col">
+            <form action="{{route('classification.store')}}" method="POST" class="formularioAdmin una-col">
+              @csrf
               <div class="user-details">
                 <div class="input-box">
                   <span class="details">Nombre</span>
-                  <input type="text" id="nombre" required name="nombre" placeholder="Nombre de la clasificación">
+                  <input type="text" id="nombre"  name="nombre" placeholder="Nombre de la clasificación" value="{{old('nombre')}}">
+                  @error('nombre')
+                   <small style="color: crimson">{{$message}}</small>
+                   <br>
+                  @enderror
                 </div>
               </div>
+              <div class="user-details">
               <div class="input-box">
                 <span class="details">Descripción</span>
-                <textarea name="descripcion" id="descripcion" cols="30" required rows="5" class="form-control"
-                  placeholder="Descripción acerca de la clasificación"></textarea>
+                <input name="descripcion" id="descripcion"  class="form-control"
+                  placeholder="Descripción acerca de la clasificación" value="{{old('descripcion')}}">
+                  @error('descripcion')
+                   <small style="color: crimson">{{$message}}</small>
+                   <br>
+                  @enderror
+              </div>
               </div>
               <div class="btn-form-admin">
                 <input type="submit" value="Registrar">
@@ -77,4 +110,39 @@
 
     </div>
   </div>
+
+  <script src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@11') }}"></script>
+  <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css') }}" />
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js') }}"></script>
+  <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js')}}"></script>
+
+  @if(session('Eliminado'))
+  <script>
+    iziToast.error({
+        title: 'Correcto!',
+        message: '{{ session('Eliminado')}}',
+        position: 'topRight'
+    })
+    </script>
+  @endif
+
+    @if(session('Agregado'))
+  <script>
+    iziToast.success({
+        title: 'Correcto!',
+        message: '{{ session('Agregado')}}',
+        position: 'topRight'
+    })
+    </script>
+  @endif
+
+  @if(session('Editado'))
+  <script>
+    iziToast.success({
+        title: 'Correcto!',
+        message: '{{ session('Editado')}}',
+        position: 'topRight'
+    })
+    </script>
+  @endif
 </x-layouts.admin-layout>

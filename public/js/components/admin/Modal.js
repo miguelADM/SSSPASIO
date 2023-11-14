@@ -1,7 +1,6 @@
 export function modal() {
-    const showModalButton = document.querySelectorAll('#open-modal');
-    const closeModalButton = document.querySelectorAll('#close-modal');
-
+    const showModalButton = document.querySelector('#open-modal');
+    const closeModalButton = document.querySelector('#close-modal');
     const modalContainer = document.querySelector(".modal__container");
     const modalAssign = document.querySelector("#modal__assign");
 

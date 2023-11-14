@@ -2,77 +2,75 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ClasificacionEjercicio;
 use App\Models\Ejercicios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class EjercicioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index($id)
-    {
-        $ejercicios = Ejercicios::where('id_clasificacion', $id)->get();
-            return view('components.ejercicios.inicio_ejercicio', compact('ejercicios','id'));
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create($id)
+    public function index()
     {
-            return view('components.ejercicios.agregar_ejercicio', compact('id'));   
+        $paginado = 10; 
+
+        $param['ejercicios'] = DB::table('ejercicios')
+        ->join('clasificacion_ejercicios', 'ejercicios.id_clasificacion', '=', 'clasificacion_ejercicios.id')
+        ->select('ejercicios.objetivo as objetivo_ejercicio','ejercicios.imagen as imagen','ejercicios.id as id_ejercicio', 'ejercicios.nombre as name_ejercicio', 'clasificacion_ejercicios.nombre as name_clasificacion', 'ejercicios.descripcion as descripcion_ejercicio')
+        ->paginate($paginado);
+
+        $param['clasificacion'] = ClasificacionEjercicio::all();
+        
+            return view('admin.exercises', $param);
     }
 
 
-    public function store(Request $request, $id)
+
+    public function create()
     {
+            return route('exercises.create');   
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'descripcion'=> 'required',
+            'objetivo'=> 'required',
+            'clasificacion'=> 'required',
+            'nombre'=> 'required',
+        ]);
  
         if ($request->hasFile('imagen')) {
-            $imagenPath = $request->file('imagen')->store('image_ejercicios', 'public');
+            $imagenPath = $request->file('imagen')->store('public/assets/images/home/imgejercicios', 'public');
         } else {
-            $imagenPath = null;
+            $imagenPath = 'No existe imagen';
         }
-    
+        
         // Crear un nuevo registro de ejercicio
         $nuevoEjercicio = new Ejercicios;
         $nuevoEjercicio->nombre = $request->input('nombre');
         $nuevoEjercicio->descripcion = $request->input('descripcion');
         $nuevoEjercicio->objetivo = $request->input('objetivo');
-        $nuevoEjercicio->id_clasificacion = $id;
+        $nuevoEjercicio->id_clasificacion = $request->input('clasificacion');
         $nuevoEjercicio->imagen = $imagenPath; // Asignar la ruta de la imagen
-    
+        $nuevoEjercicio->id_clasificacion = $request->input('clasificacion');
         $nuevoEjercicio->save();
     
         // Redireccionar a la página de inicio de ejercicios o a donde desees
-        return redirect()->route('ejercicios.index', $id)->with('success', 'Ejercicio agregado con éxito');
+        return redirect()->route('exercises.index')->with('Agregado', 'Ejercicio agregado con éxito');
            
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        return route('exercises.edit');
     }
 
     /**
@@ -87,14 +85,12 @@ class EjercicioController extends Controller
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+
+        $ejercicio = Ejercicios::find($id);
+        $ejercicio->delete();
+        return redirect()->route('exercises.index')->with('Eliminado','Ejercicio eliminado correctamente!');
     }
 }

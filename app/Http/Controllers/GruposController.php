@@ -4,31 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Models\GrupoTrabajo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GruposController extends Controller
 {
  
     public function index()
     {
-        $grupos_trabajo = GrupoTrabajo::all();
-        return view('components.grupos.inicio_grupo', compact('grupos_trabajo'));
+        $grupos_trabajo = DB::table('grupo_trabajos')->orderBy('nombre','asc')->paginate(10);
+        return view('admin.working-groups', compact('grupos_trabajo'));
     }
 
 
     public function create()
     {
-        return view('components.grupos.agregar_grupo');
+        return view('working-groups.create');
     }
-
 
     public function store(Request $request)
     {
+        $request->validate([
+            'nombre'=>'required|unique:grupo_trabajos',
+            'descripcion'=>'required'
+        ]);
+
         $grupo = new GrupoTrabajo();
         $grupo->nombre = $request->post('nombre');
         $grupo->descripcion = $request->post('descripcion');
         $grupo->save();
 
-        return redirect()->route('grupos.index')->with('success','Agregado con exito!');
+        return redirect()->route('working-groups.index')->with('Agregado','Grupo de Trabajo Agregado');
 
     }
 
@@ -36,14 +41,14 @@ class GruposController extends Controller
     public function show($id)
     {
         $grupo = GrupoTrabajo::find($id);
-        return view('components.grupos.eliminar_grupo',compact('grupo'));
+        return view('admin.working-groups',compact('grupo'));
     }
 
 
     public function edit($id)
     {
         $grupo = GrupoTrabajo::find($id);
-        return view('components.grupos.actualizar_grupo',compact('grupo'));
+        return view('admin.working-groups',compact('grupo'));
     }
 
 
@@ -54,14 +59,14 @@ class GruposController extends Controller
         $grupo->descripcion = $request->post('descripcion');
         $grupo->save();
 
-        return redirect()->route('grupos.index')->with('success','Actualizado con exito con exito!');
+        return redirect()->route('working-groups.index')->with('Editado','Grupo de Trabajo Editado');
     }
 
 
-    public function destroy( $id)
+    public function destroy($id)
     {
         $grupo = GrupoTrabajo::find($id);
         $grupo->delete();
-        return redirect()->route('grupos.index')->with('success','Eliminado con exito con exito!');
+        return redirect()->route('working-groups.index')->with('Eliminado','Grupo de Trabajo eliminado');
     }
 }

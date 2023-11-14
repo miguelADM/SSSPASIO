@@ -4,9 +4,12 @@ use App\Http\Controllers\EjercicioController;
 use App\Http\Controllers\enfermedadesController;
 use App\Http\Controllers\GruposController;
 use App\Http\Controllers\UserController;
-use App\Models\ClasificacionEjercicio;
+use App\Http\Controllers\ClasificacionEjercicioController;
+use App\Http\Controllers\RecomendacionNutricionalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TipController;
+use App\Http\Controllers\TipsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -23,25 +26,6 @@ Route::prefix('admin')->middleware('AuthAdmin')->group(function () {
         return view('admin/admin');
     })->name('admin');
 
-    Route::get('/users', function () {
-        return view('admin/users');
-    });
-
-    Route::get('/working-groups', function () {
-        return view('admin/working-groups');
-    });
-
-    Route::get('/diseases', function () {
-        return view('admin/diseases');
-    });
-
-    Route::get('/classification', function () {
-        return view('admin/classification');
-    });
-
-    Route::get('/exercises', function () {
-        return view('admin/exercises');
-    });
 
     Route::view('home','components.home');
 
@@ -66,17 +50,31 @@ Route::prefix('admin')->middleware('AuthAdmin')->group(function () {
     Route::put('/update_ejercicios/{slug}', [EjercicioController::class, 'update'])->name('ejercicios.update');
     Route::get('/show_ejercicios/{slug}',[EjercicioController::class, 'show'])->name('ejercicios.show');
     Route::delete('/destroy_ejercicios/{slug}',[EjercicioController::class, 'destroy'])->name('ejercicios.destroy');
+    
+    //ruta grupos
+    Route::resource('working-groups', GruposController::class);
+
+
+    //ruta enfermedades
+    Route::resource('diseases', enfermedadesController::class);
+
+    //ruta Usuarios
+    Route::resource('users', UserController::class);
+
+    //ruta clasificacion Ejercicios
+    Route::resource('classification', ClasificacionEjercicioController::class);
+
+    //ruta Ejercicios
+    Route::resource('exercises', EjercicioController::class);
+
+    //ruta de nutricion
+    Route::resource('/nutritional-recommendation', RecomendacionNutricionalController::class);
+
+    //ruta Tips
+    Route::resource('tips', TipsController::class);
 
     Route::get('/routines', function () {
         return view('admin/routines');
-    });
-
-    Route::get('/nutritional-recommendation', function () {
-        return view('admin/nutritional-recommendation');
-    });
-
-    Route::get('/tips', function () {
-        return view('admin/tips');
     });
 
     Route::get('/user-progress', function () {
