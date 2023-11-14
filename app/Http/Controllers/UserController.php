@@ -41,8 +41,8 @@ class UserController extends Controller
             ->join('grupo_trabajo_users', 'users.id', '=', 'grupo_trabajo_users.id_user')
             ->join('grupo_trabajos', 'grupo_trabajo_users.id_grupo_trabajo', '=', 'grupo_trabajos.id')
             ->join('membresias', 'users.membresia_id', '=', 'membresias.id')
-            ->join('user_enfermedads', 'users.id', '=', 'user_enfermedads.id_user')
-            ->join('enfermedades', 'user_enfermedads.id_enfermedad', '=', 'enfermedades.id')
+            ->join('user_enfermedad', 'users.id', '=', 'user_enfermedad.id_user')
+            ->join('enfermedades', 'user_enfermedad.id_enfermedad', '=', 'enfermedades.id')
             ->groupBy('id_user', 'user_name', 'membresia_name', 'periodo', 'email', 'sexo', 'fin_periodo','rol')
             ->orderBy('user_name','ASC');
         }, 'subquery')
@@ -141,8 +141,8 @@ class UserController extends Controller
             ->join('grupo_trabajo_users', 'users.id', '=', 'grupo_trabajo_users.id_user')
             ->join('grupo_trabajos', 'grupo_trabajo_users.id_grupo_trabajo', '=', 'grupo_trabajos.id')
             ->join('membresias', 'users.membresia_id', '=', 'membresias.id')
-            ->join('user_enfermedads', 'users.id', '=', 'user_enfermedads.id_user')
-            ->join('enfermedades', 'user_enfermedads.id_enfermedad', '=', 'enfermedades.id')
+            ->join('user_enfermedad', 'users.id', '=', 'user_enfermedad.id_user')
+            ->join('enfermedades', 'user_enfermedad.id_enfermedad', '=', 'enfermedades.id')
             ->where('users.id', $id)
             ->groupBy('id_user', 'user_name', 'membresia_name', 'periodo', 'email', 'sexo', 'fin_periodo');
         }, 'subquery')
@@ -168,8 +168,8 @@ class UserController extends Controller
         ->join('grupo_trabajo_users', 'users.id', '=', 'grupo_trabajo_users.id_user')
         ->join('grupo_trabajos', 'grupo_trabajo_users.id_grupo_trabajo', '=', 'grupo_trabajos.id')
         ->join('membresias', 'users.membresia_id', '=', 'membresias.id')
-        ->join('user_enfermedads', 'users.id', '=', 'user_enfermedads.id_user')
-        ->join('enfermedades', 'user_enfermedads.id_enfermedad', '=', 'enfermedades.id')
+        ->join('user_enfermedad', 'users.id', '=', 'user_enfermedad.id_user')
+        ->join('enfermedades', 'user_enfermedad.id_enfermedad', '=', 'enfermedades.id')
         ->where('users.id', $id)
         ->get();
         

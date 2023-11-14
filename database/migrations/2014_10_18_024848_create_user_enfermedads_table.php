@@ -13,7 +13,7 @@ class CreateUserEnfermedadsTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_enfermedads', function (Blueprint $table) {
+        Schema::create('user_enfermedad', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('id_user')->unsigned()->nullable();
             $table->bigInteger('id_enfermedad')->unsigned()->nullable();

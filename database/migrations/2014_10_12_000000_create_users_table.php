@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('sexo')->nullable();
             $table->bigInteger('membresia_id')->unsigned()->nullable();
             $table->foreign('membresia_id')->references('id')->on('membresias')->onDelete('cascade');
-            $table->timestamp('expired_at');
+            $table->timestamp('expired_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
