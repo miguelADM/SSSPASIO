@@ -9,6 +9,8 @@
     --radius: 2px;
     /* transition */
     --transition: all 0.2s ease-in-out;
+
+    --animate-duration: 100ms;
 }
 
 *,
