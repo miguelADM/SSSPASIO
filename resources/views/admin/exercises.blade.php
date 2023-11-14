@@ -31,10 +31,10 @@
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
               
-              <form action="{{route('exercises.destroy',$ej->id)}}" method="POST" class="form-elim">
+              <form action="{{route('exercises.destroy',$ej->id)}}" method="POST" class="delete">
                 @csrf 
                 @method('DELETE')
-                <button class="delete">
+                <button type="submit" class="delete">
                 <img type="submit" src="{{ asset('assets/icons/admin/round-delete.svg') }}"  alt="icono de eliminar" loading="lazy">
               </button>
               </form>
@@ -181,4 +181,46 @@
     })
     </script>
   @endif
+
+  <script>
+    
+    document.querySelectorAll('.delete button[type="submit"]').forEach(button => {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        
+        iziToast.error({
+            timeout: false,
+            close: false,
+            overlay: false,
+            displayMode: 'once',
+            id: 'question',
+            zindex: 999,
+            title: '¿Seguro que quieres Borrar este Ejercicio?',
+            position: 'center',
+            buttons: [
+                ['<button><b>Si</b></button>', function (instance, toast) {
+                
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                    // Si el usuario confirma, envía el formulario de eliminación
+                    event.target.closest('form').submit();
+                }, true],
+                ['<button>NO</button>', function (instance, toast) {
+                
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                
+                }],
+            ],
+            onClosing: function(instance, toast, closedBy){
+                console.info('Closing | closedBy: ' + closedBy);
+            },
+            onClosed: function(instance, toast, closedBy){
+                console.info('Closed | closedBy: ' + closedBy);
+            }
+});
+        
+      });
+    });
+
+    
+    </script>
 </x-layouts.admin-layout>

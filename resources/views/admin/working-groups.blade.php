@@ -25,10 +25,10 @@
               <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
             </button>
             <div class="table__options-menu">
-              <button class="edit">
+              <button class="edit" id="abrir-modal">
                 <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
               </button>
-              <form action="{{ route('working-groups.destroy', $item->id) }}" method="POST" class="borrarGT">
+              <form action="{{ route('working-groups.destroy', $item->id) }}" method="POST" class="delete">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="delete">
@@ -38,6 +38,9 @@
             </div>
           </div>
         </div>
+        
+        
+
         {{-- row --}}
         @endforeach
       </div>
@@ -71,6 +74,8 @@
         </button>
     @endif
   </article>
+
+  
 
   <div class="modal__container">
     <div action="" class="modal">
@@ -112,11 +117,9 @@
           </div>
         </div>
       </section>
-
-      
-
     </div>
   </div>
+
   <script src="{{ asset('https://cdn.jsdelivr.net/npm/sweetalert2@11') }}"></script>
   <link rel="stylesheet" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.min.css') }}" />
   <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js') }}"></script>
@@ -152,4 +155,44 @@
     </script>
   @endif
   
+  <script>
+    
+    document.querySelectorAll('.delete button[type="submit"]').forEach(button => {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        
+        iziToast.error({
+            timeout: false,
+            close: false,
+            overlay: false,
+            displayMode: 'once',
+            id: 'question',
+            zindex: 999,
+            title: '¿Seguro que quieres Borrar este Grupo de Trabajo?',
+            position: 'center',
+            buttons: [
+                ['<button><b>Si</b></button>', function (instance, toast) {
+                
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                    // Si el usuario confirma, envía el formulario de eliminación
+                    event.target.closest('form').submit();
+                }, true],
+                ['<button>NO</button>', function (instance, toast) {
+                
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                
+                }],
+            ],
+            onClosing: function(instance, toast, closedBy){
+                console.info('Closing | closedBy: ' + closedBy);
+            },
+            onClosed: function(instance, toast, closedBy){
+                console.info('Closed | closedBy: ' + closedBy);
+            }
+});
+        
+      });
+    });
+
+    </script>
 </x-layouts.admin-layout>

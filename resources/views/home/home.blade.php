@@ -1,5 +1,6 @@
 @php
     $userName = auth()->user()->name ?? 'Invitado';
+    $userId = auth()->user()->id ?? 'Invitado';
 @endphp
 <x-layouts.user-layout>
     <section>
@@ -12,7 +13,7 @@
                         <p>Visualiza tus rutinas de cardio y tono muscular.</p>
                     </div>
                     <div class="home__option-buttons">
-                        <a href="/routines">Continuar 😮‍💨</a>
+                        <a href="{{ route('rutinas.UserRutinas', $userId) }}">Continuar 😮‍💨</a>
                     </div>
                 </div>
                 <img src="{{ asset('assets/images/home/rutinas.png') }}" alt="Rutinas">
@@ -38,7 +39,7 @@
                         <p>Tu salud nos importa, realiza este cuestionario para mejorar su experiencia.</p>
                     </div>
                     <div class="home__option-buttons">
-                        <a href="https://forms.gle/16Min5R8dxWdBc2r8">Continuar 🖊️</a>
+                        <a href="https://forms.gle/16Min5R8dxWdBc2r8">Continuar 🖊</a>
                     </div>
                 </div>
                 <img src="{{ asset('assets/images/home/cuestionario-salud.png') }}" alt="Cuestionario">
@@ -114,5 +115,21 @@
                 </div>
             </div>
         </article>
+
+        <div class="privacy__link">
+            <a href="privacy">Aviso de privacidad</a>
+        </div>
+
+        <div class="aviso-privacidad" id="aviso-privacidad">
+            <img class="candado" src="{{ asset('assets/images/home/privacy.png') }}" alt="Privacidad">
+            <h3 class="titulo">Privacidad</h3>
+            <p class="parrafo">Al cerrar esta ventana estás de acuerdo con nuestro aviso de privacidad.</p>
+            <button class="boton" id="btn-aceptar-privacidad">De acuerdo</button>
+            <a class="enlace" href="privacy">Aviso de privacidad</a>
+        </div>
+        <div class="fondo-aviso-privacidad" id="fondo-aviso-privacidad"></div>
     </section>
+
+    <script src="{{ asset('js/components/home/privacidad.js') }}"></script>
+
 </x-layouts.user-layout>

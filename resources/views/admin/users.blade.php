@@ -51,8 +51,8 @@
               <form action="{{route('users.destroy',$item->id_user)}}" method="POST" class="delete">
                 @csrf 
                 @method('DELETE')
-                <button type="submit">
-                <img type="submit" src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
+                <button type="submit" class="delete">
+                <img  src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
                 </button>
               </form>
             </div>
@@ -203,7 +203,7 @@
                 </div>
               </div>
               <div class="btn-form-admin">
-                <input type="submit" value="Registrar" onclick="confirmAddUser()">
+                <input type="submit" value="Registrar" >
               </div>
             </form>
           </div>
@@ -263,9 +263,10 @@
   {{--CONFIRMAR BORRAR USUARIO--}}
   <script>
       
-    document.querySelectorAll('.delete button[type="submit"]').forEach(button => {
+      document.querySelectorAll('.delete button[type="submit"]').forEach(button => {
       button.addEventListener('click', function (event) {
         event.preventDefault();
+
         
         iziToast.error({
             timeout: false,
@@ -274,7 +275,7 @@
             displayMode: 'once',
             id: 'question',
             zindex: 999,
-            title: '¿Seguro que quieres Borrar este usuario?',
+            title: '¿Seguro que quieres Borrar este Usuario?',
             position: 'center',
             buttons: [
                 ['<button><b>Si</b></button>', function (instance, toast) {
@@ -300,16 +301,7 @@
       });
     });
 
-    function confirmAddUser() {
-  const confirmation = confirm('¿Estás seguro de que deseas Agregar un nuevo usuario?');
 
-  if (confirmation) {
-    event.target.closest('form').submit();
-  } 
-  else{
-    
-  }
-}
   </script>
 
   </x-layouts.admin-layout>
