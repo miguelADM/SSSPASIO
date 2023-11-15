@@ -29,10 +29,10 @@
               </button>
               
 
-              <form action="{{route('diseases.destroy',$item->id)}}" method="POST" id="delete">
+              <form action="{{route('diseases.destroy',$item->id)}}" method="POST" class="delete">
                 @csrf 
                 @method('DELETE')
-                <button class="delete">
+                <button type="submit" class="delete">
                 <img type="submit" src="{{ asset('assets/icons/admin/round-delete.svg') }}"  alt="icono de eliminar" loading="lazy">
               </button>
               </form>
@@ -110,7 +110,7 @@
               </div>
               </div>
               <div class="btn-form-admin">
-                <input type="submit" value="Registrar">
+                <input type="submit" value="Registrar" >
               </div>
             </form>
           </div>
@@ -167,23 +167,43 @@
     document.querySelectorAll('.delete button[type="submit"]').forEach(button => {
       button.addEventListener('click', function (event) {
         event.preventDefault();
-        Swal.fire({
-  title: "¿Seguro de Eliminar la enfermedad?",
-  text: "No podras revertir esto",
-  icon: "warning",
-  showCancelButton: true,
-  confirmButtonColor: "#3085d6",
-  cancelButtonColor: "#d33",
-  confirmButtonText: "Si, Eliminarla",
-  cancelButtonText: "No Eliminarla"
-}).then((result) => {
-  if (result.isConfirmed) {
-    event.target.closest('form').submit();
-  }
+
+        
+        iziToast.error({
+            timeout: false,
+            close: false,
+            overlay: false,
+            displayMode: 'once',
+            id: 'question',
+            zindex: 999,
+            title: '¿Seguro que quieres Borrar esta Enfermedad?',
+            position: 'center',
+            buttons: [
+                ['<button><b>Si</b></button>', function (instance, toast) {
+                
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                    // Si el usuario confirma, envía el formulario de eliminación
+                    event.target.closest('form').submit();
+                }, true],
+                ['<button>NO</button>', function (instance, toast) {
+                
+                    instance.hide({ transitionOut: 'fadeOut' }, toast, 'button');
+                
+                }],
+            ],
+            onClosing: function(instance, toast, closedBy){
+                console.info('Closing | closedBy: ' + closedBy);
+            },
+            onClosed: function(instance, toast, closedBy){
+                console.info('Closed | closedBy: ' + closedBy);
+            }
 });
+        
       });
-    });
-  </script>
+    });
+
+  
+    </script>
    
 </x-layouts.admin-layout>
 

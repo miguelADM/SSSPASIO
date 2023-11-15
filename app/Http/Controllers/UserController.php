@@ -234,4 +234,18 @@ class UserController extends Controller
         $users->delete();
         return redirect()->route('users.index')->with('Eliminado','Usuario eliminado correctamente!');;
     }
+
+    
+
+    public function UserRutinas($id){
+
+        $param['rutinas'] = DB::table('users')
+        ->join('user_rutinas', 'users.id', '=', 'user_rutinas.id_user')
+        ->join('rutinas', 'rutinas.id', '=', 'user_rutinas.id_rutina')
+        ->select('rutinas.nombre as rutina_nombre', 'rutinas.id', 'rutinas.objetivo as rutina_objetivo')
+        ->where('users.id', '=', $id)
+            ->get();
+
+        return view('home.routines', $param);
+    }
 }

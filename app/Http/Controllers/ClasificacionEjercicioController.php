@@ -38,7 +38,7 @@ class ClasificacionEjercicioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nombre'=> ['required'],
+            'nombre'=> 'required|unique:clasificacion_ejercicios',
             'descripcion'=> ['required'],
         ]);
 

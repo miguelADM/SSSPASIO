@@ -76,9 +76,8 @@ Route::get('/settings', function () {
     return view('home/settings');
 })->name('settings');
 
-Route::get('/routines', function () {
-    return view('home/routines');
-})->name('routines');
+//ruta de rutinas asignadas para el usuario
+    Route::get('/routines/{id}', [UserController::class, 'UserRutinas'])->name('rutinas.UserRutinas');
 
 Route::get('/rt-cardio', function () {
     return view('home/rt-cardio');
