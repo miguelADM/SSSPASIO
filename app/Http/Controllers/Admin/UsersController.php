@@ -21,7 +21,7 @@ class UsersController extends Controller
     public function index(Request $request)
     {
 
-        $param['users'] = User::all();
+        $param['users'] = User::paginate(10);
         $param['grupos'] = GrupoTrabajo::all();
         $param['enfermedades'] = Enfermedades::all();
         $param['membresias'] = Membresias::all();
