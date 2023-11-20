@@ -1069,3 +1069,11 @@ transition-delay: 0.15s;
     background: #f8d7da;
     color: #842029;
 }
+
+.text_red {
+    color: #f56565;
+}
+
+.pt-1 {
+    padding-top: 10px;
+}

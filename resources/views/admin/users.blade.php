@@ -85,13 +85,14 @@
       <section class="content">
         <div class="form-container">
           <div class="title">Registrar usuario</div>
+          <div id="error-container"></div>
           <div class="content">
-            <form action="{{ route('user.store') }}" method="POST" class="formularioAdmin dos-col">
+            <form action="{{ route('user.store') }}" method="POST" class="formularioAdmin dos-col" id="user-create">
               @csrf       
               <div class="user-details">
                 <div class="input-box">
                   <span class="details">E-mail</span>
-                  <input type="email" name="email" placeholder="Correo electrónico" required>
+                  <input type="email" name="email" placeholder="Correo electrónico" >
                 </div>
                 <div class="input-box">
                   <span class="details">Teléfono</span>
@@ -99,7 +100,7 @@
                 </div>
                 <div class="input-box">
                   <span class="details">Sexo</span>
-                  <select required id="sexo" name="sexo">
+                  <select  id="sexo" name="sexo">
                     <option disabled selected value>Seleccionar...</option>
                     <option value="H">Masculino</option>
                     <option value="M">Femenino</option>
@@ -116,7 +117,7 @@
                 </div>
                 <div class="input-box">
                   <span class="details">Rol</span>
-                  <select required id="rol" name="rol">
+                  <select  id="rol" name="rol">
                     <option disabled selected value>Seleccionar...</option>
                     <option value="1">Usuario</option>
                     <option value="2">Administrador</option>
@@ -142,7 +143,7 @@
                 </div>
                 <div class="input-box">
                   <span class="details">Membresía</span>
-                  <select required id="membresia" name="membresia">
+                  <select  id="membresia" name="membresia">
                     <option disabled selected value>Seleccionar...</option>
                     @foreach ($membresias as $membresia)
                       <option value="{{ $membresia->id }}">{{ $membresia->nombre }}</option>
