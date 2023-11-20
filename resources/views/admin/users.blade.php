@@ -24,8 +24,6 @@
     <div class="divTable">
       <div class="divTableBody">
         <div class="divTableHeading">
-          <div class="divTableCell">Usuario</div>
-          <div class="divTableCell">Nombre</div>
           <div class="divTableCell">Correo</div>
           <div class="divTableCell">Grupo</div>
           <div class="divTableCell">Membresia</div>
@@ -34,16 +32,20 @@
         </div>
         @foreach ($users as $user)
           <div class="divTableRow">
-            <div class="divTableCell">Spasssio0001</div>
             <div class="divTableCell">
-              Kazahura Miller
+              {{ $user->email }}
             </div>
-            <div class="divTableCell">usuario@mail.com</div>
             <div class="divTableCell">
-              UNIVERSIDAD NEZA
+              {{ $user->grupo->nombre ?? 'Sin Grupo' }}
             </div>
-            <div class="divTableCell">Premium</div>
-            <div class="divTableCell">Sindrome metabólico</div>
+            <div class="divTableCell">
+              {{ $user->membresia->nombre ?? 'Sin Membresia' }}
+            </div>
+            <div class="divTableCell">
+             @foreach ($user->enfermedades as $enfermedad)
+                {{ $enfermedad->nombre }}
+              @endforeach
+            </div>
             <div class="divTableCell relative">
               <button class="table__options" type="button" data-id="1">
                 <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
