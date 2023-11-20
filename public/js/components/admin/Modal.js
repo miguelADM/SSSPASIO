@@ -21,8 +21,7 @@ export function modal() {
     closeModalButton?.forEach((button) => {
         button?.addEventListener('click', () => {
             modalContainer.classList.remove("show-modal");
-            modalAssign.classList.remove("show-modal");
-            resetForm()
+            resetForm();
         })
     })
 

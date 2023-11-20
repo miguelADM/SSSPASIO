@@ -1,5 +1,19 @@
 <x-layouts.admin-layout>
   <h1>Usuarios</h1>
+  
+  @if (session('success'))
+    <div id="alertBox" class="alert alert__success">
+      {{ session('success') }}
+    </div>
+  @endif
+
+  @if (session('error'))
+    <div id="alertBox" class="alert alert__error">
+      {{ session('error') }}
+    </div>
+  @endif
+  
+  </div>
   <div class="button-container">
     <button class="button button-primary" type="button" id="open-modal">
       Agregar Usuario
@@ -191,6 +205,7 @@
       <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
     </button>
   </article>
+
   <div class="modal__container">
     <div class="modal">
       <button id="close-modal" type="button">
@@ -200,19 +215,16 @@
         <div class="form-container">
           <div class="title">Registrar usuario</div>
           <div class="content">
-            <form action="" class="formularioAdmin dos-col">
+            <form action="{{ route('user.store') }}" method="POST" class="formularioAdmin dos-col">
+              @csrf       
               <div class="user-details">
                 <div class="input-box">
-                  <span class="details">Alias</span>
-                  <input type="text" id="nombre" name="nombre" readonly="" disabled required>
-                </div>
-                <div class="input-box">
                   <span class="details">E-mail</span>
-                  <input type="text" placeholder="Correo electrónico" required>
+                  <input type="email" name="email" placeholder="Correo electrónico" required>
                 </div>
                 <div class="input-box">
                   <span class="details">Teléfono</span>
-                  <input type="text" placeholder="No. de celular" required>
+                  <input type="text" name="tel" placeholder="No. de celular">
                 </div>
                 <div class="input-box">
                   <span class="details">Sexo</span>
@@ -240,86 +252,42 @@
                   </select>
                 </div>
                 <div class="input-box">
-                  <span class="details">Rutina</span>
-                  <input type="text" required id="rutina" name="rutina" placeholder="Nombre rutina"
-                    old="{{ old('rutina') }}">
-                </div>
-                <div class="input-box">
                   <span class="details">Grupo de trabajo</span>
-                  <select required id="grupo" name="grupo">
+                  <select id="grupo" name="grupo">
                     <option disabled selected value>Seleccionar...</option>
-                    <option value="1">Grupo 1</option>
-                    <option value="2">Grupo 2</option>
-                    <option value="3">Grupo 3</option>
-                    <option value="4">Grupo 4</option>
+                    @foreach ($grupos as $grupo)
+                      <option value="{{ $grupo->id }}">{{ $grupo->nombre }}</option>
+                    @endforeach
                   </select>
                 </div>
                 <div class="input-box">
                   <span class="details">Enfermedades/Condiciones</span>
-                  <select required id="enf" name="enf">
+                  <select id="enf" name="enf">
                     <option disabled selected value>Seleccionar...</option>
-                    <option value="1">Enfermedad 1</option>
-                    <option value="2">Enfermedad 2</option>
-                    <option value="3">Enfermedad 3</option>
-                    <option value="4">Enfermedad 4</option>
+                    @foreach ($enfermedades as $enfermedad)
+                      <option value="{{ $enfermedad->id }}">{{ $enfermedad->nombre }}</option>
+                    @endforeach
                   </select>
                 </div>
                 <div class="input-box">
                   <span class="details">Membresía</span>
                   <select required id="membresia" name="membresia">
                     <option disabled selected value>Seleccionar...</option>
-                    <option value="Prueba">Prueba</option>
-                    <option value="Básico">Básico</option>
-                    <option value="Premium">Premium</option>
+                    @foreach ($membresias as $membresia)
+                      <option value="{{ $membresia->id }}">{{ $membresia->nombre }}</option>
+                    @endforeach
                   </select>
                 </div>
-                <div class="input-box">
-                  <span class="details">Observaciones</span>
-                  <textarea id="" cols="50" rows="3" class="form-control" name="observaciones"
-                    placeholder="Observaciones acerca del usuario a considerar"></textarea>
-                </div>
-                <div class="periodo-details">
-                  <input type="radio" name="periodo" id="periodo4" value="15 Días">
-                  <input type="radio" name="periodo" id="periodo5" value="1 Mes">
-                  <input type="radio" name="periodo" id="periodo1" value="Trimestral">
-                  <input type="radio" name="periodo" id="periodo2" value="Semestral">
-                  <input type="radio" name="periodo" id="periodo3" value="Anualidad">
-
-                  <span class="periodo-title">Periodo</span>
-                  <div class="category">
-                    <label for="periodo4">
-                      <span class="dot one"></span>
-                      <span class="periodo">15 Días</span>
-                    </label>
-                    <label for="periodo5">
-                      <span class="dot two"></span>
-                      <span class="periodo">1 Mes</span>
-                    </label>
-                    <label for="periodo1">
-                      <span class="dot three"></span>
-                      <span class="periodo">Trimestral</span>
-                    </label>
-                    <label for="periodo2">
-                      <span class="dot four"></span>
-                      <span class="periodo">Semestral</span>
-                    </label>
-                    <label for="periodo3">
-                      <span class="dot five"></span>
-                      <span class="periodo">Anualidad</span>
-                    </label>
-                  </div>
-                </div>
               </div>
-
               <div class="btn-form-admin">
                 <input type="submit" value="Registrar">
               </div>
-
             </form>
           </div>
         </div>
       </section>
-
       </form>
     </div>
+  </div>
+
 </x-layouts.admin-layout>

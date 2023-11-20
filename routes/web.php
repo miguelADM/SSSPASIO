@@ -19,6 +19,7 @@ Route::prefix('admin')->middleware('AuthAdmin')->group(function () {
     })->name('admin');
 
     Route::get('/users', [UsersController::class, 'index'])->name('users');
+    Route::post('/users/store', [UsersController::class, 'store'])->name('user.store');
 
     Route::get('/working-groups', function () {
         return view('admin/working-groups');

@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\GrupoTrabajo;
+use App\Models\Enfermedades;
+use App\Models\Membresias;
+
 
 class UsersController extends Controller
 {
@@ -15,7 +20,13 @@ class UsersController extends Controller
      */
     public function index(Request $request)
     {
-        return view('admin/users');
+
+        $param['users'] = User::all();
+        $param['grupos'] = GrupoTrabajo::all();
+        $param['enfermedades'] = Enfermedades::all();
+        $param['membresias'] = Membresias::all();
+
+        return view('admin/users', $param);
     }
 
     /**
@@ -25,7 +36,31 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-    
+        
+        $request->validate([
+            'email' => 'required|email|unique:users,email',
+            'sexo' => 'required',
+            'password' => 'required',
+            'confirm_password' => 'required|same:password',
+            'rol' => 'required',
+            'membresia' => 'required',
+        ]);
+
+        try {
+            $user = new User();
+            $user->email = $request->email;
+            $user->telefono = $request->tel;
+            $user->password = bcrypt($request->password);
+            $user->status = 1;
+            $user->sexo = $request->sexo;
+            $user->id_membresia = $request->membresia;
+            $user->id_grupo = $request->grupo;
+            $user->id_rol = $request->rol;
+            $user->save();
+            return redirect()->route('users')->with('success', 'Usuario creado correctamente');
+        } catch (\Exception $th) {
+            return redirect()->route('users')->with('error', 'Error al crear usuario');
+        } 
     }
 
     /**
