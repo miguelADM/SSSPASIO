@@ -1,12 +1,8 @@
 <?php
 
-use App\Http\Controllers\EjercicioController;
-use App\Http\Controllers\enfermedadesController;
-use App\Http\Controllers\GruposController;
-use App\Http\Controllers\UserController;
-use App\Models\ClasificacionEjercicio;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\UsersController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -17,13 +13,15 @@ Route::post('login',[AuthController::class,'login'])->name('loginMultiple');
 
 
 Route::prefix('admin')->middleware('AuthAdmin')->group(function () {
+
     Route::get('/', function () {
         return view('admin/admin');
     })->name('admin');
 
-    Route::get('/users', function () {
-        return view('admin/users');
-    });
+    Route::get('/users', [UsersController::class, 'index'])->name('users');
+    Ro
+
+
 
     Route::get('/working-groups', function () {
         return view('admin/working-groups');
