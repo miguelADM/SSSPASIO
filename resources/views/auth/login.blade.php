@@ -1,9 +1,14 @@
 <x-layouts.layout>
+  @if(session('error'))
+    <div clas="alert alert-danger">
+        {{ session('error') }}
+    </div>
+  @endif
   <main class="login">
     <section class="login__container">
       <x-form.button-return />
       <x-form.header-form-login />
-      <form action="{{ route('login') }}" method="POST" class="login__form">
+      <form action="{{ route('loginMultiple') }}" method="POST" class="login__form">
         @csrf
         <div class="form__group">
           <x-form.input-email />
