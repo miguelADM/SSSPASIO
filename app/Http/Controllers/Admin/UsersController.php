@@ -64,18 +64,6 @@ class UsersController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Users  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Request $request)
-    {
-        return view('admin/users');
-    }
-
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \App\Models\Users  $user
@@ -83,7 +71,29 @@ class UsersController extends Controller
      */
     public function update(Request $request)
     {
-
+        $request->validate([
+            'email' => 'required|email|unique:users,email',
+            'sexo' => 'required',
+            'password' => 'required',
+            'confirm_password' => 'required|same:password',
+            'rol' => 'required',
+            'membresia' => 'required',
+        ]);
+        
+        try {
+            $user = User::find($request->id);
+            $user->email = $request->email;
+            $user->telefono = $request->tel;
+            $user->status = $request->status;
+            $user->sexo = $request->sexo;
+            $user->id_membresia = $request->membresia;
+            $user->id_grupo = $request->grupo;
+            $user->id_rol = $request->rol;
+            $user->save();
+            return response()->json(['success' => 'Usuario actualizado correctamente']);
+        } catch (\Exception $th) {
+            return response()->json(['error' => 'Error al actualizar usuario']);
+        }
     }
 
     /**

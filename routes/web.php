@@ -24,7 +24,6 @@ Route::prefix('admin')->middleware('AuthAdmin')->group(function () {
     Route::delete('/users/delete/{id}', [UsersController::class, 'destroy'])->name('user.destroy');
 
   
-
     Route::get('/working-groups', function () {
         return view('admin/working-groups');
     });

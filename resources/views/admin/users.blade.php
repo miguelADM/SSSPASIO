@@ -51,13 +51,117 @@
                 <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
               </button>
               <div class="table__options-menu">
-                <button class="edit">
+                <button class="edit" onclick="editModal({{ $user->id }})">
                   <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
                 </button>
                 <button class="delete" onclick="confirmDelete('{{ route('user.destroy', $user->id) }}')">
                   <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
                 </button>
               </div>
+            </div>
+          </div>
+          <div class="modal__container" id="edit-user-{{ $user->id }}">
+            <div class="modal">
+              <button class="close-modal" type="button" id="close-modal">
+                <img src="{{ asset('assets/icons/admin/close-filled.svg') }}" alt="icono de cerrar" loading="lazy">
+              </button>
+              <section class="content">
+                <div class="form-container">
+                  <div class="title">Editar usuario</div>
+                  <div class="content">
+                    <form action="{{ route('user.update',$user->id) }}" method="POST" class="formularioAdmin dos-col">
+                      @csrf       
+                      <div class="user-details">
+                        <div class="input-box">
+                          <span class="details">E-mail</span>
+                          <input type="email" name="email" placeholder="Correo electrónico" value="{{ $user->email }}">
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Teléfono</span>
+                          <input type="text" name="tel" placeholder="No. de celular" value="{{ $user->telefono }}">
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Sexo</span>
+                          <select  name="sexo" value="{{ $user->sexo }}">
+                            <option disabled selected value>Seleccionar...</option>
+                            @if ($user->sexo == 'H')
+                              <option value="H" selected>Masculino</option>
+                              <option value="M">Femenino</option>
+                            @else
+                              <option value="H">Masculino</option>
+                              <option value="M" selected>Femenino</option>
+                            @endif
+                          </select>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Contraseña</span>
+                          <input type="password" name="password" placeholder="Contraseña">
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Repite la contraseña</span>
+                          <input type="password" name="confirm_password" placeholder="Confirmación de contraseña">
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Rol</span>
+                          <select  name="rol">
+                            <option disabled selected value>Seleccionar...</option>
+                            @if ($user->id_rol == 1)
+                              <option value="1" selected>Usuario</option>
+                              <option value="2">Administrador</option>
+                            @else
+                              <option value="1">Usuario</option>
+                              <option value="2" selected>Administrador</option>
+                            @endif
+                          </select>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Grupo de trabajo</span>
+                          <select name="grupo">
+                            <option disabled selected value>Seleccionar...</option>
+                            @foreach ($grupos as $grupo)
+                              @if($grupo->id == $user->id_grupo)
+                                <option value="{{ $grupo->id }}" selected>{{ $grupo->nombre }}</option>
+                              @else
+                                <option value="{{ $grupo->id }}">{{ $grupo->nombre }}</option>
+                              @endif
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Enfermedades/Condiciones</span>
+                          <select name="enf">
+                            <option disabled selected value>Seleccionar...</option>
+                            @foreach ($enfermedades as $enfermedad)
+                              @if($enfermedad->id == $user->id_enfermedad)
+                                <option value="{{ $enfermedad->id }}" selected>{{ $enfermedad->nombre }}</option>
+                              @else
+                                <option value="{{ $enfermedad->id }}">{{ $enfermedad->nombre }}</option>
+                              @endif
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Membresía</span>
+                          <select  name="membresia">
+                            <option disabled selected value>Seleccionar...</option>
+                            @foreach ($membresias as $membresia)
+                              @if($membresia->id == $user->id_membresia)
+                                <option value="{{ $membresia->id }}" selected>{{ $membresia->nombre }}</option>
+                              @else
+                                <option value="{{ $membresia->id }}">{{ $membresia->nombre }}</option>
+                              @endif
+                            @endforeach
+                          </select>
+                        </div>
+                      </div>
+                      <div class="btn-form-admin">
+                        <input type="submit" value="Editar">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </section>
+              </form>
             </div>
           </div>
         @endforeach
@@ -77,9 +181,9 @@
     </button>
   </article>
   
-  <div class="modal__container">
+  <div class="modal__container" id="agregar-usuario">
     <div class="modal">
-      <button id="close-modal" type="button">
+      <button class="close-modal" type="button" id="close-modal">
         <img src="{{ asset('assets/icons/admin/close-filled.svg') }}" alt="icono de cerrar" loading="lazy">
       </button>
       <section class="content">
@@ -161,5 +265,16 @@
       </form>
     </div>
   </div>
-
+  <script>
+    function editModal(id){
+      const editModal = document.getElementById(`edit-user-${id}`);
+      editModal.classList.add('show-modal');
+      const closeModalButtons = editModal.querySelectorAll('.close-modal');
+      closeModalButtons.forEach(button => {
+          button.addEventListener('click', () => {
+              editModal.classList.remove('show-modal');
+          });
+      });
+    }
+  </script>
 </x-layouts.admin-layout>
