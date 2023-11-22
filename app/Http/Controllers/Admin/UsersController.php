@@ -94,7 +94,13 @@ class UsersController extends Controller
      */
     public function destroy(Request $request)
     {
-
+        try {
+            $user = User::find($request->id);
+            $user->delete();
+            return response()->json(['success' => 'Usuario eliminado correctamente']);
+        } catch (\Exception $th) {
+            return response()->json(['error' => 'Error al eliminar usuario']);
+        }
     }
 
 }

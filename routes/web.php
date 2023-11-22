@@ -20,6 +20,10 @@ Route::prefix('admin')->middleware('AuthAdmin')->group(function () {
 
     Route::get('/users', [UsersController::class, 'index'])->name('users');
     Route::post('/users/store', [UsersController::class, 'store'])->name('user.store');
+    Route::post('/users/update', [UsersController::class, 'update'])->name('user.update');
+    Route::delete('/users/delete/{id}', [UsersController::class, 'destroy'])->name('user.destroy');
+
+  
 
     Route::get('/working-groups', function () {
         return view('admin/working-groups');

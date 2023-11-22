@@ -54,7 +54,7 @@
                 <button class="edit">
                   <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
                 </button>
-                <button class="delete">
+                <button class="delete" onclick="confirmDelete('{{ route('user.destroy', $user->id) }}')">
                   <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
                 </button>
               </div>
