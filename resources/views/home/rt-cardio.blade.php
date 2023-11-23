@@ -1,4 +1,5 @@
 <x-layouts.user-layout>
+  <link rel="stylesheet" href="{{ asset('css/home/timer.css') }}">
   <section class="intro">
     <div class="intro__card">
       <div class="intro__title">
@@ -26,6 +27,8 @@
       </div>
     </div>
   </section>
+
+  <x-home.timer.timer />
 
   <div class="sections__menu-container">
     <ul class="sections__menu">
@@ -138,4 +141,6 @@
 
   </div>
   <script src="{{ asset('js/components/home/ejercicios.js') }}"></script>
+  <script src="{{ asset('js/components/home/timer.js') }}"></script>
+
 </x-layouts.user-layout>
