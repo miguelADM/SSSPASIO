@@ -114,5 +114,21 @@
                 </div>
             </div>
         </article>
+
+        <div class="privacy__link">
+            <a href="privacy">Aviso de privacidad</a>
+        </div>
+
+        <div class="aviso-privacidad" id="aviso-privacidad">
+            <img class="candado" src="{{ asset('assets/images/home/privacy.png') }}" alt="Privacidad">
+            <h3 class="titulo">Privacidad</h3>
+            <p class="parrafo">Al cerrar esta ventana estás de acuerdo con nuestro aviso de privacidad.</p>
+            <button class="boton" id="btn-aceptar-privacidad">De acuerdo</button>
+            <a class="enlace" href="privacy">Aviso de privacidad</a>
+        </div>
+        <div class="fondo-aviso-privacidad" id="fondo-aviso-privacidad"></div>
     </section>
+
+    <script src="{{ asset('js/components/home/privacidad.js') }}"></script>
+
 </x-layouts.user-layout>

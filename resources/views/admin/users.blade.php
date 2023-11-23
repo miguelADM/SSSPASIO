@@ -1,5 +1,19 @@
 <x-layouts.admin-layout>
   <h1>Usuarios</h1>
+  
+  @if (session('success'))
+    <div id="alertBox" class="alert alert__success">
+      {{ session('success') }}
+    </div>
+  @endif
+
+  @if (session('error'))
+    <div id="alertBox" class="alert alert__error">
+      {{ session('error') }}
+    </div>
+  @endif
+  
+  </div>
   <div class="button-container">
     <button class="button button-primary" type="button" id="open-modal">
       Agregar Usuario
@@ -10,213 +24,187 @@
     <div class="divTable">
       <div class="divTableBody">
         <div class="divTableHeading">
-          <div class="divTableCell">Usuario</div>
-          <div class="divTableCell">Nombre</div>
           <div class="divTableCell">Correo</div>
           <div class="divTableCell">Grupo</div>
           <div class="divTableCell">Membresia</div>
           <div class="divTableCell">Salud</div>
           <div class="divTableCell"></div>
         </div>
-
-        <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
-          <div class="divTableCell">
-            Kazahura Miller
-          </div>
-          <div class="divTableCell">usuario@mail.com</div>
-          <div class="divTableCell">
-            UNIVERSIDAD NEZA
-          </div>
-          <div class="divTableCell">Premium</div>
-          <div class="divTableCell">Sindrome metabólico</div>
-          <div class="divTableCell relative">
-            <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
-            </button>
-            <div class="table__options-menu">
-              <button class="edit">
-                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
+        @foreach ($users as $user)
+          <div class="divTableRow">
+            <div class="divTableCell">
+              {{ $user->email }}
+            </div>
+            <div class="divTableCell">
+              {{ $user->grupo->nombre ?? 'Sin Grupo' }}
+            </div>
+            <div class="divTableCell">
+              {{ $user->membresia->nombre ?? 'Sin Membresia' }}
+            </div>
+            <div class="divTableCell">
+             @foreach ($user->enfermedades as $enfermedad)
+                {{ $enfermedad->nombre }}
+              @endforeach
+            </div>
+            <div class="divTableCell relative">
+              <button class="table__options" type="button" data-id="1">
+                <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
               </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
-              </button>
+              <div class="table__options-menu">
+                <button class="edit" onclick="editModal({{ $user->id }})">
+                  <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
+                </button>
+                <button class="delete" onclick="confirmDelete('{{ route('user.destroy', $user->id) }}')">
+                  <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
-          <div class="divTableCell">
-            Kazahura Miller
-          </div>
-          <div class="divTableCell">usuario@mail.com</div>
-          <div class="divTableCell">
-            UNIVERSIDAD NEZA
-          </div>
-          <div class="divTableCell">Premium</div>
-          <div class="divTableCell">Sindrome metabólico</div>
-          <div class="divTableCell relative">
-            <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
-            </button>
-            <div class="table__options-menu">
-              <button class="edit">
-                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
+          <div class="modal__container" id="edit-user-{{ $user->id }}">
+            <div class="modal">
+              <button class="close-modal" type="button" id="close-modal">
+                <img src="{{ asset('assets/icons/admin/close-filled.svg') }}" alt="icono de cerrar" loading="lazy">
               </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
-              </button>
+              <section class="content">
+                <div class="form-container">
+                  <div class="title">Editar usuario</div>
+                  <div class="content">
+                    <form action="{{ route('user.update',$user->id) }}" method="POST" class="formularioAdmin dos-col">
+                      @csrf       
+                      <div class="user-details">
+                        <div class="input-box">
+                          <span class="details">E-mail</span>
+                          <input type="email" name="email" placeholder="Correo electrónico" value="{{ $user->email }}">
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Teléfono</span>
+                          <input type="text" name="tel" placeholder="No. de celular" value="{{ $user->telefono }}">
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Sexo</span>
+                          <select  name="sexo" value="{{ $user->sexo }}">
+                            <option disabled selected value>Seleccionar...</option>
+                            @if ($user->sexo == 'H')
+                              <option value="H" selected>Masculino</option>
+                              <option value="M">Femenino</option>
+                            @else
+                              <option value="H">Masculino</option>
+                              <option value="M" selected>Femenino</option>
+                            @endif
+                          </select>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Contraseña</span>
+                          <input type="password" name="password" placeholder="Contraseña">
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Repite la contraseña</span>
+                          <input type="password" name="confirm_password" placeholder="Confirmación de contraseña">
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Rol</span>
+                          <select  name="rol">
+                            <option disabled selected value>Seleccionar...</option>
+                            @if ($user->id_rol == 1)
+                              <option value="1" selected>Usuario</option>
+                              <option value="2">Administrador</option>
+                            @else
+                              <option value="1">Usuario</option>
+                              <option value="2" selected>Administrador</option>
+                            @endif
+                          </select>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Grupo de trabajo</span>
+                          <select name="grupo">
+                            <option disabled selected value>Seleccionar...</option>
+                            @foreach ($grupos as $grupo)
+                              @if($grupo->id == $user->id_grupo)
+                                <option value="{{ $grupo->id }}" selected>{{ $grupo->nombre }}</option>
+                              @else
+                                <option value="{{ $grupo->id }}">{{ $grupo->nombre }}</option>
+                              @endif
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Enfermedades/Condiciones</span>
+                          <select name="enf">
+                            <option disabled selected value>Seleccionar...</option>
+                            @foreach ($enfermedades as $enfermedad)
+                              @if($enfermedad->id == $user->id_enfermedad)
+                                <option value="{{ $enfermedad->id }}" selected>{{ $enfermedad->nombre }}</option>
+                              @else
+                                <option value="{{ $enfermedad->id }}">{{ $enfermedad->nombre }}</option>
+                              @endif
+                            @endforeach
+                          </select>
+                        </div>
+                        <div class="input-box">
+                          <span class="details">Membresía</span>
+                          <select  name="membresia">
+                            <option disabled selected value>Seleccionar...</option>
+                            @foreach ($membresias as $membresia)
+                              @if($membresia->id == $user->id_membresia)
+                                <option value="{{ $membresia->id }}" selected>{{ $membresia->nombre }}</option>
+                              @else
+                                <option value="{{ $membresia->id }}">{{ $membresia->nombre }}</option>
+                              @endif
+                            @endforeach
+                          </select>
+                        </div>
+                      </div>
+                      <div class="btn-form-admin">
+                        <input type="submit" value="Editar">
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </section>
+              </form>
             </div>
           </div>
-        </div>
-        <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
-          <div class="divTableCell">
-            Kazahura Miller
-          </div>
-          <div class="divTableCell">usuario@mail.com</div>
-          <div class="divTableCell">
-            UNIVERSIDAD NEZA
-          </div>
-          <div class="divTableCell">Premium</div>
-          <div class="divTableCell">Sindrome metabólico</div>
-          <div class="divTableCell relative">
-            <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
-            </button>
-            <div class="table__options-menu">
-              <button class="edit">
-                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
-              </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar" loading="lazy">
-              </button>
-            </div>
-          </div>
-        </div>
-        <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
-          <div class="divTableCell">
-            Kazahura Miller
-          </div>
-          <div class="divTableCell">usuario@mail.com</div>
-          <div class="divTableCell">
-            UNIVERSIDAD NEZA
-          </div>
-          <div class="divTableCell">Premium</div>
-          <div class="divTableCell">Sindrome metabólico</div>
-          <div class="divTableCell relative">
-            <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
-            </button>
-            <div class="table__options-menu">
-              <button class="edit">
-                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
-              </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar"
-                  loading="lazy">
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
-          <div class="divTableCell">
-            Kazahura Miller
-          </div>
-          <div class="divTableCell">usuario@mail.com</div>
-          <div class="divTableCell">
-            UNIVERSIDAD NEZA
-          </div>
-          <div class="divTableCell">Premium</div>
-          <div class="divTableCell">Sindrome metabólico</div>
-          <div class="divTableCell relative">
-            <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones"
-                loading="lazy">
-            </button>
-            <div class="table__options-menu">
-              <button class="edit">
-                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
-              </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar"
-                  loading="lazy">
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div class="divTableRow">
-          <div class="divTableCell">Spasssio0001</div>
-          <div class="divTableCell">
-            Kazahura Miller
-          </div>
-          <div class="divTableCell">usuario@mail.com</div>
-          <div class="divTableCell">
-            UNIVERSIDAD NEZA
-          </div>
-          <div class="divTableCell">Premium</div>
-          <div class="divTableCell">Sindrome metabólico</div>
-          <div class="divTableCell relative">
-            <button class="table__options" type="button" data-id="1">
-              <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones"
-                loading="lazy">
-            </button>
-            <div class="table__options-menu">
-              <button class="edit">
-                <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
-              </button>
-              <button class="delete">
-                <img src="{{ asset('assets/icons/admin/round-delete.svg') }}" alt="icono de eliminar"
-                  loading="lazy">
-              </button>
-            </div>
-          </div>
-        </div>
-
+        @endforeach
       </div>
     </div>
   </section>
+
   <article class="pagination">
-    <button id="prev" title="Anterior">
-      <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
+    <button id="prev" title="Anterior" @if ($users->previousPageUrl()) onclick="window.location='{{ $users->previousPageUrl() }}'" @endif>
+        <img src="{{ asset('assets/icons/admin/arrow-left.svg') }}" alt="flecha izquierda" loading="lazy">
     </button>
-    <button class="active">1</button>
-    <button>2</button>
-    <button id="next" title="Siguiente">
-      <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
+    @for ($i = 1; $i <= $users->lastPage(); $i++)
+        <button @if ($users->currentPage() === $i) class="active" @endif onclick="window.location='{{ $users->url($i) }}'">{{ $i }}</button>
+    @endfor
+    <button id="next" title="Siguiente" @if ($users->nextPageUrl()) onclick="window.location='{{ $users->nextPageUrl() }}'" @endif>
+        <img src="{{ asset('assets/icons/admin/arrow-right.svg') }}" alt="flecha derecha" loading="lazy">
     </button>
   </article>
-  <div class="modal__container">
+  
+  <div class="modal__container" id="agregar-usuario">
     <div class="modal">
-      <button id="close-modal" type="button">
+      <button class="close-modal" type="button" id="close-modal">
         <img src="{{ asset('assets/icons/admin/close-filled.svg') }}" alt="icono de cerrar" loading="lazy">
       </button>
       <section class="content">
         <div class="form-container">
           <div class="title">Registrar usuario</div>
+          <div id="error-container"></div>
           <div class="content">
-            <form action="" class="formularioAdmin dos-col">
+            <form action="{{ route('user.store') }}" method="POST" class="formularioAdmin dos-col" id="user-create">
+              @csrf       
               <div class="user-details">
                 <div class="input-box">
-                  <span class="details">Alias</span>
-                  <input type="text" id="nombre" name="nombre" readonly="" disabled required>
-                </div>
-                <div class="input-box">
                   <span class="details">E-mail</span>
-                  <input type="text" placeholder="Correo electrónico" required>
+                  <input type="email" name="email" placeholder="Correo electrónico" >
                 </div>
                 <div class="input-box">
                   <span class="details">Teléfono</span>
-                  <input type="text" placeholder="No. de celular" required>
+                  <input type="text" name="tel" placeholder="No. de celular">
                 </div>
                 <div class="input-box">
                   <span class="details">Sexo</span>
-                  <select required id="sexo" name="sexo">
+                  <select  id="sexo" name="sexo">
                     <option disabled selected value>Seleccionar...</option>
                     <option value="H">Masculino</option>
                     <option value="M">Femenino</option>
@@ -233,93 +221,60 @@
                 </div>
                 <div class="input-box">
                   <span class="details">Rol</span>
-                  <select required id="rol" name="rol">
+                  <select  id="rol" name="rol">
                     <option disabled selected value>Seleccionar...</option>
                     <option value="1">Usuario</option>
                     <option value="2">Administrador</option>
                   </select>
                 </div>
                 <div class="input-box">
-                  <span class="details">Rutina</span>
-                  <input type="text" required id="rutina" name="rutina" placeholder="Nombre rutina"
-                    old="{{ old('rutina') }}">
-                </div>
-                <div class="input-box">
                   <span class="details">Grupo de trabajo</span>
-                  <select required id="grupo" name="grupo">
+                  <select id="grupo" name="grupo">
                     <option disabled selected value>Seleccionar...</option>
-                    <option value="1">Grupo 1</option>
-                    <option value="2">Grupo 2</option>
-                    <option value="3">Grupo 3</option>
-                    <option value="4">Grupo 4</option>
+                    @foreach ($grupos as $grupo)
+                      <option value="{{ $grupo->id }}">{{ $grupo->nombre }}</option>
+                    @endforeach
                   </select>
                 </div>
                 <div class="input-box">
                   <span class="details">Enfermedades/Condiciones</span>
-                  <select required id="enf" name="enf">
+                  <select id="enf" name="enf">
                     <option disabled selected value>Seleccionar...</option>
-                    <option value="1">Enfermedad 1</option>
-                    <option value="2">Enfermedad 2</option>
-                    <option value="3">Enfermedad 3</option>
-                    <option value="4">Enfermedad 4</option>
+                    @foreach ($enfermedades as $enfermedad)
+                      <option value="{{ $enfermedad->id }}">{{ $enfermedad->nombre }}</option>
+                    @endforeach
                   </select>
                 </div>
                 <div class="input-box">
                   <span class="details">Membresía</span>
-                  <select required id="membresia" name="membresia">
+                  <select  id="membresia" name="membresia">
                     <option disabled selected value>Seleccionar...</option>
-                    <option value="Prueba">Prueba</option>
-                    <option value="Básico">Básico</option>
-                    <option value="Premium">Premium</option>
+                    @foreach ($membresias as $membresia)
+                      <option value="{{ $membresia->id }}">{{ $membresia->nombre }}</option>
+                    @endforeach
                   </select>
                 </div>
-                <div class="input-box">
-                  <span class="details">Observaciones</span>
-                  <textarea id="" cols="50" rows="3" class="form-control" name="observaciones"
-                    placeholder="Observaciones acerca del usuario a considerar"></textarea>
-                </div>
-                <div class="periodo-details">
-                  <input type="radio" name="periodo" id="periodo4" value="15 Días">
-                  <input type="radio" name="periodo" id="periodo5" value="1 Mes">
-                  <input type="radio" name="periodo" id="periodo1" value="Trimestral">
-                  <input type="radio" name="periodo" id="periodo2" value="Semestral">
-                  <input type="radio" name="periodo" id="periodo3" value="Anualidad">
-
-                  <span class="periodo-title">Periodo</span>
-                  <div class="category">
-                    <label for="periodo4">
-                      <span class="dot one"></span>
-                      <span class="periodo">15 Días</span>
-                    </label>
-                    <label for="periodo5">
-                      <span class="dot two"></span>
-                      <span class="periodo">1 Mes</span>
-                    </label>
-                    <label for="periodo1">
-                      <span class="dot three"></span>
-                      <span class="periodo">Trimestral</span>
-                    </label>
-                    <label for="periodo2">
-                      <span class="dot four"></span>
-                      <span class="periodo">Semestral</span>
-                    </label>
-                    <label for="periodo3">
-                      <span class="dot five"></span>
-                      <span class="periodo">Anualidad</span>
-                    </label>
-                  </div>
-                </div>
               </div>
-
               <div class="btn-form-admin">
                 <input type="submit" value="Registrar">
               </div>
-
             </form>
           </div>
         </div>
       </section>
-
       </form>
     </div>
+  </div>
+  <script>
+    function editModal(id){
+      const editModal = document.getElementById(`edit-user-${id}`);
+      editModal.classList.add('show-modal');
+      const closeModalButtons = editModal.querySelectorAll('.close-modal');
+      closeModalButtons.forEach(button => {
+          button.addEventListener('click', () => {
+              editModal.classList.remove('show-modal');
+          });
+      });
+    }
+  </script>
 </x-layouts.admin-layout>

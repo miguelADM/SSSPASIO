@@ -1,9 +1,23 @@
 export function modal() {
     const showModalButton = document.querySelectorAll('#open-modal');
-    const closeModalButton = document.querySelectorAll('#close-modal');
-
+    const closeModalButton = document.querySelectorAll('.close-modal');
     const modalContainer = document.querySelector(".modal__container");
     const modalAssign = document.querySelector("#modal__assign");
+    const addUserButton = document.querySelector(".button-primary"); // Nuevo botón para agregar usuario
+
+    function addUserModal() {
+        const addModal = document.querySelector("#agregar-usuario");
+        addModal.classList.add("show-modal");
+        
+        const closeModal = addModal.querySelector(".close-modal");
+        closeModal.addEventListener("click", () => {
+            addModal.classList.remove("show-modal");
+        });
+    }
+
+    addUserButton.addEventListener('click', () => {
+        addUserModal();
+    });
 
     showModalButton.forEach((button, index) => {
         if (index > 0) {
@@ -21,8 +35,7 @@ export function modal() {
     closeModalButton?.forEach((button) => {
         button?.addEventListener('click', () => {
             modalContainer.classList.remove("show-modal");
-            modalAssign.classList.remove("show-modal");
-            resetForm()
+            resetForm();
         })
     })
 
@@ -37,5 +50,4 @@ export function modal() {
         const form = document.querySelector('.formularioAdmin');
         form.reset();
     }
-
 }
