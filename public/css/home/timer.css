@@ -1,25 +1,53 @@
-.timer__container {
+.timers__container {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    gap: 40px;
+}
+
+.timer__container {
     flex-direction: column;
     text-align: center;
     padding: 50px 0;
 }
 
+.routine__timers {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.timers {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
 .intensity {
-    font-size: 18px;
-    margin-top: 15px;
     text-transform: capitalize;
+    font-size: 24px;
+    font-weight: var(--bold);
+    color: var(--secondary);
 }
 
 .timer {
     font-size: 130px;
-    margin-bottom: 20px;
     color: #003366;
     font-weight: var(--bold);
     letter-spacing: 15px;
     transition: var(--transition);
+}
+
+.timer.timer__small {
+    font-size: 50px;
+    letter-spacing: 10px;
+
+    & span {
+        font-size: 40px;
+    }
 }
 
 span {
@@ -29,6 +57,7 @@ span {
 .controls {
     display: flex;
     gap: 15px;
+    margin: 20px 0;
 }
 
 .control {
@@ -52,31 +81,35 @@ span {
 
 .progress {
     background: #fff;
-    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     border-radius: var(--radius);
     align-items: center;
     position: relative;
-    padding: 0 5px;
-    display: flex;
-    height: 40px;
-    width: 500px;
+    padding: 5px;
+    height: 100%;
+    width: 40px;
     border: var(--border);
 }
 
 .progress-value {
-    animation: load 3s normal forwards;
+    transition: var(--transition);
     box-shadow: 0 10px 40px -10px #fff;
     border-radius: var(--radius);
-    height: 30px;
-    width: 0;
+    height: 0;
+    width: 30px;
     background: #000;
 }
 
-/* @keyframes load {
-    0% {
-        width: 0;
+.current__exercise {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    & img {
+        width: 220px;
+        border-radius: 15px;
     }
-    100% {
-        width: 68%;
-    }
-} */
+}

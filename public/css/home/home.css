@@ -659,7 +659,7 @@ body {
     width: 40%;
 }
 
-.excercises__container {
+/* .excercises__container {
     display: flex;
     width: 100%;
     gap: 24px;
@@ -738,7 +738,7 @@ body {
     .music__player {
         width: 95%;
     }
-}
+} */
 
 /* Top de ganadores */
 
@@ -1783,7 +1783,7 @@ button.active {
 
     & .privacy__buttons {
         margin-top: 12px;
-        
+
         & a {
             background-color: var(--primary);
             color: #fff;
