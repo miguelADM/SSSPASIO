@@ -42,7 +42,7 @@
               {{ $user->membresia->nombre ?? 'Sin Membresia' }}
             </div>
             <div class="divTableCell">
-             @foreach ($user->enfermedades as $enfermedad)
+              @foreach ($user->enfermedades as $enfermedad)
                 {{ $enfermedad->nombre }}
               @endforeach
             </div>
@@ -51,7 +51,7 @@
                 <img src="{{ asset('assets/icons/admin/options-vertical.svg') }}" alt="icono de opciones" loading="lazy">
               </button>
               <div class="table__options-menu">
-                <button class="edit" onclick="editModal()">
+                <button class="edit" onclick="editModal({{ $user }})">
                   <img src="{{ asset('assets/icons/admin/edit.svg') }}" alt="icono de editar" loading="lazy">
                 </button>
                 <button class="delete" onclick="confirmDelete('{{ route('user.destroy', $user->id) }}')">
@@ -170,23 +170,23 @@
       <section class="content">
         <div class="form-container">
           <div class="title">Editar usuario</div>
-          <div id="error-container"></div>
+          <div id="editerror-container"></div>
           <div class="content">
-            <form action="{{ route('user.update') }}" method="POST" class="formularioAdmin dos-col" id="user-create">
+            <form action="{{ route('user.update') }}" method="POST" class="formularioAdmin dos-col" id="user-edit">
               @csrf
               <input type="hidden" name="id_user">
               <div class="user-details">
                 <div class="input-box">
                   <span class="details">E-mail</span>
-                  <input type="email" name="email" placeholder="Correo electrónico" >
+                  <input type="email" name="email_edit" placeholder="Correo electrónico" >
                 </div>
                 <div class="input-box">
                   <span class="details">Teléfono</span>
-                  <input type="text" name="tel" placeholder="No. de celular">
+                  <input type="text" name="tel_edit" placeholder="No. de celular">
                 </div>
                 <div class="input-box">
                   <span class="details">Sexo</span>
-                  <select  id="sexo" name="sexo">
+                  <select  name="sexo_edit">
                     <option disabled selected value>Seleccionar...</option>
                     <option value="H">Masculino</option>
                     <option value="M">Femenino</option>
@@ -194,16 +194,16 @@
                 </div>
                 <div class="input-box">
                   <span class="details">Contraseña</span>
-                  <input type="password" id="password" name="password" placeholder="Contraseña">
+                  <input type="password" name="password_edit" placeholder="Contraseña">
                 </div>
                 <div class="input-box">
                   <span class="details">Repite la contraseña</span>
-                  <input type="password" id="confirm_password" name="confirm_password"
+                  <input type="password" name="confirm_password_edit"
                     placeholder="Confirmación de contraseña">
                 </div>
                 <div class="input-box">
                   <span class="details">Rol</span>
-                  <select  id="rol" name="rol">
+                  <select  name="rol_edit">
                     <option disabled selected value>Seleccionar...</option>
                     <option value="1">Usuario</option>
                     <option value="2">Administrador</option>
@@ -211,27 +211,27 @@
                 </div>
                 <div class="input-box">
                   <span class="details">Grupo de trabajo</span>
-                  <select id="grupo" name="grupo">
+                  <select name="grupo_edit">
                     <option disabled selected value>Seleccionar...</option>
-                    @foreach ($grupos as $grupo)
-                      <option value="{{ $grupo->id }}">{{ $grupo->nombre }}</option>
-                    @endforeach
+                      @foreach($grupos as $grupo)
+                        <option value="{{ $grupo->id }}">{{ $grupo->nombre }}</option>
+                      @endforeach
                   </select>
                 </div>
                 <div class="input-box">
                   <span class="details">Enfermedades/Condiciones</span>
-                  <select id="enf" name="enf">
+                  <select name="enf_edit">
                     <option disabled selected value>Seleccionar...</option>
-                    @foreach ($enfermedades as $enfermedad)
+                    @foreach($enfermedades as $enfermedad)
                       <option value="{{ $enfermedad->id }}">{{ $enfermedad->nombre }}</option>
                     @endforeach
                   </select>
                 </div>
                 <div class="input-box">
                   <span class="details">Membresía</span>
-                  <select  id="membresia" name="membresia">
+                  <select  name="membresia_edit">
                     <option disabled selected value>Seleccionar...</option>
-                    @foreach ($membresias as $membresia)
+                    @foreach($membresias as $membresia)
                       <option value="{{ $membresia->id }}">{{ $membresia->nombre }}</option>
                     @endforeach
                   </select>
@@ -247,9 +247,16 @@
       </form>
     </div>
   </div>
-
   <script>
-    function editModal(){
+     function editModal(user){
+      const form = document.getElementById('user-edit');
+      form.querySelector('input[name="id_user"]').value = user.id;
+      form.querySelector('input[name="email_edit"]').value = user.email;
+      form.querySelector('input[name="tel_edit"]').value = user.telefono;
+      form.querySelector('select[name="sexo_edit"]').value = user.sexo;
+      form.querySelector('select[name="rol_edit"]').value = user.id_rol;
+      form.querySelector('select[name="grupo_edit"]').value = user.id_grupo;
+      form.querySelector('select[name="membresia_edit"]').value = user.id_membresia;
       const editModal = document.getElementById(`editar-usuario`);
       editModal.classList.add('show-modal');
       const closeModalButtons = editModal.querySelectorAll('.close-modal');

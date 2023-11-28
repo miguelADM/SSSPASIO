@@ -73,24 +73,23 @@ class UsersController extends Controller
     {   
 
         $request->validate([
-            'email' => 'required|email',
-            'sexo' => 'required',
-            'rol' => 'required',
-            'membresia' => 'required',
+            'email_edit' => 'required|email',
+            'sexo_edit' => 'required',
+            'rol_edit' => 'required',
+            'membresia_edit' => 'required',
         ]);
         
         try {
-            $user = User::find($request->id);
-            $user->email = $request->email;
-            $user->telefono = $request->tel;
-            $user->status = $request->status;
-            $user->sexo = $request->sexo;
-            $user->id_membresia = $request->membresia;
-            $user->id_grupo = $request->grupo;
-            $user->id_rol = $request->rol;
+            $user = User::find($request->id_user);
+            $user->email = $request->email_edit;
+            $user->telefono = $request->tel_edit;
+            $user->sexo = $request->sexo_edit;
+            $user->id_membresia = $request->membresia_edit;
+            $user->id_grupo = $request->grupo_edit;
+            $user->id_rol = $request->rol_edit;
             $user->status = 1;
-            if($request->password != null){
-                $user->password = bcrypt($request->password);
+            if($request->password_edit != null){
+                $user->password = bcrypt($request->password_edit);
             }
             $user->save();
             return redirect()->route('users')->with('success', 'Usuario actualizado correctamente');

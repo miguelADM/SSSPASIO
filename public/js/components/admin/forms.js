@@ -56,14 +56,55 @@ export function forms() {
       }
     }
 
-    function validarEditUser(event) {
-     
-    }
-      
-    const userFormEdit = document.getElementById('user-edit');
-    userFormEdit.addEventListener('submit', validarEditUser);
-    
     const userForm = document.getElementById('user-create');
     userForm.addEventListener('submit', validateUser);
+
+    function validateEditUser(event){
+      const form = document.getElementById('user-edit');
+      const email = form.querySelector('input[name="email_edit"]');
+      const sexo = form.querySelector('select[name="sexo_edit"]');
+      const rol = form.querySelector('select[name="rol_edit"]');
+      const membresia = form.querySelector('select[name="membresia_edit"]');
+    
+      let isValid = true;
+      let erros = [];
+      
+      if (!email.value.trim()) {
+        isValid = false;
+        erros.push('El email es requerido');
+      }
+      
+      if (sexo.value === "") {
+        isValid = false;
+        erros.push('El sexo es requerido');
+      }
+      
+      if (rol.value === "") {
+        isValid = false;
+        erros.push('El rol es requerido');
+      }
+      
+      if (membresia.value === "") {
+        isValid = false;
+        erros.push('La membresia es requerida');
+      }
+      
+      if (!isValid) {
+        const errorContainer = document.getElementById('editerror-container');
+        errorContainer.innerHTML = '';
+        errorContainer.classList.add('pt-1');
+        errorContainer.classList.remove('hidden');
+        erros.forEach(error => {
+            const errorElement = document.createElement('li');
+            errorElement.innerText = error;
+            errorElement.classList.add('text_red');
+            errorContainer.appendChild(errorElement);
+        });
+        event.preventDefault();
+      }
+    }
+
+    const userEditForm = document.getElementById('user-edit');
+    userEditForm.addEventListener('submit', validateEditUser);
   }
   
