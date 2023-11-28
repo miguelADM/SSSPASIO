@@ -992,14 +992,26 @@ transition-delay: 0.15s;
     margin: 24px auto 48px; 
 }
 
-/* Graficas */
-/* .progress__section .column tr:nth-child(even) {
-    --color: var(--primary);
+#current__points{
+    justify-content: flex-end;
 }
 
-.progress__section .column tr:nth-child(odd) {
-    --color: var(--primaryHome);
+#legend {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: -30px auto 48px; 
+}
+
+/* Graficas */
+/* #current .column tr:nth-child(8n) {
+    border-left:5px solid black;
 } */
+
+#current .column tr:nth-child(7n) {
+    margin-right: 25px;
+    border-right:5px solid black;
+}
 
 .toggle__section {
     display: none;

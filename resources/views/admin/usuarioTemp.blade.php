@@ -29,12 +29,12 @@
 
                     <div class="user__data">
                         <p class="tag">Inicio</p>
-                        <p id="sDate">01/07/2023</p>
+                        <p id="sDate">18/07/2023</p>
                     </div>
 
                     <div class="user__data">
                         <p class="tag">Final</p>
-                        <p id="eDate">31/07/2023</p>
+                        <p id="eDate">17/07/2023</p>
                     </div>
 
                 </div>
@@ -54,17 +54,18 @@
         </div>
 
         <div id="current" class="progress__section toggle__section">
-            <div id="current__points" class="points">
-            </div>
+            <div id="current__points" class="points"></div>
 
             <div class="progress__chart">
                 <table id="grafica__actual"
-                    class="grafica__progreso charts-css column show-labels show-primary-axis show-4-secondary-axes">
-                    
+                    class="grafica__progreso charts-css column show-labels show-primary-axis show-3-secondary-axes">
+
                 </table>
-                <div class="primary-axis">Días</div>
+                <div class="primary-axis">Sesiónes en el mes</div>
                 <div class="data-axis-1"> Puntos</div>
             </div>
+            <div id="legend" class=""></div>
+
         </div>
 
         <div id="month" class="progress__section toggle__section">
@@ -72,8 +73,8 @@
 
             <div class="progress__chart">
                 <table id="grafica__mensual"
-                    class="grafica__progreso charts-css column show-labels show-primary-axis show-4-secondary-axes data-spacing-3 datasets-spacing-1">
-                    
+                    class="grafica__progreso charts-css column show-labels show-primary-axis show-3-secondary-axes data-spacing-3 datasets-spacing-1">
+
                 </table>
                 <div class="primary-axis">Meses</div>
                 <div class="data-axis-1"> Puntos</div>
@@ -85,8 +86,8 @@
 
             <div class="progress__chart">
                 <table id="grafica__anual"
-                    class="grafica__progreso charts-css column show-labels show-primary-axis show-4-secondary-axes data-spacing-3 datasets-spacing-1">
-                    
+                    class="grafica__progreso charts-css column show-labels show-primary-axis show-3-secondary-axes data-spacing-3 datasets-spacing-1">
+
                 </table>
                 <div class="primary-axis">Años</div>
                 <div class="data-axis-1"> Puntos</div>

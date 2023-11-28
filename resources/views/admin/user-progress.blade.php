@@ -1,9 +1,5 @@
 <x-layouts.admin-layout>
     <h1>Progreso de Usuarios</h1>
-    {{-- <div class="button-container">
-        <button class="button button-primary" type="button" id="open-modal">Agregar nuevo
-            <img src="{{ asset('assets/icons/admin/chart-bar.svg') }}" alt=""></button>
-    </div> --}}
 
     <section class="table">
         <div class="divTable userProgressTable">
@@ -11,19 +7,21 @@
                 <div class="divTableHeading">
                     <div class="divTableCell">Id</div>
                     <div class="divTableCell">Usuario</div>
+                    <div class="divTableCell">Grupo</div>
+                    <div class="divTableCell">Rutina</div>
                     <div class="divTableCell">Inicio</div>
                     <div class="divTableCell">Fin</div>
-                    <div class="divTableCell">Rutina</div>
-                    <div class="divTableCell">Coronas</div>
+                    <div class="divTableCell">Puntaje total</div>
                     <div class="divTableCell btnCell"></div>
                 </div>
 
                 <div class="divTableRow">
                     <div class="divTableCell">1</div>
                     <div class="divTableCell">Pepe el Toro</div>
+                    <div class="divTableCell">UTN</div>
+                    <div class="divTableCell">Tono muscular 1</div>
                     <div class="divTableCell">01/07/2023</div>
                     <div class="divTableCell">31/07/2023</div>
-                    <div class="divTableCell">Tono muscular 1</div>
                     <div class="divTableCell">25</div>
                     <div class="divTableCell btnCell">
                         <a class="button button-primary" href="usuarioTemp">Ver a
