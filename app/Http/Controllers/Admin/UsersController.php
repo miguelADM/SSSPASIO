@@ -70,12 +70,11 @@ class UsersController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
-    {
+    {   
+
         $request->validate([
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email',
             'sexo' => 'required',
-            'password' => 'required',
-            'confirm_password' => 'required|same:password',
             'rol' => 'required',
             'membresia' => 'required',
         ]);
@@ -89,10 +88,15 @@ class UsersController extends Controller
             $user->id_membresia = $request->membresia;
             $user->id_grupo = $request->grupo;
             $user->id_rol = $request->rol;
+            $user->status = 1;
+            if($request->password != null){
+                $user->password = bcrypt($request->password);
+            }
             $user->save();
-            return response()->json(['success' => 'Usuario actualizado correctamente']);
+            return redirect()->route('users')->with('success', 'Usuario actualizado correctamente');
         } catch (\Exception $th) {
-            return response()->json(['error' => 'Error al actualizar usuario']);
+            \Log::error($th->getMessage());
+            return redirect()->route('users')->with('error', 'Error al actualizar usuario');
         }
     }
 
