@@ -5,6 +5,7 @@ const pause = document.querySelector(".pause");
 const reset = document.querySelector(".reset");
 const intenstity_element = document.querySelector(".intensity");
 const progress_value = document.querySelector(".progress-value");
+const image = document.querySelector(".current__gif");
 
 const intensities = [
     {
@@ -13,7 +14,8 @@ const intensities = [
         color: '#FF6347',
         description: 'calentamiento de articulaciones',
         totalSeconds: 60,
-        audio: 'calentamiento'
+        audio: 'calentamiento',
+        image: 'calentamiento.jpg'
     },
     {
         minSecond: 61,
@@ -21,7 +23,8 @@ const intensities = [
         color: '#FFA500',
         description: 'elevación de temperatura corporal',
         totalSeconds: 50,
-        audio: 'elevaciontemperatura'
+        audio: 'elevaciontemperatura',
+        image: 'tempcorporal.jpg'
     },
     {
         minSecond: 111,
@@ -29,7 +32,8 @@ const intensities = [
         color: '#FFFF00',
         description: 'Intensidad media baja (8 tiempos)',
         totalSeconds: 80,
-        audio: '8tiem'
+        audio: '8tiem',
+        image: 'ejercicio1.gif'
     },
     {
         minSecond: 191,
@@ -37,7 +41,8 @@ const intensities = [
         color: '#32CD32 ',
         description: 'Intensidad media (16 tiempos)',
         totalSeconds: 160,
-        audio: '16tiem'
+        audio: '16tiem',
+        image: 'ejercicio2.gif'
     },
     {
         minSecond: 351,
@@ -45,7 +50,8 @@ const intensities = [
         color: '#FF4500',
         description: 'Intensidad media alta (24 tiempos)',
         totalSeconds: 240,
-        audio: '24tiem'
+        audio: '24tiem',
+        image: 'ejercicio3.gif'
     },
     {
         minSecond: 591,
@@ -53,7 +59,8 @@ const intensities = [
         color: '#FF4500',
         description: 'Intensidad media alta (32 tiempos)',
         totalSeconds: 320,
-        audio: '32tiem'
+        audio: '32tiem',
+        image: 'ejercicio4.gif'
     },
     {
         minSecond: 911,
@@ -61,7 +68,8 @@ const intensities = [
         color: '#FF4500',
         description: 'Intensidad media alta (24 tiempos)',
         totalSeconds: 240,
-        audio: '24tiem'
+        audio: '24tiem',
+        image: 'ejercicio5.gif'
     },
     {
         minSecond: 1151,
@@ -69,7 +77,8 @@ const intensities = [
         color: '#32CD32 ',
         description: 'Intensidad media (16 tiempos)',
         totalSeconds: 160,
-        audio: '16tiem'
+        audio: '16tiem',
+        image: 'ejercicio1.gif'
     },
     {
         minSecond: 1311,
@@ -77,7 +86,8 @@ const intensities = [
         color: '#FFFF00',
         description: 'Intensidad media baja (8 tiempos)',
         totalSeconds: 80,
-        audio: '8tiem'
+        audio: '8tiem',
+        image: 'ejercicio2.gif'
     },
     {
         minSecond: 1391,
@@ -85,7 +95,8 @@ const intensities = [
         color: '#87CEEB',
         description: 'Relajación',
         totalSeconds: 50,
-        audio: 'relajacion'
+        audio: 'relajacion',
+        image: 'relajacion.avif'
     },
 ];
 
@@ -94,14 +105,29 @@ let totalSeconds
 let maxTime = changeMinutesToSeconds(24);
 let interval;
 let audioPlayed = false
+const audio = new Audio()
+let countdown;
+
+function startCountdown(seconds) {
+    countdown = setInterval(function () {
+        time_seconds.innerHTML = `${seconds} <span>segundos</span>`;
+        seconds--;
+
+        if (seconds < 0) {
+            clearInterval(countdown);
+        }
+    }, 1000);
+}
+
+function stopCountdown() {
+    clearInterval(countdown);
+}
 
 function timer() {
     seconds++;
 
     let min = Math.floor((seconds) / 60);
     let sec = seconds % 60
-
-    const audio = new Audio()
 
     const intensity = intensities.find(({ minSecond, maxSecond }) => (
         minSecond <= seconds && maxSecond >= seconds)
@@ -110,19 +136,23 @@ function timer() {
     const progress = calculateProgress(seconds)
     progress_value.style.height = `${progress}%`
 
-    totalSeconds = intensity.totalSeconds - 1
-
     if (intensity) {
         intenstity_element.innerHTML = intensity.description
         progress_value.style.backgroundColor = intensity.color
 
-        time_seconds.innerHTML = `${intensity.totalSeconds} <span>segundos</span>`
+        if (!countdown || seconds >= intensity.maxSecond) {
+            stopCountdown(); // Detener el contador anterior si hay uno en curso
+            startCountdown(intensity.totalSeconds - 2);
+        }
+
     }
 
     if (intensity && !audioPlayed) {
         audio.src = `/assets/routine/audio/${intensity.audio}.mp3`
         audio.play()
         audioPlayed = true
+
+        image.src = `/assets/routine/exercises/${intensity.image}`
     }
 
     if (intensity.maxSecond === seconds) {
@@ -150,6 +180,7 @@ function startTime() {
 function pauseTime() {
     clearInterval(interval)
     interval = null
+    stopCountdown()
 }
 
 function resetTime() {

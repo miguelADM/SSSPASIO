@@ -45,7 +45,7 @@
       </div>
     </div>
     <div class="current__exercise">
-      <img src="{{ asset('assets/routine/exercises/ejercicio1.gif') }}" alt="">
+      <img class="current__gif" src="{{ asset('assets/routine/exercises/ejercicio1.gif') }}" alt="">
     </div>
   </div>
   <script src="{{ asset('js/components/home/timer.js') }}" type="module"></script>
