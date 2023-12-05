@@ -8,6 +8,7 @@ const pMensual = document.querySelector('#month__points');
 const sMensual = document.querySelector("#month");
 const tMensual = document.querySelector("#grafica__mensual");
 const btnMensual = document.querySelector("#btn__month");
+const contCoronas = document.querySelector("#crowns")
 
 const pAnual = document.querySelector('#year__points');
 const sAnual = document.querySelector("#year");
@@ -28,6 +29,7 @@ function mostrarActual() {
     let colGrafica = '';
     let totalPuntos = '';
     let puntos = 0;
+    let colorCol = '';
     tActual.innerHTML = "";
 
     sActual.classList.toggle("toggle__section")
@@ -41,11 +43,21 @@ function mostrarActual() {
 
     for (let i = 1; i <= dias; i++) {
 
+        if (arrNumeros[i] == 1) {
+            colorCol = `<td style="--size: calc(${arrNumeros[i]}/ 3); --color: #FFDC5ADF"><span class="data">${arrNumeros[i]}</span></td>`
+        } else if (arrNumeros[i] == 2) {
+            colorCol = `<td style="--size: calc(${arrNumeros[i]}/ 3); --color: #5AA5FFBF"><span class="data">${arrNumeros[i]}</span></td>`
+        } else if (arrNumeros[i] == 3) {
+            colorCol = `<td style="--size: calc(${arrNumeros[i]}/ 3); --color: #64d250bf"><span class="data">${arrNumeros[i]}</span></td>`
+        } else {
+            colorCol = `<td style="--size: calc(${arrNumeros[i]}/ 3)"><span class="data">${arrNumeros[i]}</span></td>`
+        }
+
         colGrafica += `<tr>\ 
         <th scope="row"> ${i} </th>\
-        <td style="--size: calc(${arrNumeros[i]}/ 3)"><span class="data">${arrNumeros[i]}</span></td>\
+        ${colorCol}\
         </tr>`
-        
+
         puntos += arrNumeros[i];
     }
 
@@ -59,6 +71,8 @@ function mostrarMensual() {
     let colGrafica = '';
     let totalPuntos = '';
     let puntos = 0;
+    contCoronas.innerHTML = '';
+
     pMensual.innerHTML = `<p>Cada columna representa una semana distinta</p>`
     tMensual.innerHTML = "";
 
@@ -70,28 +84,33 @@ function mostrarMensual() {
     sAnual.classList.add("toggle__section")
     btnAnual.classList.remove("active")
 
-    for (let i = 1; i <= arrMeses.length; i++) {
+    for (let i = 0; i < arrMeses.length; i++) {
 
         //Variables temporales para efectos demostrativos
-        let a = Math.floor(Math.random() * 22);
-        let b = Math.floor(Math.random() * 22);
-        let c = Math.floor(Math.random() * 22);
-        let d = Math.floor(Math.random() * 22);
+        let a = Math.floor(Math.random() * 61);
 
         colGrafica += `<tr>\ 
-        <th scope="row"> ${arrMeses[i - 1]} </th>\
-        <td style="--size: calc(${a}/ 21)"><span class="data">${a}</span></td>\
-        <td style="--size: calc(${b}/ 21)"><span class="data">${b}</span></td>\
-        <td style="--size: calc(${c}/ 21)"><span class="data">${c}</span></td>\
-        <td style="--size: calc(${d}/ 21)"><span class="data">${d}</span></td>\
+        <th scope="row">${arrMeses[i]}</th>\
+        <td style="--size: calc(${a}/ 61)"><span class="data">${a}</span></td>\
         </tr>`
 
-        puntos += a + b + c + d;
+        puntos += a;
+
+        if (a >= 0 && a <= 14) {
+            contCoronas.innerHTML += `<li>${arrMeses[i]} = <img src="assets/images/home/crown.png"></li>`
+        } else if (a >= 15 && a <= 16) {
+            contCoronas.innerHTML += `<li>${arrMeses[i]} = <img src="assets/images/home/crown.png"> <img src="assets/images/home/crown.png"></li>`
+        } else if (a >= 17 && a <= 38) {
+            contCoronas.innerHTML += `<li>${arrMeses[i]} = <img src="assets/images/home/crown.png"> <img src="assets/images/home/crown.png"> <img src="assets/images/home/crown.png"></li>`
+        } else if (a >= 39) {
+            contCoronas.innerHTML += `<li>${arrMeses[i]} = <img src="assets/images/home/crown.png"> <img src="assets/images/home/crown.png"> <img src="assets/images/home/crown.png"> <img src="assets/images/home/crown.png"></li>`
+        }
     }
 
     tMensual.innerHTML += colGrafica;
-    totalPuntos = `<h3>Total de puntos ganados: ${puntos}</h3>`;
+    totalPuntos = `<h3>Total de puntos ganados: ${puntos}</h3> `;
     pMensual.innerHTML += totalPuntos
+
 
 }
 

@@ -1,5 +1,5 @@
 <x-layouts.admin-layout>
-    <h1>Progreso de Usuarios</h1>
+    <h1>Progreso Mensual</h1>
 
     <section class="table">
         <div class="divTable userProgressTable">
@@ -11,7 +11,13 @@
                     <div class="divTableCell">Rutina</div>
                     <div class="divTableCell">Inicio</div>
                     <div class="divTableCell">Fin</div>
+                    <div class="divTableCell">Coronas</div>
                     <div class="divTableCell">Puntaje total</div>
+                    <div class="divTableCell">Semana 1</div>
+                    <div class="divTableCell">Semana 2</div>
+                    <div class="divTableCell">Semana 3</div>
+                    <div class="divTableCell">Semana 4</div>
+                    <div class="divTableCell"></div>
                     <div class="divTableCell btnCell"></div>
                 </div>
 
@@ -22,7 +28,12 @@
                     <div class="divTableCell">Tono muscular 1</div>
                     <div class="divTableCell">01/07/2023</div>
                     <div class="divTableCell">31/07/2023</div>
-                    <div class="divTableCell">25</div>
+                    <div class="divTableCell">8</div>
+                    <div class="divTableCell">60</div>
+                    <div class="divTableCell">10</div>
+                    <div class="divTableCell">20</div>
+                    <div class="divTableCell">30</div>
+                    <div class="divTableCell">30</div>
                     <div class="divTableCell btnCell">
                         <a class="button button-primary" href="usuarioTemp">Ver a
                             detalle</a>

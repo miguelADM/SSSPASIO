@@ -1633,113 +1633,309 @@ button.active {
 }
 
 /* Mi progreso */
-
-#myProgress__info {
+.user__profile {
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
+}
+
+.user__profile-card {
+    display: flex;
+    border: var(--border);
+    width: 75%;
+    margin: 24px 12px;
+    padding: 24px;
+
+    & img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        margin: auto;
+        border: 7px solid var(--primary);
+        border-radius: 50%;
+    }
+
+    & .user_profile-text {
+        width: 100%;
+        align-self: center;
+        margin-left: 24px;
+
+        & h3 {
+            font-size: 40px;
+            margin-bottom: 8px;
+        }
+
+        & p {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.user_profile-data {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 20px;
+
+    & .user__data {
+        width: 100%;
+        display: flex;
+
+        & .tag {
+            width: 150px;
+            color: var(--primary);
+        }
+    }
 }
 
 .progress__info {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 25%;
+    font-size: 15px;
+    border: var(--border);
+    margin: 24px 12px;
+    padding: 24px;
+
+    & h3 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    & p {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    & li {
+        list-style: none;
+    }
 }
 
-.progress__info-card {
+.zero__col,
+.one__col,
+.two__col,
+.three__col {
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.zero__col {
+    background: gray;
+}
+
+.one__col {
+    background: #FFDC5ADF;
+}
+
+.two__col {
+    background: #5AA5FFBF;
+}
+
+.three__col {
+    background: #64d250bf;
+}
+
+.period__buttons-container {
+    width: 100%;
+    margin-bottom: 30px;
+
+    & h3 {
+        font-size: 30px;
+        margin: 0 auto;
+
+    }
+}
+
+.period__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin: 30px 0;
+
+    & button {
+        color: var(--primary);
+        font-weight: var(--black);
+        text-transform: capitalize;
+        font-size: 18px;
+        display: inline-block;
+        padding: 12px 28px;
+        position: relative;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        border-radius: var(--radius);
+
+        &::after {
+            background: none repeat scroll 0 0 transparent;
+            bottom: 0;
+            content: "";
+            display: block;
+            height: 3px;
+            left: 50%;
+            position: absolute;
+            background: var(--secondary);
+            transition: width 0.3s ease 0s, left 0.3s ease 0s;
+            width: 0;
+        }
+
+        &:hover:after {
+            width: 100%;
+            left: 0;
+        }
+    }
+
+
+    .btn__progress-menu.active {
+        background: var(--primary);
+        color: #fff;
+    }
+}
+
+.points {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: 24px auto 48px;
+}
+
+#current__points {
+    justify-content: flex-end;
+}
+
+#legend {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: -30px auto 48px;
+}
+
+#crowns__container {
     display: flex;
     flex-direction: row;
-    width: fit-content;
-    height: 300px;
-    margin: 30px auto;
-    border-radius: 5px;
+    justify-content: space-around;
+}
 
-    & .info__card-img {
-        background: var(--primary);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+.crowns__cont {
+    margin: 24px auto;
+    padding: var(--padding);
+    border: var(--border);
+    width: 400px;
+    height: 265px;
 
-        & img {
-            width: 240px;
-            height: 240px;
-            padding: var(--padding);
-        }
+    & h2 {
+        font-size: 30px;
+        margin-bottom: 20px;
     }
 
-    & .info__card-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: 100%;
-        width: 400px;
-        padding: var(--padding);
-        background: #fff;
+    & h3 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
 
-        & h3 {
-            text-align: center;
-            width: 100%;
-            font-size: 20px;
-            margin-bottom: 15px;
-            font-weight: var(--black);
-        }
+    & p {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
 
-        & h2 {
-            text-align: center;
-            width: 100%;
-            font-size: 20px;
-        }
+.crowns__count {
+    width: 425px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
 
-        & p {
-            margin-top: 14px;
-            font-size: 17px;
-            text-align: center;
+    & img {
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+    }
+
+    & #crowns{
+        margin: 0px auto;
+        columns: 2;
+        
+        & li{
+            list-style: none;
         }
     }
 }
 
-.progress__table {
-    width: 95%;
+/* Graficas */
+#current .column tr td {
+    margin-right: 5px;
+}
+
+#current .column tr:nth-child(7n) {
+    margin-right: 25px;
+    border-right: 5px solid black;
+}
+
+#current .column tr:nth-child(1) {
+    border-left: 5px solid black;
+}
+
+#current .column tr:nth-child(8) {
+    border-left: 5px solid black;
+}
+
+#current .column tr:nth-child(15) {
+    border-left: 5px solid black;
+}
+
+#current .column tr:nth-child(22) {
+    border-left: 5px solid black;
+}
+
+#current .column tr:nth-child(29) {
+    border-left: 5px solid black;
+}
+
+.toggle__section {
+    display: none;
+}
+
+.progress__chart {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: 50px 1fr 50px;
+    grid-template-rows: 250px 50px;
+    grid-template-areas:
+        "data-axis-1 chart data-axis-2"
+        ". primary-axis .";
+    width: 90%;
     margin: 0 auto;
 }
 
-.tableCellProgress {
-    text-align: center;
+.charts-css.show-heading caption {
+    margin-bottom: 24px;
 }
 
-.divTableRow:hover {
-    background: #d6ebff;
+.charts-css.column tbody tr td span {
+    font-weight: var(--black);
+    transform: translateY(-20px);
 }
 
-.pagination {
-    display: flex;
-    gap: 10px;
-    margin-top: 25px;
 
-    & button {
-        border: none;
-        cursor: pointer;
-        transition: var(--transition);
-        width: 35px;
-        height: 35px;
-        border-radius: var(--radius);
-        background: transparent;
-        font-size: 15px;
-
-        &:hover {
-            background: #eeeeee;
-        }
-
-        &.active {
-            background: var(--primary);
-            color: #fff;
-        }
-
-        /* &:where(#prev, #next) {
-            background: var(--primary);
-            border-radius: 50%;
-        } */
-    }
+.progress__chart .column {
+    grid-area: chart;
 }
+
+.progress__chart .primary-axis {
+    grid-area: primary-axis;
+    font-size: 20px;
+    font-weight: var(--bold);
+}
+
+.progress__chart .data-axis-1 {
+    grid-area: data-axis-1;
+    writing-mode: tb-rl;
+    transform: rotateZ(180deg);
+    font-size: 20px;
+    font-weight: var(--bold);
+}
+
 
 /* Aviso de privacidad */
 .privacy__container {
@@ -1772,7 +1968,7 @@ button.active {
     }
 }
 
-.privacy__buttons-container.visible{
+.privacy__buttons-container.visible {
     display: block;
 }
 
@@ -1783,7 +1979,7 @@ button.active {
 
     & .privacy__buttons {
         margin-top: 12px;
-        
+
         & a {
             background-color: var(--primary);
             color: #fff;
